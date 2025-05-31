@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D43F59972DEA451200AD7106"
+               BlueprintIdentifier = "D4DF994E2DEBB1DC00DD325A"
                BuildableName = "SwipeTabController.framework"
                BlueprintName = "SwipeTabController"
                ReferencedContainer = "container:SwipeTabController.xcodeproj">
@@ -50,7 +50,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D43F59972DEA451200AD7106"
+            BlueprintIdentifier = "D4DF994E2DEBB1DC00DD325A"
             BuildableName = "SwipeTabController.framework"
             BlueprintName = "SwipeTabController"
             ReferencedContainer = "container:SwipeTabController.xcodeproj">

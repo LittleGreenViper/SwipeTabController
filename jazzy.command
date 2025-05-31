@@ -11,6 +11,7 @@ jazzy  --readme ./README.md \
        --title "SwipeTabController Doumentation" \
        --min_acl public \
        --theme fullwidth \
-       --build-tool-arguments -scheme,"SwipeTabController",-target,"SwipeTabController"
+       -b -scheme,SwipeTabController \
+       --sdk iphonesimulator
 cp ./icon.png docs/
 cp ./img/* docs/img

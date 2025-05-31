@@ -17,52 +17,51 @@
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#if canImport(UIKit)
 import UIKit
 internal import RVS_Generic_Swift_Toolbox
+internal import SwipeTabController
 
-@IBDesignable
+@main
 /* ###################################################################################################################################### */
-// MARK: - Main View Controller Class -
+// MARK: - Main App (and Scene) Delegate Class -
 /* ###################################################################################################################################### */
 /**
  */
-open class LGV_SwipeTabViewController: UIViewController {
+class STVCTH_AppDelegate: UIResponder {
     /* ################################################################## */
     /**
-     This is the page view controller that will allow swiped tabs.
+     Required Window Property
      */
-    private weak var _pageViewController: UIPageViewController?
-    
-    /* ################################################################## */
-    /**
-     This is the toolbar, at the top or bottom.
-     */
-    private weak var _toolbar: UIToolbar?
+    var window: UIWindow?
 }
 
 /* ###################################################################################################################################### */
-// MARK: Base Class Overrides
+// MARK: UIApplicationDelegate Conformance
 /* ###################################################################################################################################### */
-public extension LGV_SwipeTabViewController {
+extension STVCTH_AppDelegate: UIApplicationDelegate {
     /* ################################################################## */
     /**
-     Called when the view hierarchy has been set up.
      */
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let initialLabel = UILabel()
-        self.view?.addSubview(initialLabel)
-        initialLabel.translatesAutoresizingMaskIntoConstraints = false
-        initialLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        initialLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        initialLabel.text = "HELO WRLD"
+    func application(_: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        true
+    }
+
+    /* ################################################################## */
+    /**
+     */
+    func application(_: UIApplication, configurationForConnecting inConnectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        UISceneConfiguration(name: "Default Configuration", sessionRole: inConnectingSceneSession.role)
     }
 }
 
 /* ###################################################################################################################################### */
-// MARK: UIPageViewControllerDelegate Conformance
+// MARK: UIWindowSceneDelegate Conformance
 /* ###################################################################################################################################### */
-extension LGV_SwipeTabViewController: UIPageViewControllerDelegate {
+extension STVCTH_AppDelegate: UIWindowSceneDelegate {
+    /* ################################################################## */
+    /**
+     */
+    func scene(_ inScene: UIScene, willConnectTo: UISceneSession, options: UIScene.ConnectionOptions) {
+        let _ = inScene as? UIWindowScene
+    }
 }
-#endif
