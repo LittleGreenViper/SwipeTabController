@@ -19,7 +19,6 @@
 
 import UIKit
 internal import RVS_Generic_Swift_Toolbox
-internal import SwipeTabController
 
 @main
 /* ###################################################################################################################################### */

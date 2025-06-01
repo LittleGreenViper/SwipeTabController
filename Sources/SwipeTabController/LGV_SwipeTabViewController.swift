@@ -17,7 +17,6 @@
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#if canImport(UIKit)
 import UIKit
 
 /* ###################################################################################################################################### */
@@ -41,6 +40,12 @@ public protocol LGV_SwipeTabViewControllerType: UIViewController, AnyObject {
     
     /* ################################################################## */
     /**
+     Returns the 0-based index of this controller, in its wrapper.
+     */
+    var index: Int { get }
+    
+    /* ################################################################## */
+    /**
      An accessor for the "owner's" navigation controller.
      */
     var myMainNavigationController: UINavigationController? { get }
@@ -52,10 +57,16 @@ public protocol LGV_SwipeTabViewControllerType: UIViewController, AnyObject {
 public extension LGV_SwipeTabViewControllerType {
     /* ################################################################## */
     /**
-     Default fetches any preexisting tab bar item.
+     Default fetches any preexisting tab bar item. Returns an "ERROR" tab item, if none provided by the view controller.
      */
-    var myTabItem: UITabBarItem? { self.tabBarItem }
+    var myTabItem: UITabBarItem? { self.tabBarItem ?? UITabBarItem(title: "ERROR", image: UIImage(systemName: "nosign"), tag: 0) }
     
+    /* ################################################################## */
+    /**
+     Returns the 0-based index of this controller, in its wrapper. -1, if not found.
+     */
+    var index: Int { self.mySwipeTabViewController?.index(of: self) ?? -1 }
+
     /* ################################################################## */
     /**
      This is the navigation controller for the main "owner" instance. This allows us to have continuity with the container.
@@ -98,6 +109,9 @@ extension LGV_SwipeTab_Base_ViewController {
  and is displayed either below (default), or above the page view controller.
  */
 open class LGV_SwipeTabViewController: UIViewController {
+    private class _BarItem: UIBarButtonItem {
+    }
+    
     /* ################################################################## */
     /**
      This is the page view controller that will allow swiped tabs.
@@ -121,6 +135,12 @@ open class LGV_SwipeTabViewController: UIViewController {
      This is true (default is false), if we want the "Tab Bar" to show up on top of the screen (as opposed to the default bottom).
      */
     @IBInspectable public var toolbarOnTop: Bool = false
+    
+    /* ################################################################## */
+    /**
+     The zero-based selected controller. Default is 0.
+     */
+    @IBInspectable public var selectedViewControllerIndex: Int = 0 { didSet { self.view?.setNeedsLayout() } }
 }
 
 /* ###################################################################################################################################### */
@@ -154,25 +174,26 @@ extension LGV_SwipeTabViewController {
 /* ###################################################################################################################################### */
 // MARK: Private Instance Methods
 /* ###################################################################################################################################### */
-extension LGV_SwipeTabViewController {
+private extension LGV_SwipeTabViewController {
     /* ################################################################## */
     /**
      This instantiates and stores the view controllers we are referencing.
      */
-    private func _loadViewControllers() {
+    func _loadViewControllers() {
         self._referencedViewControllers = []
         #if DEBUG
             print("View Controller IDs: \(self._referencedViewControllerIDs)")
         #endif
         for id in self._referencedViewControllerIDs {
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: id) as? LGV_SwipeTabViewControllerType,
-                  nil != vc.myTabItem
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: id) as? UIViewController,
+                  let myVC = vc as? LGV_SwipeTabViewControllerType,
+                  nil != vc.tabBarItem
             else { continue }
             #if DEBUG
                 print("Instantiating: \(id)")
             #endif
-            vc.mySwipeTabViewController = self
-            self._referencedViewControllers.append(vc)
+            myVC.mySwipeTabViewController = self
+            self._referencedViewControllers.append(myVC)
         }
         
         for vc in self.generatedViewControllers where !self._referencedViewControllers.contains(where: { $0 === vc }) && nil != vc.myTabItem {
@@ -182,6 +203,59 @@ extension LGV_SwipeTabViewController {
             vc.mySwipeTabViewController = self
             self._referencedViewControllers.append(vc)
         }
+    }
+    
+    /* ################################################################## */
+    /**
+     This sets up the toolbar, to show the various tabitems.
+     */
+    func _loadToolbarItems() {
+        self.toolbar?.items = []
+        guard !self._referencedViewControllers.isEmpty else { return }
+        var toolbarItems = [UIBarButtonItem]()
+        toolbarItems.append(UIBarButtonItem.flexibleSpace())
+        for viewController in self._referencedViewControllers {
+            guard let tabItem = viewController.myTabItem else { continue }
+            let barItem = _BarItem()
+            barItem.image = tabItem.image
+            barItem.title = tabItem.title
+            barItem.target = self
+            barItem.action = #selector(_toolbarItemHit)
+            barItem.tag = viewController.index
+            toolbarItems.append(barItem)
+            toolbarItems.append(UIBarButtonItem.flexibleSpace())
+        }
+        
+        self.toolbar?.setItems(toolbarItems, animated: false)
+    }
+    
+    /* ################################################################## */
+    /**
+     Called when a toolbar item is hit.
+     - parameter inItem: The toolbar item that was hit.
+     */
+    @objc private func _toolbarItemHit(_ inItem: _BarItem) {
+        #if DEBUG
+            print("Toolbar Item \(inItem.tag) hit.")
+        #endif
+        
+        self.selectViewController(at: inItem.tag)
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Internal Instance Methods
+/* ###################################################################################################################################### */
+internal extension LGV_SwipeTabViewController {
+    /* ################################################################## */
+    /**
+     This looks up the index of the given view controller instance.
+     
+     - parameter inController: The instance we're looking for.
+     - returns: The 0-based index, or -1, if not found.
+     */
+    func index(of inController: LGV_SwipeTabViewControllerType) -> Int {
+        self._referencedViewControllers.firstIndex(where: { $0 === inController }) ?? -1
     }
 }
 
@@ -227,10 +301,27 @@ public extension LGV_SwipeTabViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self._loadViewControllers()
         
-        guard !self._referencedViewControllers.isEmpty else { return }
+        guard !self._referencedViewControllers.isEmpty,
+              let view = self.view
+        else { return }
+        
+        let toolbar = UIToolbar()
+        view.addSubview(toolbar)
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        
+        toolbar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        toolbar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        
+        if self.toolbarOnTop {
+            toolbar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        } else {
+            toolbar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        }
+        
+        self._toolbar = toolbar
         
         let pageViewController = UIPageViewController(
             transitionStyle: .scroll,
@@ -250,18 +341,73 @@ public extension LGV_SwipeTabViewController {
             completion: nil
         )
         
-        addChild(pageViewController)
+        self.addChild(pageViewController)
         view.addSubview(pageViewController.view)
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            pageViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        ])
+        pageViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        pageViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        
+        if self.toolbarOnTop {
+            pageViewController.view.topAnchor.constraint(equalTo: toolbar.bottomAnchor).isActive = true
+            pageViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            pageViewController.view.bottomAnchor.constraint(equalTo: toolbar.topAnchor).isActive = true
+            pageViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        }
         
         pageViewController.didMove(toParent: self)
+        
+        self.styleToolbar()
+        self._loadToolbarItems()
+    }
+    
+    /* ################################################################## */
+    /**
+     Called, when the layout has been changed.
+     */
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        for item in self._toolbar?.items ?? [] {
+            item.isEnabled = item.tag != self.selectedViewControllerIndex
+        }
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Public Instance Methods
+/* ###################################################################################################################################### */
+public extension LGV_SwipeTabViewController {
+    /* ################################################################## */
+    /**
+     Override this, to provide your own toolbar styling.
+     Default, is a completely transparent toolbar.
+     */
+    func styleToolbar() {
+        let appearance = UIToolbarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .clear
+        appearance.backgroundImage = nil
+        self._toolbar?.standardAppearance = appearance
+        self._toolbar?.scrollEdgeAppearance = appearance
+    }
+    
+    /* ################################################################## */
+    /**
+     Called to select a specific view controller.
+     */
+    func selectViewController(at inIndex: Int) {
+        guard (0..<self._referencedViewControllers.count).contains(inIndex),
+              inIndex != self.selectedViewControllerIndex
+        else { return }
+
+        #if DEBUG
+            print("Select View Controller \(inIndex).")
+        #endif
+        
+        let direction: UIPageViewController.NavigationDirection = inIndex > self.selectedViewControllerIndex ? .forward : .reverse
+        self._pageViewController?.setViewControllers( [self._referencedViewControllers[inIndex]], direction: direction, animated: true, completion: nil)
+        self.selectedViewControllerIndex = inIndex
     }
 }
 
@@ -274,10 +420,13 @@ extension LGV_SwipeTabViewController: UIPageViewControllerDataSource {
      Called to provide a new view controller, when swiping.
      
      - parameter: The page view controller (ignored).
-     - parameter viewControllerBefore: The view controller for the timer that will be AFTER ours
+     - parameter inNextViewController: The view controller for the timer that will be AFTER ours
      */
     public func pageViewController(_: UIPageViewController, viewControllerBefore inNextViewController: UIViewController) -> UIViewController? {
-        nil
+        guard let nextController = inNextViewController as? LGV_SwipeTabViewControllerType,
+              (1..<self._referencedViewControllers.count).contains(nextController.index)
+        else { return nil }
+        return self._referencedViewControllers[nextController.index - 1]
     }
     
     /* ################################################################## */
@@ -285,10 +434,13 @@ extension LGV_SwipeTabViewController: UIPageViewControllerDataSource {
      Called to provide a new view controller, when swiping.
      
      - parameter: The page view controller (ignored).
-     - parameter viewControllerAfter: The view controller for the timer that will be BEFORE ours
+     - parameter inPrevViewController: The view controller for the timer that will be BEFORE ours
     */
     public func pageViewController(_: UIPageViewController, viewControllerAfter inPrevViewController: UIViewController) -> UIViewController? {
-        nil
+        guard let prevController = inPrevViewController as? LGV_SwipeTabViewControllerType,
+              (0..<(self._referencedViewControllers.count - 1)).contains(prevController.index)
+        else { return nil }
+        return self._referencedViewControllers[prevController.index + 1]
     }
 }
 
@@ -305,7 +457,8 @@ extension LGV_SwipeTabViewController: UIPageViewControllerDelegate {
      - parameter previousViewControllers: The previous view controllers (ignored).
      - parameter transitionCompleted: True, if the transition completed (ignored).
     */
-    public func pageViewController(_: UIPageViewController, didFinishAnimating: Bool, previousViewControllers: [UIViewController], transitionCompleted inCompleted: Bool) {
+    public func pageViewController(_ inController: UIPageViewController, didFinishAnimating: Bool, previousViewControllers: [UIViewController], transitionCompleted inCompleted: Bool) {
+        guard let newController = inController.viewControllers?.first as? LGV_SwipeTab_Base_ViewController else { return }
+        self.selectedViewControllerIndex = newController.index
     }
 }
-#endif

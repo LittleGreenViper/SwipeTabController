@@ -33,6 +33,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="Yv9-b2-XFz">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="huv-SO-tDC">
                                 <rect key="frame" x="16" y="385.66666666666669" width="361" height="80.666666666666686"/>
                                 <subviews>
@@ -56,8 +59,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="huv-SO-tDC" firstAttribute="leading" secondItem="atv-HU-Kc1" secondAttribute="leading" constant="16" id="47G-nT-Gwq"/>
+                            <constraint firstItem="Yv9-b2-XFz" firstAttribute="leading" secondItem="iOn-xK-ngr" secondAttribute="leading" id="6fs-1d-b7o"/>
+                            <constraint firstAttribute="trailing" secondItem="Yv9-b2-XFz" secondAttribute="trailing" id="NhZ-Fb-dLQ"/>
                             <constraint firstItem="atv-HU-Kc1" firstAttribute="trailing" secondItem="huv-SO-tDC" secondAttribute="trailing" constant="16" id="Ylu-a5-1EN"/>
+                            <constraint firstItem="Yv9-b2-XFz" firstAttribute="top" secondItem="iOn-xK-ngr" secondAttribute="top" id="buG-JG-UFF"/>
                             <constraint firstItem="huv-SO-tDC" firstAttribute="centerY" secondItem="iOn-xK-ngr" secondAttribute="centerY" id="dwD-Q6-UBq"/>
+                            <constraint firstAttribute="bottom" secondItem="Yv9-b2-XFz" secondAttribute="bottom" id="h3I-JI-5QE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6UF-Bh-3gR"/>
@@ -69,12 +76,23 @@
         <!--Storyboard Swipe Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Storyboard Swipe Controller" id="BYZ-38-t0r" customClass="LGV_SwipeTabViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                <viewController title="Storyboard Swipe Controller" id="BYZ-38-t0r" customClass="STVCTH_Basic_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="84t-ux-lY9">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="84t-ux-lY9" secondAttribute="trailing" id="6uy-1W-HEr"/>
+                            <constraint firstAttribute="bottom" secondItem="84t-ux-lY9" secondAttribute="bottom" id="DPZ-AC-ZVK"/>
+                            <constraint firstItem="84t-ux-lY9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ITN-hu-9Pc"/>
+                            <constraint firstItem="84t-ux-lY9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Q9M-y1-OwO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="keY-oc-D6V"/>
                     <connections>
@@ -85,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221" y="-30"/>
+            <point key="canvasLocation" x="220.61068702290075" y="-30.281690140845072"/>
         </scene>
         <!--Item 0-->
         <scene sceneID="WtO-e5-mCb">
@@ -103,7 +121,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H8V-Fx-ERb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5bF-9H-QYF" firstAttribute="centerX" secondItem="yxl-VT-3gH" secondAttribute="centerX" id="EIO-H2-CSK"/>
                             <constraint firstItem="5bF-9H-QYF" firstAttribute="centerY" secondItem="yxl-VT-3gH" secondAttribute="centerY" id="WJM-Md-NsP"/>
@@ -135,7 +153,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rl8-AJ-0Q4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pCL-NP-u84" firstAttribute="centerX" secondItem="67S-Lm-MKm" secondAttribute="centerX" id="sN1-A9-UyY"/>
                             <constraint firstItem="pCL-NP-u84" firstAttribute="centerY" secondItem="67S-Lm-MKm" secondAttribute="centerY" id="xVz-Wk-pXA"/>
@@ -167,7 +185,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ma6-Xe-0pl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0cs-cv-Zt6" firstAttribute="centerX" secondItem="cNz-dk-2OF" secondAttribute="centerX" id="DbL-sX-dz6"/>
                             <constraint firstItem="0cs-cv-Zt6" firstAttribute="centerY" secondItem="cNz-dk-2OF" secondAttribute="centerY" id="mm8-ff-VzZ"/>
@@ -188,6 +206,7 @@
         <image name="0.square.fill" catalog="system" width="128" height="114"/>
         <image name="1.square.fill" catalog="system" width="128" height="114"/>
         <image name="2.square.fill" catalog="system" width="128" height="114"/>
+        <image name="BackgroundGradient" width="16" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
