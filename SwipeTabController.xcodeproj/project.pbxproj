@@ -12,6 +12,7 @@
 		D40289742DEBAA4F0062E25B /* STVCTH_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D402896D2DEBAA4F0062E25B /* STVCTH_Main.storyboard */; };
 		D40289752DEBAA4F0062E25B /* STVCTH_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40289672DEBAA4F0062E25B /* STVCTH_AppDelegate.swift */; };
 		D40289772DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402896F2DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift */; };
+		D4DA5BCF2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */; };
 		D4DF99152DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox in Frameworks */ = {isa = PBXBuildFile; productRef = D4DF99142DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox */; };
 		D4DF99572DEBB1DC00DD325A /* SwipeTabController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */; };
 		D4DF99582DEBB1DC00DD325A /* SwipeTabController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -52,6 +53,7 @@
 		D402896C2DEBAA4F0062E25B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/STVCTH_Main.storyboard; sourceTree = "<group>"; };
 		D402896F2DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Base_ViewController.swift; sourceTree = "<group>"; };
 		D43F59AA2DEA47FA00AD7106 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
+		D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Selection_ViewController.swift; sourceTree = "<group>"; };
 		D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeTabController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DF995E2DEBB1FD00DD325A /* LGV_SwipeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGV_SwipeTabViewController.swift; sourceTree = "<group>"; };
 		D4DF995F2DEBB1FD00DD325A /* SwipeTabController.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SwipeTabController.docc; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				D40289672DEBAA4F0062E25B /* STVCTH_AppDelegate.swift */,
 				D402896F2DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift */,
+				D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */,
 				D402896D2DEBAA4F0062E25B /* STVCTH_Main.storyboard */,
 				D40289682DEBAA4F0062E25B /* Assets.xcassets */,
 				D40289692DEBAA4F0062E25B /* Info.plist */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D40289752DEBAA4F0062E25B /* STVCTH_AppDelegate.swift in Sources */,
+				D4DA5BCF2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift in Sources */,
 				D40289772DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

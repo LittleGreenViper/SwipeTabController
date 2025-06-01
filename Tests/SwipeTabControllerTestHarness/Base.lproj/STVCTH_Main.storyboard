@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="frF-Hl-s8R">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
@@ -9,16 +9,74 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Swipe Tab View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="4Q9-9d-zwP">
+            <objects>
+                <navigationController id="frF-Hl-s8R" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1BA-hd-uvx">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Lv1-5o-6x2" kind="relationship" relationship="rootViewController" id="HOG-cY-gpp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IVW-jt-cMr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-637" y="-749"/>
+        </scene>
+        <!--Selection View Controller-->
+        <scene sceneID="w91-5s-ebj">
+            <objects>
+                <viewController id="Lv1-5o-6x2" customClass="STVCTH_Selection_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iOn-xK-ngr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="huv-SO-tDC">
+                                <rect key="frame" x="16" y="385.66666666666669" width="361" height="80.666666666666686"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33w-NK-Zu3">
+                                        <rect key="frame" x="126" y="0.0" width="109" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Storyboard"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="Olq-Og-DO7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWO-PO-Fnq">
+                                        <rect key="frame" x="115" y="46.333333333333314" width="131" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Programmatic"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="atv-HU-Kc1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="huv-SO-tDC" firstAttribute="leading" secondItem="atv-HU-Kc1" secondAttribute="leading" constant="16" id="47G-nT-Gwq"/>
+                            <constraint firstItem="atv-HU-Kc1" firstAttribute="trailing" secondItem="huv-SO-tDC" secondAttribute="trailing" constant="16" id="Ylu-a5-1EN"/>
+                            <constraint firstItem="huv-SO-tDC" firstAttribute="centerY" secondItem="iOn-xK-ngr" secondAttribute="centerY" id="dwD-Q6-UBq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6UF-Bh-3gR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ynu-D7-ad8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221" y="-749"/>
+        </scene>
+        <!--Storyboard Swipe Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="controller2" id="BYZ-38-t0r" customClass="LGV_SwipeTabViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller2" title="Storyboard Swipe Controller" id="BYZ-38-t0r" customClass="LGV_SwipeTabViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="keY-oc-D6V"/>
                     <connections>
                         <segue destination="auX-M1-qJ2" kind="custom" identifier="controller0" id="rpd-ae-j5a"/>
                         <segue destination="sL5-2f-eym" kind="custom" identifier="controller1" id="lMR-s1-Bz4"/>
@@ -27,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="221" y="-27"/>
+            <point key="canvasLocation" x="221" y="-30"/>
         </scene>
         <!--Item 0-->
         <scene sceneID="WtO-e5-mCb">
