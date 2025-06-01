@@ -90,7 +90,7 @@
         <!--Item 0-->
         <scene sceneID="WtO-e5-mCb">
             <objects>
-                <viewController storyboardIdentifier="controller0" id="auX-M1-qJ2" customClass="STVCTH_Base_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller0" id="auX-M1-qJ2" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yxl-VT-3gH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,7 +110,7 @@
         <!--Item 1-->
         <scene sceneID="YKG-kv-Abm">
             <objects>
-                <viewController storyboardIdentifier="controller1" id="sL5-2f-eym" customClass="STVCTH_Base_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller1" id="sL5-2f-eym" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="67S-Lm-MKm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,7 +130,7 @@
         <!--Item 2-->
         <scene sceneID="bAd-RU-4mQ">
             <objects>
-                <viewController storyboardIdentifier="controller2" id="KrY-MH-cor" customClass="STVCTH_Base_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller2" id="KrY-MH-cor" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cNz-dk-2OF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

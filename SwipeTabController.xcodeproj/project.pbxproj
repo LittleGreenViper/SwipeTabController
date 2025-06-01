@@ -11,7 +11,6 @@
 		D40289732DEBAA4F0062E25B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D402896B2DEBAA4F0062E25B /* LaunchScreen.storyboard */; };
 		D40289742DEBAA4F0062E25B /* STVCTH_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D402896D2DEBAA4F0062E25B /* STVCTH_Main.storyboard */; };
 		D40289752DEBAA4F0062E25B /* STVCTH_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40289672DEBAA4F0062E25B /* STVCTH_AppDelegate.swift */; };
-		D40289772DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D402896F2DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift */; };
 		D4DA5BCF2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */; };
 		D4DF99152DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox in Frameworks */ = {isa = PBXBuildFile; productRef = D4DF99142DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox */; };
 		D4DF99572DEBB1DC00DD325A /* SwipeTabController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */; };
@@ -51,7 +50,6 @@
 		D40289692DEBAA4F0062E25B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D402896A2DEBAA4F0062E25B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D402896C2DEBAA4F0062E25B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/STVCTH_Main.storyboard; sourceTree = "<group>"; };
-		D402896F2DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Base_ViewController.swift; sourceTree = "<group>"; };
 		D43F59AA2DEA47FA00AD7106 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Selection_ViewController.swift; sourceTree = "<group>"; };
 		D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeTabController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				D40289672DEBAA4F0062E25B /* STVCTH_AppDelegate.swift */,
-				D402896F2DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift */,
 				D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */,
 				D402896D2DEBAA4F0062E25B /* STVCTH_Main.storyboard */,
 				D40289682DEBAA4F0062E25B /* Assets.xcassets */,
@@ -268,7 +265,6 @@
 			files = (
 				D40289752DEBAA4F0062E25B /* STVCTH_AppDelegate.swift in Sources */,
 				D4DA5BCF2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift in Sources */,
-				D40289772DEBAA4F0062E25B /* STVCTH_Base_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +513,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -534,12 +530,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.5;
 			};
 			name = Debug;
@@ -559,7 +556,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
@@ -576,12 +573,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				XROS_DEPLOYMENT_TARGET = 2.5;
 			};
 			name = Release;

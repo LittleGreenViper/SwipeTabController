@@ -26,7 +26,7 @@ import UIKit
 /**
  Any view controller that we add to our tab controller, should conform to this protocol.
  */
-public protocol LGV_SwipeTabViewControllerType: UIViewController {
+public protocol LGV_SwipeTabViewControllerType: UIViewController, AnyObject {
     /* ################################################################## */
     /**
      This references the "owning" `LGV_SwipeTabViewController` instance. It should usually be implemented as a weak reference.
@@ -58,9 +58,35 @@ public extension LGV_SwipeTabViewControllerType {
     
     /* ################################################################## */
     /**
-     Default fetches any preexisting navigation controller from the "owner."
+     This is the navigation controller for the main "owner" instance. This allows us to have continuity with the container.
      */
-    var myMainNavigationController: UINavigationController? { self.navigationController }
+    var myMainNavigationController: UINavigationController? { self.mySwipeTabViewController?.navigationController }
+}
+
+/* ###################################################################################################################################### */
+// MARK: - Baseline View Controller Class -
+/* ###################################################################################################################################### */
+/**
+ This is a class that conforms to the `LGV_SwipeTabViewControllerType` protocol, and is also a basic `UIViewController`.
+ */
+open class LGV_SwipeTab_Base_ViewController: UIViewController, LGV_SwipeTabViewControllerType {
+    /* ################################################################## */
+    /**
+     This is the "owning" "Tab" controller for this instance.
+     This is set by the main container, as the class is instantiated and loaded.
+     */
+    public weak var mySwipeTabViewController: LGV_SwipeTabViewController?
+}
+
+/* ###################################################################################################################################### */
+// MARK: Base Class Overrides
+/* ###################################################################################################################################### */
+extension LGV_SwipeTab_Base_ViewController {
+    /* ################################################################## */
+    /**
+     We might use our container's navigation controller, if we didn't specify one.
+     */
+    override public var navigationController: UINavigationController? { super.navigationController ?? self.myMainNavigationController }
 }
 
 @IBDesignable
@@ -68,6 +94,8 @@ public extension LGV_SwipeTabViewControllerType {
 // MARK: - Main View Controller Class -
 /* ###################################################################################################################################### */
 /**
+ This implements an instance of a `UIPageViewController`, as well as a `UIToolbar` instance. The toolbar acts in the same manner as a `UITabBar`,
+ and is displayed either below (default), or above the page view controller.
  */
 open class LGV_SwipeTabViewController: UIViewController {
     /* ################################################################## */
@@ -87,6 +115,12 @@ open class LGV_SwipeTabViewController: UIViewController {
      This holds references to instantiated view controllers.
      */
     private var _referencedViewControllers: [any LGV_SwipeTabViewControllerType] = []
+    
+    /* ################################################################## */
+    /**
+     This is true (default is false), if we want the "Tab Bar" to show up on top of the screen (as opposed to the default bottom).
+     */
+    @IBInspectable public var toolbarOnTop: Bool = false
 }
 
 /* ###################################################################################################################################### */
@@ -95,7 +129,8 @@ open class LGV_SwipeTabViewController: UIViewController {
 extension LGV_SwipeTabViewController {
     /* ################################################################## */
     /**
-     This uses an internal (App Store Safe) way of querying the view controller, for custom segues.
+     This uses an internal (App Store Safe) way of querying the view controller, for segues.
+     In order to generate this list, you need to define segues (custom or show will be fine -the segue is never executed).
      It extracts the ID from each segue, which *has to match* the storyboard ID of the view controller instance destination.
      > NOTE: This is an internal key-value property reference, and Apple may change it in the future (highly unlikely). It is not a private API.
      */
@@ -168,6 +203,18 @@ public extension LGV_SwipeTabViewController {
      If we are also generating via IDs (storyboard), these will be appended to the existing list, in the order prescribed, here.
      */
     var generatedViewControllers: [any LGV_SwipeTabViewControllerType] { [] }
+    
+    /* ################################################################## */
+    /**
+     This is the page view controller that will allow swiped tabs.
+     */
+    weak var pageViewController: UIPageViewController? { self._pageViewController }
+    
+    /* ################################################################## */
+    /**
+     This is the toolbar, at the top or bottom.
+     */
+    weak var toolbar: UIToolbar? { self._toolbar }
 }
 
 /* ###################################################################################################################################### */
