@@ -39,6 +39,74 @@ open class LGV_SwipeTabViewController: UIViewController {
      This is the toolbar, at the top or bottom.
      */
     private weak var _toolbar: UIToolbar?
+    
+    /* ################################################################## */
+    /**
+     This holds references to instantiated view controllers.
+     */
+    private var _referencedViewControllers: [UIViewController] = []
+}
+
+/* ###################################################################################################################################### */
+// MARK: Private Computed Properties
+/* ###################################################################################################################################### */
+extension LGV_SwipeTabViewController {
+    /* ################################################################## */
+    /**
+     This uses an internal (App Store Safe) way of querying the view controller, for custom segues.
+     It extracts the ID from each segue, which *has to match* the storyboard ID of the view controller instance destination.
+     > NOTE: This is an internal key-value property reference, and Apple may change it in the future (highly unlikely). It is not a private API.
+     */
+    private var _referencedInterfaceBuilderViewControllerIDs: [String] {
+        (self.value(forKey: "storyboardSegueTemplates") as? [NSObject] ?? []).compactMap { $0.value(forKey: "identifier") as? String }
+    }
+    
+    /* ################################################################## */
+    /**
+     This holds the storyboard IDs of the view controllers we are referencing.
+     This is a combination of ones defined by custom segues, and by programmatic reference.
+     > NOTE: The order is based on a simple alphabetic string sort, so the storyboard IDs should be defined, with the order of the view controllers in mind.
+     */
+    private var _referencedViewControllerIDs: [String] {
+        var ret = self._referencedInterfaceBuilderViewControllerIDs
+        ret.append(contentsOf: self.viewControllerIDs.compactMap { !ret.contains($0) ? $0 : nil })
+        return ret.sorted()
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Private Instance Methods
+/* ###################################################################################################################################### */
+extension LGV_SwipeTabViewController {
+    /* ################################################################## */
+    /**
+     This instantiates and stores the view controllers we are referencing.
+     */
+    private func _loadViewControllers() {
+        self._referencedViewControllers = []
+        #if DEBUG
+            print("View Controller IDs: \(self._referencedViewControllerIDs)")
+        #endif
+        for id in self._referencedViewControllerIDs {
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: id) as? UIViewController else { continue }
+            #if DEBUG
+                print("Instantiating: \(id)")
+            #endif
+            self._referencedViewControllers.append(vc)
+        }
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Public Computed Properties
+/* ###################################################################################################################################### */
+public extension LGV_SwipeTabViewController {
+    /* ################################################################## */
+    /**
+     This needs to be overridden, if you want to add view controllers programmatically.
+     This returns a runtime-generated list of storyboard IDs of classes that we will instantiate for each of our tabbed controllers.
+     */
+    var viewControllerIDs: [String] { [] }
 }
 
 /* ###################################################################################################################################### */
@@ -57,6 +125,7 @@ public extension LGV_SwipeTabViewController {
         initialLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         initialLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         initialLabel.text = "HELO WRLD"
+        self._loadViewControllers()
     }
 }
 

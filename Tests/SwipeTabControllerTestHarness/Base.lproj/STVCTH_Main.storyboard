@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,20 +12,85 @@
         <!--Swipe Tab View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LGV_SwipeTabViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller2" id="BYZ-38-t0r" customClass="LGV_SwipeTabViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <segue destination="auX-M1-qJ2" kind="custom" identifier="controller0" id="rpd-ae-j5a"/>
+                        <segue destination="sL5-2f-eym" kind="custom" identifier="controller1" id="lMR-s1-Bz4"/>
+                        <segue destination="KrY-MH-cor" kind="custom" identifier="controller2" id="dag-wj-MUs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-27"/>
+            <point key="canvasLocation" x="221" y="-27"/>
+        </scene>
+        <!--Item 0-->
+        <scene sceneID="WtO-e5-mCb">
+            <objects>
+                <viewController storyboardIdentifier="controller0" id="auX-M1-qJ2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yxl-VT-3gH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="H8V-Fx-ERb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 0" id="Cen-0u-Nma">
+                        <imageReference key="image" image="0.square.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1v7-LY-zNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-746" y="706"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="YKG-kv-Abm">
+            <objects>
+                <viewController storyboardIdentifier="controller1" id="sL5-2f-eym" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="67S-Lm-MKm">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Rl8-AJ-0Q4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="17i-2j-QLu">
+                        <imageReference key="image" image="1.square.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yoh-D9-dD9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="221" y="707"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="bAd-RU-4mQ">
+            <objects>
+                <viewController id="KrY-MH-cor" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cNz-dk-2OF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ma6-Xe-0pl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Njo-Cu-dhy">
+                        <imageReference key="image" image="2.square.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d8M-rm-diF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1150" y="706"/>
         </scene>
     </scenes>
     <resources>
+        <image name="0.square.fill" catalog="system" width="128" height="114"/>
+        <image name="1.square.fill" catalog="system" width="128" height="114"/>
+        <image name="2.square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
