@@ -94,8 +94,20 @@
                     <view key="view" contentMode="scaleToFill" id="yxl-VT-3gH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAB 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bF-9H-QYF">
+                                <rect key="frame" x="157" y="408" width="79" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="H8V-Fx-ERb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5bF-9H-QYF" firstAttribute="centerX" secondItem="yxl-VT-3gH" secondAttribute="centerX" id="EIO-H2-CSK"/>
+                            <constraint firstItem="5bF-9H-QYF" firstAttribute="centerY" secondItem="yxl-VT-3gH" secondAttribute="centerY" id="WJM-Md-NsP"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 0" id="Cen-0u-Nma">
                         <imageReference key="image" image="0.square.fill" catalog="system" symbolScale="large"/>
@@ -114,8 +126,20 @@
                     <view key="view" contentMode="scaleToFill" id="67S-Lm-MKm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAB 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCL-NP-u84">
+                                <rect key="frame" x="160" y="408" width="73.333333333333314" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Rl8-AJ-0Q4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pCL-NP-u84" firstAttribute="centerX" secondItem="67S-Lm-MKm" secondAttribute="centerX" id="sN1-A9-UyY"/>
+                            <constraint firstItem="pCL-NP-u84" firstAttribute="centerY" secondItem="67S-Lm-MKm" secondAttribute="centerY" id="xVz-Wk-pXA"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="17i-2j-QLu">
                         <imageReference key="image" image="1.square.fill" catalog="system" symbolScale="large"/>
@@ -134,8 +158,20 @@
                     <view key="view" contentMode="scaleToFill" id="cNz-dk-2OF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAB 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cs-cv-Zt6">
+                                <rect key="frame" x="158" y="408" width="77" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Ma6-Xe-0pl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0cs-cv-Zt6" firstAttribute="centerX" secondItem="cNz-dk-2OF" secondAttribute="centerX" id="DbL-sX-dz6"/>
+                            <constraint firstItem="0cs-cv-Zt6" firstAttribute="centerY" secondItem="cNz-dk-2OF" secondAttribute="centerY" id="mm8-ff-VzZ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="Njo-Cu-dhy">
                         <imageReference key="image" image="2.square.fill" catalog="system" symbolScale="large"/>

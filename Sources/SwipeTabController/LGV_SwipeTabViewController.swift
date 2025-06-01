@@ -227,13 +227,68 @@ public extension LGV_SwipeTabViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        let initialLabel = UILabel()
-        self.view?.addSubview(initialLabel)
-        initialLabel.translatesAutoresizingMaskIntoConstraints = false
-        initialLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        initialLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        initialLabel.text = "HELO WRLD"
+
         self._loadViewControllers()
+        
+        guard !self._referencedViewControllers.isEmpty else { return }
+        
+        let pageViewController = UIPageViewController(
+            transitionStyle: .scroll,
+            navigationOrientation: .horizontal,
+            options: nil
+        )
+        
+        self._pageViewController = pageViewController
+        
+        pageViewController.dataSource = self
+        pageViewController.delegate = self
+        
+        pageViewController.setViewControllers(
+            [self._referencedViewControllers[0]],
+            direction: .forward,
+            animated: false,
+            completion: nil
+        )
+        
+        addChild(pageViewController)
+        view.addSubview(pageViewController.view)
+        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            pageViewController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+        
+        pageViewController.didMove(toParent: self)
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: UIPageViewControllerDataSource Conformance
+/* ###################################################################################################################################### */
+extension LGV_SwipeTabViewController: UIPageViewControllerDataSource {
+    /* ################################################################## */
+    /**
+     Called to provide a new view controller, when swiping.
+     
+     - parameter: The page view controller (ignored).
+     - parameter viewControllerBefore: The view controller for the timer that will be AFTER ours
+     */
+    public func pageViewController(_: UIPageViewController, viewControllerBefore inNextViewController: UIViewController) -> UIViewController? {
+        nil
+    }
+    
+    /* ################################################################## */
+    /**
+     Called to provide a new view controller, when swiping.
+     
+     - parameter: The page view controller (ignored).
+     - parameter viewControllerAfter: The view controller for the timer that will be BEFORE ours
+    */
+    public func pageViewController(_: UIPageViewController, viewControllerAfter inPrevViewController: UIViewController) -> UIViewController? {
+        nil
     }
 }
 
@@ -241,5 +296,16 @@ public extension LGV_SwipeTabViewController {
 // MARK: UIPageViewControllerDelegate Conformance
 /* ###################################################################################################################################### */
 extension LGV_SwipeTabViewController: UIPageViewControllerDelegate {
+    /* ################################################################## */
+    /**
+     Called when a swipe has completed.
+     
+     - parameter: The page view controller (ignored).
+     - parameter didFinishAnimating: True, if the animation completed (ignored).
+     - parameter previousViewControllers: The previous view controllers (ignored).
+     - parameter transitionCompleted: True, if the transition completed (ignored).
+    */
+    public func pageViewController(_: UIPageViewController, didFinishAnimating: Bool, previousViewControllers: [UIViewController], transitionCompleted inCompleted: Bool) {
+    }
 }
 #endif
