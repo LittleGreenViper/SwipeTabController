@@ -26,10 +26,7 @@ let package = Package(
     name: "SwipeTabController",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v17),
-        .tvOS(.v17),
-        .watchOS(.v10),
-        .macOS(.v13)
+        .iOS(.v17)
     ],
     products: [
         .library(
@@ -41,11 +38,6 @@ let package = Package(
                  from: "1.15.6")
     ],
     targets: [
-        .target(name: "SwipeTabController",
-                dependencies: [
-                    .product(name: "RVS_Generic_Swift_Toolbox",
-                             package: "RVS_Generic_Swift_Toolbox")
-                ]
-               )
+        .target(name: "SwipeTabController")
     ]
 )

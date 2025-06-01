@@ -19,7 +19,49 @@
 
 #if canImport(UIKit)
 import UIKit
-internal import RVS_Generic_Swift_Toolbox
+
+/* ###################################################################################################################################### */
+// MARK: - Protocol for View Controllers -
+/* ###################################################################################################################################### */
+/**
+ Any view controller that we add to our tab controller, should conform to this protocol.
+ */
+public protocol LGV_SwipeTabViewControllerType: UIViewController {
+    /* ################################################################## */
+    /**
+     This references the "owning" `LGV_SwipeTabViewController` instance. It should usually be implemented as a weak reference.
+     */
+    var mySwipeTabViewController: LGV_SwipeTabViewController? { get set }
+    
+    /* ################################################################## */
+    /**
+     An accessor for the tab item. This may return nil, but the view controller won't add it, if it does not have it.
+     */
+    var myTabItem: UITabBarItem? { get }
+    
+    /* ################################################################## */
+    /**
+     An accessor for the "owner's" navigation controller.
+     */
+    var myMainNavigationController: UINavigationController? { get }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Default Implementation
+/* ###################################################################################################################################### */
+public extension LGV_SwipeTabViewControllerType {
+    /* ################################################################## */
+    /**
+     Default fetches any preexisting tab bar item.
+     */
+    var myTabItem: UITabBarItem? { self.tabBarItem }
+    
+    /* ################################################################## */
+    /**
+     Default fetches any preexisting navigation controller from the "owner."
+     */
+    var myMainNavigationController: UINavigationController? { self.navigationController }
+}
 
 @IBDesignable
 /* ###################################################################################################################################### */
@@ -44,7 +86,7 @@ open class LGV_SwipeTabViewController: UIViewController {
     /**
      This holds references to instantiated view controllers.
      */
-    private var _referencedViewControllers: [UIViewController] = []
+    private var _referencedViewControllers: [any LGV_SwipeTabViewControllerType] = []
 }
 
 /* ###################################################################################################################################### */
@@ -88,10 +130,21 @@ extension LGV_SwipeTabViewController {
             print("View Controller IDs: \(self._referencedViewControllerIDs)")
         #endif
         for id in self._referencedViewControllerIDs {
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: id) as? UIViewController else { continue }
+            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: id) as? LGV_SwipeTabViewControllerType,
+                  nil != vc.myTabItem
+            else { continue }
             #if DEBUG
                 print("Instantiating: \(id)")
             #endif
+            vc.mySwipeTabViewController = self
+            self._referencedViewControllers.append(vc)
+        }
+        
+        for vc in self.generatedViewControllers where !self._referencedViewControllers.contains(where: { $0 === vc }) && nil != vc.myTabItem {
+            #if DEBUG
+                print("Adding Pre-Instantiated View Controller: \(vc)")
+            #endif
+            vc.mySwipeTabViewController = self
             self._referencedViewControllers.append(vc)
         }
     }
@@ -103,10 +156,18 @@ extension LGV_SwipeTabViewController {
 public extension LGV_SwipeTabViewController {
     /* ################################################################## */
     /**
-     This needs to be overridden, if you want to add view controllers programmatically.
+     This needs to be overridden, if you want to add view controllers programmatically, but using the storyboard.
      This returns a runtime-generated list of storyboard IDs of classes that we will instantiate for each of our tabbed controllers.
      */
     var viewControllerIDs: [String] { [] }
+    
+    /* ################################################################## */
+    /**
+     This needs to be overridden, if you want to add view controllers programmatically, without using the storyboard.
+     This returns a concrete array of instantiated and loaded view controller instances.
+     If we are also generating via IDs (storyboard), these will be appended to the existing list, in the order prescribed, here.
+     */
+    var generatedViewControllers: [any LGV_SwipeTabViewControllerType] { [] }
 }
 
 /* ###################################################################################################################################### */

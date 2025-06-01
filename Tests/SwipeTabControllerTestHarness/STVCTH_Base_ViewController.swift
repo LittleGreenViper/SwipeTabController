@@ -18,6 +18,7 @@
  */
 
 import UIKit
+internal import SwipeTabController
 internal import RVS_Generic_Swift_Toolbox
 
 /* ###################################################################################################################################### */
@@ -25,11 +26,21 @@ internal import RVS_Generic_Swift_Toolbox
 /* ###################################################################################################################################### */
 /**
  */
-class STVCTH_Base_ViewController: UIViewController {
+class STVCTH_Base_ViewController: UIViewController, LGV_SwipeTabViewControllerType {
     /* ################################################################## */
     /**
+     This is the "owning" "Tab" controller for this instance.
      */
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    weak var mySwipeTabViewController: LGV_SwipeTabViewController?
+}
+
+/* ###################################################################################################################################### */
+// MARK: Base Class Overrides
+/* ###################################################################################################################################### */
+extension STVCTH_Base_ViewController {
+    /* ################################################################## */
+    /**
+     We use our container's navigation controller, instead of our own.
+     */
+    override var navigationController: UINavigationController? { self.myMainNavigationController }
 }

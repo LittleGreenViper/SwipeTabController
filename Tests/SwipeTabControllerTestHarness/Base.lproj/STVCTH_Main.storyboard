@@ -69,7 +69,7 @@
         <!--Storyboard Swipe Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="controller2" title="Storyboard Swipe Controller" id="BYZ-38-t0r" customClass="LGV_SwipeTabViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                <viewController title="Storyboard Swipe Controller" id="BYZ-38-t0r" customClass="LGV_SwipeTabViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,9 +78,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="keY-oc-D6V"/>
                     <connections>
-                        <segue destination="auX-M1-qJ2" kind="custom" identifier="controller0" id="rpd-ae-j5a"/>
-                        <segue destination="sL5-2f-eym" kind="custom" identifier="controller1" id="lMR-s1-Bz4"/>
-                        <segue destination="KrY-MH-cor" kind="custom" identifier="controller2" id="dag-wj-MUs"/>
+                        <segue destination="auX-M1-qJ2" kind="show" identifier="controller0" id="N9K-He-qJC"/>
+                        <segue destination="sL5-2f-eym" kind="show" identifier="controller1" id="t3l-UM-SBU"/>
+                        <segue destination="KrY-MH-cor" kind="show" identifier="controller2" id="q9I-MQ-2Ns"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -90,7 +90,7 @@
         <!--Item 0-->
         <scene sceneID="WtO-e5-mCb">
             <objects>
-                <viewController storyboardIdentifier="controller0" id="auX-M1-qJ2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller0" id="auX-M1-qJ2" customClass="STVCTH_Base_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yxl-VT-3gH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,6 +100,7 @@
                     <tabBarItem key="tabBarItem" title="Item 0" id="Cen-0u-Nma">
                         <imageReference key="image" image="0.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="szz-3Y-ZYx"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1v7-LY-zNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -109,7 +110,7 @@
         <!--Item 1-->
         <scene sceneID="YKG-kv-Abm">
             <objects>
-                <viewController storyboardIdentifier="controller1" id="sL5-2f-eym" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller1" id="sL5-2f-eym" customClass="STVCTH_Base_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="67S-Lm-MKm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,6 +120,7 @@
                     <tabBarItem key="tabBarItem" title="Item 1" id="17i-2j-QLu">
                         <imageReference key="image" image="1.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="K4o-XX-5RH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoh-D9-dD9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -128,7 +130,7 @@
         <!--Item 2-->
         <scene sceneID="bAd-RU-4mQ">
             <objects>
-                <viewController id="KrY-MH-cor" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller2" id="KrY-MH-cor" customClass="STVCTH_Base_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cNz-dk-2OF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,6 +140,7 @@
                     <tabBarItem key="tabBarItem" title="Item 2" id="Njo-Cu-dhy">
                         <imageReference key="image" image="2.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="DF8-Dk-vBM"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8M-rm-diF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
