@@ -118,6 +118,54 @@ extension LGV_SwipeTab_Base_ViewController {
  */
 open class LGV_SwipeTabViewController: UIViewController {
     private class _BarItem: UIBarButtonItem {
+        private weak var button: UIButton?
+
+        override var isEnabled: Bool {
+            didSet {
+                button?.isEnabled = isEnabled
+            }
+        }
+
+        init(image inImage: UIImage?,
+             text inText: String?,
+             tag inTag: Int,
+             target inTarget: AnyObject,
+             action inAction: Selector
+        ) {
+            super.init()
+
+            var config = UIButton.Configuration.plain()
+            config.image = inImage
+            config.title = inText
+            config.imagePlacement = .top
+            config.imagePadding = 4
+
+            let button = UIButton(configuration: config)
+            button.tintColor = .systemBlue
+            button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+            button.sizeToFit()
+
+            button.tag = inTag
+
+            button.addTarget(inTarget, action: inAction, for: .touchUpInside)
+
+            button.configurationUpdateHandler = { button in
+                if button.isEnabled {
+                    button.alpha = 1.0
+                    button.tintColor = .systemBlue
+                } else {
+                    button.alpha = 0.5
+                    button.tintColor = .gray
+                }
+            }
+
+            self.customView = button
+            self.button = button
+        }
+
+        required init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
     }
     
     /* ################################################################## */
@@ -225,17 +273,13 @@ private extension LGV_SwipeTabViewController {
         toolbarItems.append(UIBarButtonItem.flexibleSpace())
         for viewController in self._referencedViewControllers {
             guard let tabItem = viewController.myTabItem else { continue }
-            let barItem = _BarItem()
-            
+            let barItem = _BarItem(image: tabItem.image, text: tabItem.title, tag: viewController.index, target: self, action: #selector(_toolbarItemHit))
+            barItem.isEnabled = true
+            barItem.customView?.isUserInteractionEnabled = true
             barItem.accessibilityLabel = tabItem.accessibilityLabel
             barItem.accessibilityHint = tabItem.accessibilityHint
             barItem.accessibilityIdentifier = tabItem.accessibilityIdentifier
 
-            barItem.image = tabItem.image
-            barItem.title = tabItem.title
-            barItem.target = self
-            barItem.action = #selector(_toolbarItemHit)
-            barItem.tag = viewController.index
             toolbarItems.append(barItem)
             toolbarItems.append(UIBarButtonItem.flexibleSpace())
         }
@@ -272,7 +316,7 @@ private extension LGV_SwipeTabViewController {
      Called when a toolbar item is hit.
      - parameter inItem: The toolbar item that was hit.
      */
-    @objc private func _toolbarItemHit(_ inItem: _BarItem) {
+    @objc private func _toolbarItemHit(_ inItem: UIButton) {
         #if DEBUG
             print("Toolbar Item \(inItem.tag) hit.")
         #endif
@@ -391,7 +435,10 @@ extension LGV_SwipeTabViewController {
     open override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         for item in self._toolbar?.items ?? [] {
-            item.isEnabled = item.tag != self.selectedViewControllerIndex
+            guard let customView = item.customView as? UIControl else { continue }
+            
+            item.isEnabled = customView.tag != self.selectedViewControllerIndex
+            customView.isEnabled = item.isEnabled
         }
     }
 }
