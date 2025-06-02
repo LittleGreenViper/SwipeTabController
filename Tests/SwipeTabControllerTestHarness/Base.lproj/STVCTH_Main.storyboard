@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,10 +38,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="huv-SO-tDC">
-                                <rect key="frame" x="16" y="385.66666666666669" width="361" height="80.666666666666686"/>
+                                <rect key="frame" x="16" y="352.66666666666669" width="361" height="147"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33w-NK-Zu3">
-                                        <rect key="frame" x="126" y="0.0" width="109" height="34.333333333333336"/>
+                                        <rect key="frame" x="126" y="0.0" width="109" height="41"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Storyboard"/>
                                         <connections>
@@ -48,10 +49,31 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWO-PO-Fnq">
-                                        <rect key="frame" x="115" y="46.333333333333314" width="131" height="34.333333333333343"/>
+                                        <rect key="frame" x="115" y="53" width="131" height="41"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Programmatic"/>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-dV-SP9">
+                                        <rect key="frame" x="75.666666666666686" y="106" width="210" height="41"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FKc-Z2-Eey">
+                                                <rect key="frame" x="0.0" y="5" width="51" height="31"/>
+                                                <color key="thumbTintColor" name="AccentColor"/>
+                                            </switch>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTg-I1-548">
+                                                <rect key="frame" x="53" y="0.0" width="157" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Tab Bar On Top">
+                                                    <color key="titleColor" name="AccentColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tabBarOnTopHit:" destination="Lv1-5o-6x2" eventType="touchUpInside" id="Xq5-2Z-aoC"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -68,6 +90,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6UF-Bh-3gR"/>
+                    <connections>
+                        <outlet property="tabBarOnTopSwitch" destination="FKc-Z2-Eey" id="tJZ-Ok-H0Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ynu-D7-ad8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,7 +146,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Segue" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIF-9H-7es">
-                                <rect key="frame" x="149" y="452" width="95.000000000000028" height="20.333333333333314"/>
+                                <rect key="frame" x="149" y="452" width="95" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -274,6 +299,12 @@
         <image name="2.square.fill" catalog="system" width="128" height="114"/>
         <image name="3.square.fill" catalog="system" width="128" height="114"/>
         <image name="BackgroundGradient" width="16" height="1024"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.24286265432098766" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

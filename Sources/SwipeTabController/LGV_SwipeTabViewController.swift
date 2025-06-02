@@ -141,6 +141,7 @@ open class LGV_SwipeTabViewController: UIViewController {
     /* ################################################################## */
     /**
      This is true (default is false), if we want the "Tab Bar" to show up on top of the screen (as opposed to the default bottom).
+     > NOTE: This shouldn't be changed after the view is loaded.
      */
     @IBInspectable public var toolbarOnTop: Bool = false
     
@@ -154,7 +155,7 @@ open class LGV_SwipeTabViewController: UIViewController {
 /* ###################################################################################################################################### */
 // MARK: Private Computed Properties
 /* ###################################################################################################################################### */
-extension LGV_SwipeTabViewController {
+private extension LGV_SwipeTabViewController {
     /* ################################################################## */
     /**
      This uses an internal (App Store Safe) way of querying the view controller, for segues.
@@ -162,7 +163,7 @@ extension LGV_SwipeTabViewController {
      It extracts the ID from each segue, which *has to match* the storyboard ID of the view controller instance destination.
      > NOTE: This is an internal key-value property reference, and Apple may change it in the future (highly unlikely). It is not a private API.
      */
-    private var _referencedInterfaceBuilderViewControllerIDs: [String] {
+    var _referencedInterfaceBuilderViewControllerIDs: [String] {
         (self.value(forKey: "storyboardSegueTemplates") as? [NSObject] ?? []).compactMap { $0.value(forKey: "identifier") as? String }
     }
     
@@ -172,7 +173,7 @@ extension LGV_SwipeTabViewController {
      This is a combination of ones defined by custom segues, and by programmatic reference.
      > NOTE: The order is based on a simple alphabetic string sort, so the storyboard IDs should be defined, with the order of the view controllers in mind.
      */
-    private var _referencedViewControllerIDs: [String] {
+    var _referencedViewControllerIDs: [String] {
         var ret = self._referencedInterfaceBuilderViewControllerIDs
         ret.append(contentsOf: self.viewControllerIDs.compactMap { !ret.contains($0) ? $0 : nil })
         return ret.sorted()
@@ -225,6 +226,11 @@ private extension LGV_SwipeTabViewController {
         for viewController in self._referencedViewControllers {
             guard let tabItem = viewController.myTabItem else { continue }
             let barItem = _BarItem()
+            
+            barItem.accessibilityLabel = tabItem.accessibilityLabel
+            barItem.accessibilityHint = tabItem.accessibilityHint
+            barItem.accessibilityIdentifier = tabItem.accessibilityIdentifier
+
             barItem.image = tabItem.image
             barItem.title = tabItem.title
             barItem.target = self
@@ -237,6 +243,30 @@ private extension LGV_SwipeTabViewController {
         self.toolbar?.setItems(toolbarItems, animated: false)
     }
     
+    /* ################################################################## */
+    /**
+     This sets up the arrangement of the views (top and bottom).
+     */
+    private func _setUpStructure() {
+        guard let view = self.view,
+              let toolbar = self._toolbar,
+              let pageViewController = self._pageViewController
+        else { return }
+        
+        if self.toolbarOnTop {
+            toolbar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            pageViewController.view.topAnchor.constraint(equalTo: toolbar.bottomAnchor).isActive = true
+            pageViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            toolbar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            pageViewController.view.bottomAnchor.constraint(equalTo: toolbar.topAnchor).isActive = true
+            pageViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        }
+        
+        self.styleToolbar()
+        self._loadToolbarItems()
+    }
+
     /* ################################################################## */
     /**
      Called when a toolbar item is hit.
@@ -302,12 +332,12 @@ public extension LGV_SwipeTabViewController {
 /* ###################################################################################################################################### */
 // MARK: Base Class Overrides
 /* ###################################################################################################################################### */
-public extension LGV_SwipeTabViewController {
+extension LGV_SwipeTabViewController {
     /* ################################################################## */
     /**
      Called when the view hierarchy has been set up.
      */
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         
         self._loadViewControllers()
@@ -317,18 +347,6 @@ public extension LGV_SwipeTabViewController {
         else { return }
         
         let toolbar = UIToolbar()
-        view.addSubview(toolbar)
-        toolbar.translatesAutoresizingMaskIntoConstraints = false
-        
-        toolbar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        toolbar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        
-        if self.toolbarOnTop {
-            toolbar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        } else {
-            toolbar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        }
-        
         self._toolbar = toolbar
         
         let pageViewController = UIPageViewController(
@@ -337,45 +355,41 @@ public extension LGV_SwipeTabViewController {
             options: nil
         )
         
-        self._pageViewController = pageViewController
-        
         pageViewController.dataSource = self
         pageViewController.delegate = self
         
+        self._pageViewController = pageViewController
+        
+        view.addSubview(toolbar)
+        view.addSubview(pageViewController.view)
+        
+        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        
+        toolbar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        toolbar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        pageViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        pageViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+
+        self._setUpStructure()
+        
+        self.addChild(pageViewController)
+        pageViewController.didMove(toParent: self)
+
         pageViewController.setViewControllers(
             [self._referencedViewControllers[self.selectedViewControllerIndex]],
             direction: .forward,
             animated: false,
             completion: nil
         )
-        
-        self.addChild(pageViewController)
-        view.addSubview(pageViewController.view)
-        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        pageViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        pageViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        
-        if self.toolbarOnTop {
-            pageViewController.view.topAnchor.constraint(equalTo: toolbar.bottomAnchor).isActive = true
-            pageViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        } else {
-            pageViewController.view.bottomAnchor.constraint(equalTo: toolbar.topAnchor).isActive = true
-            pageViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        }
-        
-        pageViewController.didMove(toParent: self)
-        
-        self.styleToolbar()
-        self._loadToolbarItems()
     }
     
     /* ################################################################## */
     /**
-     Called, when the layout has been changed.
+     Called, when the layout will be changed.
      */
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    open override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         for item in self._toolbar?.items ?? [] {
             item.isEnabled = item.tag != self.selectedViewControllerIndex
         }
