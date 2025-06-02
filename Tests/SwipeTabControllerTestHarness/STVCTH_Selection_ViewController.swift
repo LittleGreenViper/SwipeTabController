@@ -77,5 +77,6 @@ extension STVCTH_Selection_ViewController {
         else { return }
         
         destination.toolbarOnTop = switcheroo.isOn
+        destination.toolbar?.overrideUserInterfaceStyle = switcheroo.isOn ? .light : .dark
     }
 }

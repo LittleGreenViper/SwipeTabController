@@ -117,15 +117,30 @@ extension LGV_SwipeTab_Base_ViewController {
  and is displayed either below (default), or above the page view controller.
  */
 open class LGV_SwipeTabViewController: UIViewController {
+    /* ################################################################################################################################## */
+    // MARK: Private Button Class for Toolbar Items
+    /* ################################################################################################################################## */
+    /**
+     This is a button class that displays both the image and text, in a vertical orientation.
+     */
     private class _BarItem: UIBarButtonItem {
-        private weak var button: UIButton?
+        /* ############################################################## */
+        /**
+         A reference to the customView, as a button.
+         */
+        private weak var _button: UIButton?
 
-        override var isEnabled: Bool {
-            didSet {
-                button?.isEnabled = isEnabled
-            }
-        }
-
+        /* ############################################################## */
+        /**
+         Default initializer.
+         
+         - parameters:
+            - inImage: The image to display above the text.
+            - inText: The text to display, under the image.
+            - inTag: The tag to be applied to the button (used to match to a view controller).
+            - inTarget: The callback target object.
+            - inAction: The function, within the target object (must be ObjC).
+         */
         init(image inImage: UIImage?,
              text inText: String?,
              tag inTag: Int,
@@ -141,7 +156,7 @@ open class LGV_SwipeTabViewController: UIViewController {
             config.imagePadding = 4
 
             let button = UIButton(configuration: config)
-            button.tintColor = .systemBlue
+            button.tintColor = self.tintColor
             button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
             button.sizeToFit()
 
@@ -149,22 +164,17 @@ open class LGV_SwipeTabViewController: UIViewController {
 
             button.addTarget(inTarget, action: inAction, for: .touchUpInside)
 
-            button.configurationUpdateHandler = { button in
-                if button.isEnabled {
-                    button.alpha = 1.0
-                    button.tintColor = .systemBlue
-                } else {
-                    button.alpha = 0.5
-                    button.tintColor = .gray
-                }
-            }
-
             self.customView = button
-            self.button = button
+            self._button = button
         }
 
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        /* ############################################################## */
+        /**
+         Unsupported coder init. We just kick the can upstairs.
+         - parameter inCoder: The coder object that we're supposed to use (but don't).
+         */
+        required init?(coder inCoder: NSCoder) {
+            super.init(coder: inCoder)
         }
     }
     
@@ -273,9 +283,9 @@ private extension LGV_SwipeTabViewController {
         toolbarItems.append(UIBarButtonItem.flexibleSpace())
         for viewController in self._referencedViewControllers {
             guard let tabItem = viewController.myTabItem else { continue }
+            
             let barItem = _BarItem(image: tabItem.image, text: tabItem.title, tag: viewController.index, target: self, action: #selector(_toolbarItemHit))
-            barItem.isEnabled = true
-            barItem.customView?.isUserInteractionEnabled = true
+
             barItem.accessibilityLabel = tabItem.accessibilityLabel
             barItem.accessibilityHint = tabItem.accessibilityHint
             barItem.accessibilityIdentifier = tabItem.accessibilityIdentifier
