@@ -335,7 +335,7 @@ public extension LGV_SwipeTabViewController {
         pageViewController.delegate = self
         
         pageViewController.setViewControllers(
-            [self._referencedViewControllers[0]],
+            [self._referencedViewControllers[self.selectedViewControllerIndex]],
             direction: .forward,
             animated: false,
             completion: nil
