@@ -97,8 +97,9 @@
                     <navigationItem key="navigationItem" id="keY-oc-D6V"/>
                     <connections>
                         <segue destination="auX-M1-qJ2" kind="show" identifier="controller0" id="N9K-He-qJC"/>
-                        <segue destination="sL5-2f-eym" kind="show" identifier="controller1" id="t3l-UM-SBU"/>
-                        <segue destination="KrY-MH-cor" kind="show" identifier="controller2" id="q9I-MQ-2Ns"/>
+                        <segue destination="sL5-2f-eym" kind="presentation" identifier="controller1" animates="NO" id="t3l-UM-SBU"/>
+                        <segue destination="KrY-MH-cor" kind="custom" identifier="controller2" customClass="SwipeTabSegue" customModule="SwipeTabController" id="u2m-Zn-mE4"/>
+                        <segue destination="6yk-33-YdM" kind="custom" identifier="controller3" customClass="SwipeTabSegue" customModule="SwipeTabController" id="kFn-6X-yiD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -119,12 +120,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Segue" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIF-9H-7es">
+                                <rect key="frame" x="149" y="452" width="95.000000000000028" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="H8V-Fx-ERb"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5bF-9H-QYF" firstAttribute="centerX" secondItem="yxl-VT-3gH" secondAttribute="centerX" id="EIO-H2-CSK"/>
                             <constraint firstItem="5bF-9H-QYF" firstAttribute="centerY" secondItem="yxl-VT-3gH" secondAttribute="centerY" id="WJM-Md-NsP"/>
+                            <constraint firstItem="hIF-9H-7es" firstAttribute="centerX" secondItem="yxl-VT-3gH" secondAttribute="centerX" id="Yze-EH-HjB"/>
+                            <constraint firstItem="hIF-9H-7es" firstAttribute="top" secondItem="5bF-9H-QYF" secondAttribute="bottom" constant="8" symbolic="YES" id="eow-sf-6fR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 0" id="Cen-0u-Nma">
@@ -142,12 +151,18 @@
             <objects>
                 <viewController storyboardIdentifier="controller1" id="sL5-2f-eym" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="67S-Lm-MKm">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAB 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCL-NP-u84">
-                                <rect key="frame" x="160" y="408" width="73.333333333333314" height="36"/>
+                                <rect key="frame" x="160" y="373.66666666666669" width="73.333333333333314" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modal Segue" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAX-of-Ady">
+                                <rect key="frame" x="146.66666666666666" y="417.66666666666669" width="99.666666666666657" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -155,8 +170,10 @@
                         <viewLayoutGuide key="safeArea" id="Rl8-AJ-0Q4"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="qAX-of-Ady" firstAttribute="top" secondItem="pCL-NP-u84" secondAttribute="bottom" constant="8" symbolic="YES" id="qcf-dG-m32"/>
                             <constraint firstItem="pCL-NP-u84" firstAttribute="centerX" secondItem="67S-Lm-MKm" secondAttribute="centerX" id="sN1-A9-UyY"/>
                             <constraint firstItem="pCL-NP-u84" firstAttribute="centerY" secondItem="67S-Lm-MKm" secondAttribute="centerY" id="xVz-Wk-pXA"/>
+                            <constraint firstItem="qAX-of-Ady" firstAttribute="centerX" secondItem="67S-Lm-MKm" secondAttribute="centerX" id="yo4-MY-dbf"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="17i-2j-QLu">
@@ -183,10 +200,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom Segue" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTo-xx-Dhl">
+                                <rect key="frame" x="140.66666666666666" y="452" width="112" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ma6-Xe-0pl"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="oTo-xx-Dhl" firstAttribute="top" secondItem="0cs-cv-Zt6" secondAttribute="bottom" constant="8" symbolic="YES" id="1Qt-Eg-DmC"/>
+                            <constraint firstItem="oTo-xx-Dhl" firstAttribute="centerX" secondItem="cNz-dk-2OF" secondAttribute="centerX" id="5JU-b2-Gy1"/>
                             <constraint firstItem="0cs-cv-Zt6" firstAttribute="centerX" secondItem="cNz-dk-2OF" secondAttribute="centerX" id="DbL-sX-dz6"/>
                             <constraint firstItem="0cs-cv-Zt6" firstAttribute="centerY" secondItem="cNz-dk-2OF" secondAttribute="centerY" id="mm8-ff-VzZ"/>
                         </constraints>
@@ -201,11 +226,53 @@
             </objects>
             <point key="canvasLocation" x="1150" y="706"/>
         </scene>
+        <!--Wont Work 1-->
+        <scene sceneID="82l-cK-9ON">
+            <objects>
+                <viewController storyboardIdentifier="controller3" title="Wont Work Not Protocol" id="6yk-33-YdM" userLabel="Wont Work 1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1ym-YK-0Ry">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WON'T WORK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dS-E3-Eo9">
+                                <rect key="frame" x="101.66666666666669" y="408" width="190" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Does Not Conform to LGV_SwipeTabViewControllerType" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOb-H9-VU0">
+                                <rect key="frame" x="66.666666666666657" y="452" width="259.66666666666674" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kAO-5S-gyz"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3dS-E3-Eo9" firstAttribute="centerY" secondItem="1ym-YK-0Ry" secondAttribute="centerY" id="3iT-eB-JDA"/>
+                            <constraint firstItem="nOb-H9-VU0" firstAttribute="top" secondItem="3dS-E3-Eo9" secondAttribute="bottom" constant="8" symbolic="YES" id="FMP-kw-9ab"/>
+                            <constraint firstItem="3dS-E3-Eo9" firstAttribute="centerX" secondItem="1ym-YK-0Ry" secondAttribute="centerX" id="Frj-Qw-pV4"/>
+                            <constraint firstItem="nOb-H9-VU0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1ym-YK-0Ry" secondAttribute="leading" id="QDF-Fo-SgG"/>
+                            <constraint firstItem="nOb-H9-VU0" firstAttribute="centerX" secondItem="1ym-YK-0Ry" secondAttribute="centerX" id="gQG-Kq-LAz"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nOb-H9-VU0" secondAttribute="trailing" id="ozP-eo-Ljm"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 3" id="tp2-Et-PEM">
+                        <imageReference key="image" image="3.square.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ijd-R1-Gns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1864.885496183206" y="-30.281690140845072"/>
+        </scene>
     </scenes>
     <resources>
         <image name="0.square.fill" catalog="system" width="128" height="114"/>
         <image name="1.square.fill" catalog="system" width="128" height="114"/>
         <image name="2.square.fill" catalog="system" width="128" height="114"/>
+        <image name="3.square.fill" catalog="system" width="128" height="114"/>
         <image name="BackgroundGradient" width="16" height="1024"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
