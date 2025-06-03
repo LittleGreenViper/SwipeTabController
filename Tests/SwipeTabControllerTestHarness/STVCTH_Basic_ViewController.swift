@@ -28,6 +28,7 @@ internal import SwipeTabController
  */
 class STVCTH_Basic_ViewController: LGV_SwipeTabViewController {
     override func viewDidLoad() {
+        self.viewControllerIDs = ["controller3"]
         super.viewDidLoad()
         self.overrideUserInterfaceStyle = .dark
         self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light

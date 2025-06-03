@@ -173,9 +173,7 @@ open class LGV_SwipeTabViewController: UIViewController {
          Unsupported coder init. We just kick the can upstairs.
          - parameter inCoder: The coder object that we're supposed to use (but don't).
          */
-        required init?(coder inCoder: NSCoder) {
-            super.init(coder: inCoder)
-        }
+        required init?(coder inCoder: NSCoder) { super.init(coder: inCoder) }
     }
     
     /* ################################################################## */
@@ -208,6 +206,23 @@ open class LGV_SwipeTabViewController: UIViewController {
      The zero-based selected controller. Default is 0.
      */
     @IBInspectable public var selectedViewControllerIndex: Int = 0 { didSet { self.view?.setNeedsLayout() } }
+    
+    /* ################################################################## */
+    /**
+     This needs to be populated, if you want to add view controllers programmatically, but using the storyboard.
+     This returns a runtime-generated list of storyboard IDs of classes that we will instantiate for each of our tabbed controllers.
+     > NOTE: It's very important that this property be set BEFORE calling `super.viewDidLoad()`.
+     */
+    public var viewControllerIDs: [String] = []
+    
+    /* ################################################################## */
+    /**
+     This needs to be overridden, if you want to add view controllers programmatically, without using the storyboard.
+     This returns a concrete array of instantiated and loaded view controller instances.
+     If we are also generating via IDs (storyboard), these will be appended to the existing list, in the order prescribed, here.
+     > NOTE: Declared here, so it can be overridden.
+     */
+    public var generatedViewControllers: [any LGV_SwipeTabViewControllerType] { [] }
 }
 
 /* ###################################################################################################################################### */
@@ -217,7 +232,7 @@ private extension LGV_SwipeTabViewController {
     /* ################################################################## */
     /**
      This uses an internal (App Store Safe) way of querying the view controller, for segues.
-     In order to generate this list, you need to define segues (custom or show will be fine -the segue is never executed).
+     In order to generate this list, you need to define segues (Custom, Modal, or Show will be fine -the segue is never executed).
      It extracts the ID from each segue, which *has to match* the storyboard ID of the view controller instance destination.
      > NOTE: This is an internal key-value property reference, and Apple may change it in the future (highly unlikely). It is not a private API.
      */
@@ -232,8 +247,7 @@ private extension LGV_SwipeTabViewController {
      > NOTE: The order is based on a simple alphabetic string sort, so the storyboard IDs should be defined, with the order of the view controllers in mind.
      */
     var _referencedViewControllerIDs: [String] {
-        var ret = self._referencedInterfaceBuilderViewControllerIDs
-        ret.append(contentsOf: self.viewControllerIDs.compactMap { !ret.contains($0) ? $0 : nil })
+        let ret = self._referencedInterfaceBuilderViewControllerIDs + self.viewControllerIDs
         return ret.sorted()
     }
 }
@@ -327,10 +341,6 @@ private extension LGV_SwipeTabViewController {
      - parameter inItem: The toolbar item that was hit.
      */
     @objc private func _toolbarItemHit(_ inItem: UIButton) {
-        #if DEBUG
-            print("Toolbar Item \(inItem.tag) hit.")
-        #endif
-        
         self.selectViewController(at: inItem.tag)
     }
 }
@@ -355,21 +365,6 @@ internal extension LGV_SwipeTabViewController {
 // MARK: Public Computed Properties
 /* ###################################################################################################################################### */
 public extension LGV_SwipeTabViewController {
-    /* ################################################################## */
-    /**
-     This needs to be overridden, if you want to add view controllers programmatically, but using the storyboard.
-     This returns a runtime-generated list of storyboard IDs of classes that we will instantiate for each of our tabbed controllers.
-     */
-    var viewControllerIDs: [String] { [] }
-    
-    /* ################################################################## */
-    /**
-     This needs to be overridden, if you want to add view controllers programmatically, without using the storyboard.
-     This returns a concrete array of instantiated and loaded view controller instances.
-     If we are also generating via IDs (storyboard), these will be appended to the existing list, in the order prescribed, here.
-     */
-    var generatedViewControllers: [any LGV_SwipeTabViewControllerType] { [] }
-    
     /* ################################################################## */
     /**
      This is the page view controller that will allow swiped tabs.

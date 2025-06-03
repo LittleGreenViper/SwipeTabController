@@ -120,11 +120,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="keY-oc-D6V"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedViewControllerIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="auX-M1-qJ2" kind="show" identifier="controller0" id="N9K-He-qJC"/>
                         <segue destination="sL5-2f-eym" kind="presentation" identifier="controller1" animates="NO" id="t3l-UM-SBU"/>
                         <segue destination="KrY-MH-cor" kind="custom" identifier="controller2" customClass="SwipeTabSegue" customModule="SwipeTabController" id="u2m-Zn-mE4"/>
-                        <segue destination="6yk-33-YdM" kind="custom" identifier="controller3" customClass="SwipeTabSegue" customModule="SwipeTabController" id="kFn-6X-yiD"/>
+                        <segue destination="6yk-33-YdM" kind="custom" identifier="controller4" customClass="SwipeTabSegue" customModule="SwipeTabController" id="kFn-6X-yiD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -249,12 +254,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8M-rm-diF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="706"/>
+            <point key="canvasLocation" x="1155" y="706"/>
         </scene>
         <!--Wont Work 1-->
         <scene sceneID="82l-cK-9ON">
             <objects>
-                <viewController storyboardIdentifier="controller3" title="Wont Work Not Protocol" id="6yk-33-YdM" userLabel="Wont Work 1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller4" id="6yk-33-YdM" userLabel="Wont Work 1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1ym-YK-0Ry">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -283,8 +288,8 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nOb-H9-VU0" secondAttribute="trailing" id="ozP-eo-Ljm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 3" id="tp2-Et-PEM">
-                        <imageReference key="image" image="3.square.fill" catalog="system" symbolScale="large"/>
+                    <tabBarItem key="tabBarItem" title="Item 4" id="tp2-Et-PEM">
+                        <imageReference key="image" image="4.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -292,15 +297,57 @@
             </objects>
             <point key="canvasLocation" x="1864.885496183206" y="-30.281690140845072"/>
         </scene>
+        <!--Item 3-->
+        <scene sceneID="aPi-dR-6oP">
+            <objects>
+                <viewController storyboardIdentifier="controller3" id="YGZ-4o-DEF" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4sE-Cl-YOH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAB 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3m-eh-RLZ">
+                                <rect key="frame" x="157.66666666666666" y="408" width="77.666666666666657" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Segue" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOK-tP-GXT">
+                                <rect key="frame" x="159.33333333333334" y="452" width="74.666666666666657" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nmc-oe-yaL"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jOK-tP-GXT" firstAttribute="top" secondItem="k3m-eh-RLZ" secondAttribute="bottom" constant="8" symbolic="YES" id="8V2-MR-srm"/>
+                            <constraint firstItem="k3m-eh-RLZ" firstAttribute="centerX" secondItem="4sE-Cl-YOH" secondAttribute="centerX" id="Cxt-pJ-g1S"/>
+                            <constraint firstItem="k3m-eh-RLZ" firstAttribute="centerY" secondItem="4sE-Cl-YOH" secondAttribute="centerY" id="PXM-jc-3IK"/>
+                            <constraint firstItem="jOK-tP-GXT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4sE-Cl-YOH" secondAttribute="leading" id="UKm-uK-jcg"/>
+                            <constraint firstItem="jOK-tP-GXT" firstAttribute="centerX" secondItem="4sE-Cl-YOH" secondAttribute="centerX" id="bmj-HM-vFT"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jOK-tP-GXT" secondAttribute="trailing" id="zF8-M9-apF"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 3" id="y9P-7a-C8I">
+                        <imageReference key="image" image="3.square.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgJ-1e-xeI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2069" y="706"/>
+        </scene>
     </scenes>
     <resources>
         <image name="0.square.fill" catalog="system" width="128" height="114"/>
         <image name="1.square.fill" catalog="system" width="128" height="114"/>
         <image name="2.square.fill" catalog="system" width="128" height="114"/>
         <image name="3.square.fill" catalog="system" width="128" height="114"/>
+        <image name="4.square.fill" catalog="system" width="128" height="114"/>
         <image name="BackgroundGradient" width="16" height="1024"/>
         <namedColor name="AccentColor">
-            <color red="0.0" green="0.24286265432098766" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.24300000071525574" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
