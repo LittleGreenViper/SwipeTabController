@@ -138,12 +138,6 @@ open class LGV_SwipeTabViewController: UIViewController {
     private class _BarItem: UIBarButtonItem {
         /* ############################################################## */
         /**
-         A reference to the customView, as a button.
-         */
-        private weak var _button: UIButton?
-
-        /* ############################################################## */
-        /**
          Default initializer.
          
          - parameters:
@@ -177,7 +171,6 @@ open class LGV_SwipeTabViewController: UIViewController {
             button.addTarget(inTarget, action: inAction, for: .touchUpInside)
 
             self.customView = button
-            self._button = button
         }
 
         /* ############################################################## */
