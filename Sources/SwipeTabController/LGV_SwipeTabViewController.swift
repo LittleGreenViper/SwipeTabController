@@ -57,9 +57,9 @@ public protocol LGV_SwipeTabViewControllerType: UIViewController, AnyObject {
 public extension LGV_SwipeTabViewControllerType {
     /* ################################################################## */
     /**
-     Default fetches any preexisting tab bar item. Returns an "ERROR" tab item, if none provided by the view controller.
+     Default fetches any preexisting tab bar item.
      */
-    var myTabItem: UITabBarItem? { self.tabBarItem ?? UITabBarItem(title: "ERROR", image: UIImage(systemName: "nosign"), tag: 0) }
+    var myTabItem: UITabBarItem? { self.tabBarItem }
     
     /* ################################################################## */
     /**
@@ -115,6 +115,18 @@ extension LGV_SwipeTab_Base_ViewController {
 /**
  This implements an instance of a `UIPageViewController`, as well as a `UIToolbar` instance. The toolbar acts in the same manner as a `UITabBar`,
  and is displayed either below (default), or above the page view controller.
+ 
+ The page view controller provides the "swipe" action, and the toolbar provides the "tab bar" action.
+ 
+ This results in behavior like Android. In Android, you can swipe between tabs, as well as select them directly.
+ 
+ You can have the "tab bar" displayed above the page, as in Android, or below (default), as in iOS.
+ 
+ This is a lot more limited than a real `UITabBarController`, but it should be useful for most implementations. You do have access to both the
+ page view controller, and the toolbar, if you want to do more customization.
+ 
+ It will allow you to propagate a navigation controller, applied to the container, into internal views. That's always an annoying issue with `UITabBarController`.
+ You need to remember that the tab controller is hosting the navigation bar; not your embedded controller.
  */
 open class LGV_SwipeTabViewController: UIViewController {
     /* ################################################################################################################################## */
