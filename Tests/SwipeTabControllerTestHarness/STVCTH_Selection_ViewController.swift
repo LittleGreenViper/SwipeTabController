@@ -72,7 +72,7 @@ extension STVCTH_Selection_ViewController {
      - parameter sender: Ignored.
      */
     override func prepare(for inSegue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = inSegue.destination as? STVCTH_Basic_ViewController,
+        guard let destination = inSegue.destination as? STVCTH_StoryboardOnly_SwipeTab_ViewController,
               let switcheroo = self.tabBarOnTopSwitch
         else { return }
         

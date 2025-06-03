@@ -41,17 +41,17 @@
                                 <rect key="frame" x="16" y="352.66666666666669" width="361" height="147"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33w-NK-Zu3">
-                                        <rect key="frame" x="126" y="0.0" width="109" height="41"/>
+                                        <rect key="frame" x="106.33333333333333" y="0.0" width="148.33333333333337" height="41"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Storyboard"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Storyboard Only"/>
                                         <connections>
                                             <segue destination="BYZ-38-t0r" kind="show" id="Olq-Og-DO7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWO-PO-Fnq">
-                                        <rect key="frame" x="115" y="53" width="131" height="41"/>
+                                        <rect key="frame" x="95.333333333333329" y="53" width="170.33333333333337" height="41"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Programmatic"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Programmatic Only"/>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-dV-SP9">
                                         <rect key="frame" x="75.666666666666686" y="106" width="210" height="41"/>
@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="221" y="-749"/>
         </scene>
-        <!--Storyboard Swipe Controller-->
+        <!--Storyboard Only Swipe Tab View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Storyboard Swipe Controller" id="BYZ-38-t0r" customClass="STVCTH_Basic_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="STVCTH_StoryboardOnly_SwipeTab_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

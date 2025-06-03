@@ -22,13 +22,17 @@ internal import RVS_Generic_Swift_Toolbox
 internal import SwipeTabController
 
 /* ###################################################################################################################################### */
-// MARK: - The Main View Controller -
+// MARK: - The Main View Controller for Programmatic-Only Tabs -
 /* ###################################################################################################################################### */
 /**
+ This is presented when the user selects the "Programmatic Only" button.
  */
-class STVCTH_Basic_ViewController: LGV_SwipeTabViewController {
+class STVCTH_ProgrammaticOnly_SwipeTab_ViewController: LGV_SwipeTabViewController {
+    /* ################################################################## */
+    /**
+     Called when the view hierachy has been loaded
+     */
     override func viewDidLoad() {
-        self.viewControllerIDs = ["controller3"]
         super.viewDidLoad()
         self.overrideUserInterfaceStyle = .dark
         self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
