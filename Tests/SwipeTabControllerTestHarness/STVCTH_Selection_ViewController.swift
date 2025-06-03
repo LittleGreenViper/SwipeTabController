@@ -32,6 +32,12 @@ class STVCTH_Selection_ViewController: UIViewController {
      The switch that denotes the position of the tab bar, in the next screen.
      */
     @IBOutlet weak var tabBarOnTopSwitch: UISwitch?
+    
+    /* ################################################################## */
+    /**
+     The switch that denotes the position of the text in each item, in the next screen.
+     */
+    @IBOutlet weak var textOnRightSwitch: UISwitch?
 }
 
 /* ###################################################################################################################################### */
@@ -46,6 +52,15 @@ extension STVCTH_Selection_ViewController {
     @IBAction func tabBarOnTopHit(_: UIButton) {
         self.tabBarOnTopSwitch?.setOn(!(self.tabBarOnTopSwitch?.isOn ?? true), animated: true)
         self.tabBarOnTopSwitch?.sendActions(for: .valueChanged)
+    }
+    /* ################################################################## */
+    /**
+     Called when the textOnRightSwitch label is hit.
+     - parameter: Ignored
+     */
+    @IBAction func textOnRightHit(_: UIButton) {
+        self.textOnRightSwitch?.setOn(!(self.textOnRightSwitch?.isOn ?? true), animated: true)
+        self.textOnRightSwitch?.sendActions(for: .valueChanged)
     }
 }
 
@@ -72,14 +87,18 @@ extension STVCTH_Selection_ViewController {
      - parameter sender: Ignored.
      */
     override func prepare(for inSegue: UIStoryboardSegue, sender: Any?) {
-        guard let switcheroo = self.tabBarOnTopSwitch else { return }
+        guard let tabBarOnTop = self.tabBarOnTopSwitch,
+              let textOnRight = self.textOnRightSwitch
+        else { return }
         
         if let destination = inSegue.destination as? STVCTH_StoryboardOnly_SwipeTab_ViewController {
-            destination.toolbarOnTop = switcheroo.isOn
-            destination.toolbar?.overrideUserInterfaceStyle = switcheroo.isOn ? .light : .dark
+            destination.toolbarOnTop = tabBarOnTop.isOn
+            destination.textOnRight = textOnRight.isOn
+            destination.toolbar?.overrideUserInterfaceStyle = tabBarOnTop.isOn ? .light : .dark
         } else if let destination = inSegue.destination as? STVCTH_ProgrammaticOnly_SwipeTab_ViewController {
-            destination.toolbarOnTop = switcheroo.isOn
-            destination.toolbar?.overrideUserInterfaceStyle = switcheroo.isOn ? .light : .dark
+            destination.toolbarOnTop = tabBarOnTop.isOn
+            destination.textOnRight = textOnRight.isOn
+            destination.toolbar?.overrideUserInterfaceStyle = tabBarOnTop.isOn ? .light : .dark
         }
     }
 }

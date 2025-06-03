@@ -138,6 +138,12 @@ open class LGV_SwipeTabViewController: UIViewController {
     private class _BarItem: UIBarButtonItem {
         /* ############################################################## */
         /**
+         The spacing between the image and the text
+         */
+        private static let _kImageTextSpacing: CGFloat = 4.0
+        
+        /* ############################################################## */
+        /**
          Default initializer.
          
          - parameters:
@@ -146,28 +152,38 @@ open class LGV_SwipeTabViewController: UIViewController {
             - inTag: The tag to be applied to the button (used to match to a view controller).
             - inTarget: The callback target object.
             - inAction: The function, within the target object (must be ObjC).
+            - inIsHorizontal: If true (default is false), the orientation is horizontal.
          */
         init(image inImage: UIImage?,
              text inText: String?,
              tag inTag: Int,
              target inTarget: AnyObject,
-             action inAction: Selector
+             action inAction: Selector,
+             isHorizontal inIsHorizontal: Bool = false
         ) {
             super.init()
 
             var config = UIButton.Configuration.plain()
             config.image = inImage
             config.title = inText
-            config.imagePlacement = .top
+            config.imagePlacement = inIsHorizontal ? .leading : .top
             config.imagePadding = 4
 
             let button = UIButton(configuration: config)
             button.tintColor = self.tintColor
             button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
+            button.titleLabel?.textAlignment = inIsHorizontal ? .left : .center
             button.sizeToFit()
-
             button.tag = inTag
-
+            button.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
+            button.titleLabel?.leadingAnchor.constraint(equalTo: inIsHorizontal ? button.imageView?.trailingAnchor ?? button.leadingAnchor : button.leadingAnchor,
+                                                        constant: inIsHorizontal ? Self._kImageTextSpacing : 0
+            ).isActive = true
+            button.titleLabel?.trailingAnchor.constraint(greaterThanOrEqualTo: button.trailingAnchor).isActive = true
+            button.titleLabel?.bottomAnchor.constraint(greaterThanOrEqualTo: button.bottomAnchor).isActive = true
+            button.titleLabel?.topAnchor.constraint(equalTo: inIsHorizontal ? button.topAnchor : button.imageView?.bottomAnchor ?? button.topAnchor,
+                                                    constant: inIsHorizontal ? 0 : Self._kImageTextSpacing
+            ).isActive = true
             button.addTarget(inTarget, action: inAction, for: .touchUpInside)
 
             self.customView = button
@@ -205,6 +221,13 @@ open class LGV_SwipeTabViewController: UIViewController {
      > NOTE: This shouldn't be changed after the view is loaded.
      */
     @IBInspectable public var toolbarOnTop: Bool = false
+    
+    /* ################################################################## */
+    /**
+     This is true (default is false), if we want the "Tab Bar" items to show the text on the right of each item (as opposed to the default bottom).
+     > NOTE: This shouldn't be changed after the view is loaded.
+     */
+    @IBInspectable public var textOnRight: Bool = false
     
     /* ################################################################## */
     /**
@@ -303,7 +326,7 @@ private extension LGV_SwipeTabViewController {
         for viewController in self._referencedViewControllers {
             guard let tabItem = viewController.myTabItem else { continue }
             
-            let barItem = _BarItem(image: tabItem.image, text: tabItem.title, tag: viewController.index, target: self, action: #selector(_toolbarItemHit))
+            let barItem = _BarItem(image: tabItem.image, text: tabItem.title, tag: viewController.index, target: self, action: #selector(_toolbarItemHit), isHorizontal: self.textOnRight)
 
             barItem.accessibilityLabel = tabItem.accessibilityLabel
             barItem.accessibilityHint = tabItem.accessibilityHint

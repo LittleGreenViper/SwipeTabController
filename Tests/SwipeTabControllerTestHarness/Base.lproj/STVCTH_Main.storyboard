@@ -38,10 +38,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="huv-SO-tDC">
-                                <rect key="frame" x="16" y="352.66666666666669" width="361" height="147"/>
+                                <rect key="frame" x="16" y="326" width="361" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33w-NK-Zu3">
                                         <rect key="frame" x="106.33333333333333" y="0.0" width="148.33333333333337" height="41"/>
+                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Storyboard Only"/>
                                         <connections>
@@ -50,21 +51,22 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWO-PO-Fnq">
                                         <rect key="frame" x="95.333333333333329" y="53" width="170.33333333333337" height="41"/>
+                                        <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Programmatic Only"/>
                                         <connections>
                                             <segue destination="aun-E7-FMD" kind="show" id="hmb-jQ-z4h"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-dV-SP9">
-                                        <rect key="frame" x="75.666666666666686" y="106" width="210" height="41"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-dV-SP9">
+                                        <rect key="frame" x="73.666666666666686" y="106" width="214" height="41"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FKc-Z2-Eey">
                                                 <rect key="frame" x="0.0" y="5" width="51" height="31"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
                                             </switch>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTg-I1-548">
-                                                <rect key="frame" x="53" y="0.0" width="157" height="41"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTg-I1-548">
+                                                <rect key="frame" x="57" y="0.0" width="157" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -77,7 +79,31 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xr6-AM-tB9">
+                                        <rect key="frame" x="73.666666666666686" y="159" width="214" height="41"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="94K-hL-VZv">
+                                                <rect key="frame" x="0.0" y="5" width="55.333333333333336" height="31"/>
+                                                <color key="thumbTintColor" name="AccentColor"/>
+                                            </switch>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJ7-Yo-xEf" userLabel="Text On Right">
+                                                <rect key="frame" x="61.333333333333329" y="0.0" width="152.66666666666669" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="tintColor" systemColor="labelColor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Text On Right">
+                                                    <color key="titleColor" name="AccentColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="textOnRightHit:" destination="Lv1-5o-6x2" eventType="touchUpInside" id="Ohr-Gx-eYF"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="xr6-AM-tB9" firstAttribute="width" secondItem="oAR-dV-SP9" secondAttribute="width" id="5eX-7g-5Sa"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="atv-HU-Kc1"/>
@@ -95,6 +121,7 @@
                     <navigationItem key="navigationItem" id="6UF-Bh-3gR"/>
                     <connections>
                         <outlet property="tabBarOnTopSwitch" destination="FKc-Z2-Eey" id="tJZ-Ok-H0Y"/>
+                        <outlet property="textOnRightSwitch" destination="94K-hL-VZv" id="bPs-K4-TyA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ynu-D7-ad8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
