@@ -81,6 +81,29 @@ extension STVCTH_ProgrammaticOnly_ViewController {
         descriptionLabel.topAnchor.constraint(equalTo: myLabel.bottomAnchor, constant: 8).isActive = true
         descriptionLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         descriptionLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        
+        self.navigationItem.title = self.whatsMyName
+        let endOfTheLineButton = UIBarButtonItem()
+        endOfTheLineButton.image = UIImage(systemName: "chevron.right.2")
+        endOfTheLineButton.target = self
+        endOfTheLineButton.action = #selector(endOfTheLineHit)
+        self.navigationItem.rightBarButtonItem = endOfTheLineButton
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Callbacks
+/* ###################################################################################################################################### */
+extension STVCTH_ProgrammaticOnly_ViewController {
+    /* ################################################################## */
+    /**
+     This is called when the double-chevrom bar button is hit. We create and bring in a new instance of the "end of the line" controller.
+     */
+    @objc func endOfTheLineHit() {
+        // We don't have a storyboard, but our navigation controller does.
+        if let newVC = self.navigationController?.storyboard?.instantiateViewController(withIdentifier: STVCTH_LastNav_ViewController.storyboardID) as? STVCTH_LastNav_ViewController {
+            self.navigationController?.pushViewController(newVC, animated: true)
+        }
     }
 }
 

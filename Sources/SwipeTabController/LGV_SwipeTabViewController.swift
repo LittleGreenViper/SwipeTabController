@@ -233,7 +233,14 @@ open class LGV_SwipeTabViewController: UIViewController {
     /**
      The zero-based selected controller. Default is 0.
      */
-    @IBInspectable public var selectedViewControllerIndex: Int = 0 { didSet { self.view?.setNeedsLayout() } }
+    @IBInspectable public var selectedViewControllerIndex: Int = 0 {
+        didSet {
+            self.view?.setNeedsLayout()
+            self.navigationItem.title = self._referencedViewControllers[self.selectedViewControllerIndex].navigationItem.title
+            self.navigationItem.leftBarButtonItems = self._referencedViewControllers[self.selectedViewControllerIndex].navigationItem.leftBarButtonItems
+            self.navigationItem.rightBarButtonItems = self._referencedViewControllers[self.selectedViewControllerIndex].navigationItem.rightBarButtonItems
+        }
+    }
     
     /* ################################################################## */
     /**
@@ -466,9 +473,9 @@ extension LGV_SwipeTabViewController {
             completion: nil
         )
         
-        self.navigationController?.navigationItem.title = self.navigationItem.title
-        self.navigationController?.navigationItem.leftBarButtonItems = self.navigationItem.leftBarButtonItems
-        self.navigationController?.navigationItem.rightBarButtonItems = self.navigationItem.rightBarButtonItems
+        // This just forces the navitem to update.
+        let currentIndex = self.selectedViewControllerIndex
+        self.selectedViewControllerIndex = currentIndex
     }
     
     /* ################################################################## */

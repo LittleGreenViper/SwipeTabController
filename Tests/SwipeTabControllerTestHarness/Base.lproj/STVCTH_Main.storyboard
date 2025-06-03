@@ -166,7 +166,7 @@
             </objects>
             <point key="canvasLocation" x="220.61068702290075" y="-30.281690140845072"/>
         </scene>
-        <!--Item 0-->
+        <!--TAB 0-->
         <scene sceneID="WtO-e5-mCb">
             <objects>
                 <viewController storyboardIdentifier="controller0" id="auX-M1-qJ2" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
@@ -199,14 +199,20 @@
                     <tabBarItem key="tabBarItem" title="Item 0" id="Cen-0u-Nma">
                         <imageReference key="image" image="0.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="szz-3Y-ZYx"/>
+                    <navigationItem key="navigationItem" title="TAB 0" id="szz-3Y-ZYx">
+                        <barButtonItem key="rightBarButtonItem" image="chevron.right.2" catalog="system" id="Hjf-31-v4f">
+                            <connections>
+                                <segue destination="zuU-Ud-gnx" kind="show" id="Mjk-zI-pEH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1v7-LY-zNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-746" y="706"/>
         </scene>
-        <!--Item 1-->
+        <!--TAB 1-->
         <scene sceneID="YKG-kv-Abm">
             <objects>
                 <viewController storyboardIdentifier="controller1" id="sL5-2f-eym" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
@@ -239,14 +245,20 @@
                     <tabBarItem key="tabBarItem" title="Item 1" id="17i-2j-QLu">
                         <imageReference key="image" image="1.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="K4o-XX-5RH"/>
+                    <navigationItem key="navigationItem" title="TAB 1" id="K4o-XX-5RH">
+                        <barButtonItem key="rightBarButtonItem" image="chevron.right.2" catalog="system" id="z1F-vm-cRi">
+                            <connections>
+                                <segue destination="zuU-Ud-gnx" kind="show" id="IIy-r0-xyV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yoh-D9-dD9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="221" y="707"/>
         </scene>
-        <!--Item 2-->
+        <!--TAB 2-->
         <scene sceneID="bAd-RU-4mQ">
             <objects>
                 <viewController storyboardIdentifier="controller2" id="KrY-MH-cor" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
@@ -279,7 +291,13 @@
                     <tabBarItem key="tabBarItem" title="Item 2" id="Njo-Cu-dhy">
                         <imageReference key="image" image="2.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" id="DF8-Dk-vBM"/>
+                    <navigationItem key="navigationItem" title="TAB 2" id="DF8-Dk-vBM">
+                        <barButtonItem key="rightBarButtonItem" image="chevron.right.2" catalog="system" id="0sG-wc-yUk">
+                            <connections>
+                                <segue destination="zuU-Ud-gnx" kind="show" id="1v1-se-vGI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8M-rm-diF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -354,7 +372,7 @@
             </objects>
             <point key="canvasLocation" x="2068" y="-30"/>
         </scene>
-        <!--Item 3-->
+        <!--TAB 3-->
         <scene sceneID="aPi-dR-6oP">
             <objects>
                 <viewController storyboardIdentifier="controller3" id="YGZ-4o-DEF" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
@@ -374,15 +392,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAS-gP-ZEC">
-                                <rect key="frame" x="136" y="480" width="118" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Next Screen"/>
-                                <connections>
-                                    <segue destination="zuU-Ud-gnx" kind="show" id="oKc-fo-3L5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nmc-oe-yaL"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -398,13 +407,20 @@
                     <tabBarItem key="tabBarItem" title="Item 3" id="y9P-7a-C8I">
                         <imageReference key="image" image="3.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" title="TAB 3" id="sas-x6-nax">
+                        <barButtonItem key="rightBarButtonItem" image="chevron.right.2" catalog="system" id="hgF-H9-xu8">
+                            <connections>
+                                <segue destination="zuU-Ud-gnx" kind="show" id="dcG-qs-1zH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgJ-1e-xeI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2068" y="706"/>
         </scene>
-        <!--Last Nav View Controller-->
+        <!--End Of the Line-->
         <scene sceneID="pis-m9-YhS">
             <objects>
                 <viewController storyboardIdentifier="STVCTH_LastNav_ViewController" id="zuU-Ud-gnx" customClass="STVCTH_LastNav_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
@@ -435,13 +451,16 @@
                             <constraint firstAttribute="trailing" secondItem="UdH-TF-Wp0" secondAttribute="trailing" id="x2m-3d-9xj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="Sk1-0j-UMA"/>
+                    <navigationItem key="navigationItem" title="End Of the Line" leftItemsSupplementBackButton="YES" id="Sk1-0j-UMA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhH-Fx-GJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3031" y="706"/>
+            <point key="canvasLocation" x="714" y="1440"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dcG-qs-1zH"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="0.square.fill" catalog="system" width="128" height="114"/>
         <image name="1.square.fill" catalog="system" width="128" height="114"/>
@@ -449,6 +468,7 @@
         <image name="3.square.fill" catalog="system" width="128" height="114"/>
         <image name="4.square.fill" catalog="system" width="128" height="114"/>
         <image name="BackgroundGradient" width="16" height="1024"/>
+        <image name="chevron.right.2" catalog="system" width="128" height="108"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.24300000071525574" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
