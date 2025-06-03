@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           SwipeTabController Doumentation
         </a>
-         (0% documented)
+         (100% documented)
       </p>
     
       <div class="header-col--secondary">
@@ -46,7 +46,7 @@
       <img class="carat" src="../img/carat.png" alt=""/>
       <a class="breadcrumb" href="../Classes.html">Classes</a>
       <img class="carat" src="../img/carat.png" alt=""/>
-      LGV_SwipeTabViewController Class Reference
+      SwipeTabController.LGV_SwipeTabViewController Class Reference
     </p>
 
     <div class="content-wrapper">
@@ -58,6 +58,20 @@
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a>
               </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/LGV_SwipeTab_Base_ViewController.html">LGV_SwipeTab_Base_ViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes.html#/c:@M@SwipeTabController@objc(cs)SwipeTabSegue">SwipeTabSegue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/LGV_SwipeTabViewControllerType.html">LGV_SwipeTabViewControllerType</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -67,12 +81,313 @@
         <section class="section">
           <div class="section-content top-matter">
             <h1>LGV_SwipeTabViewController</h1>
-            
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">@IBDesignable</span>
+<span class="kd">@MainActor</span>
+<span class="kd">open</span> <span class="kd">class</span> <span class="kt">LGV_SwipeTabViewController</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">LGV_SwipeTabViewController</span><span class="p">:</span> <span class="kt">UIPageViewControllerDataSource</span></code></pre>
+<pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">LGV_SwipeTabViewController</span><span class="p">:</span> <span class="kt">UIPageViewControllerDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>This implements an instance of a <code>UIPageViewController</code>, as well as a <code>UIToolbar</code> instance. The toolbar acts in the same manner as a <code>UITabBar</code>,
+and is displayed either below (default), or above the page view controller.</p>
+
+<p>The page view controller provides the &ldquo;swipe&rdquo; action, and the toolbar provides the &ldquo;tab bar&rdquo; action.</p>
+
+<p>This results in behavior like Android. In Android, you can swipe between tabs, as well as select them directly.</p>
+
+<p>You can have the &ldquo;tab bar&rdquo; displayed above the page, as in Android, or below (default), as in iOS.</p>
+
+<p>This is a lot more limited than a real <code>UITabBarController</code>, but it should be useful for most implementations. You do have access to both the
+page view controller, and the toolbar, if you want to do more customization.</p>
+
+<p>It will allow you to propagate a navigation controller, applied to the container, into internal views. That&rsquo;s always an annoying issue with <code>UITabBarController</code>.
+You need to remember that the tab controller is hosting the navigation bar; not your embedded controller.</p>
+
           </div>
         </section>
 
         <section class="section">
           <div class="section-content">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Private%20Button%20Class%20for%20Toolbar%20Items"></a>
+                <a name="//apple_ref/swift/Section/Private Button Class for Toolbar Items" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Private%20Button%20Class%20for%20Toolbar%20Items"></a>
+                  <h3 class="section-name"><span>Private Button Class for Toolbar Items</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@SwipeTabController@objc(cs)LGV_SwipeTabViewController(py)toolbarOnTop"></a>
+                    <a name="//apple_ref/swift/Property/toolbarOnTop" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@SwipeTabController@objc(cs)LGV_SwipeTabViewController(py)toolbarOnTop">toolbarOnTop</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is true (default is false), if we want the &ldquo;Tab Bar&rdquo; to show up on top of the screen (as opposed to the default bottom).</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This shouldn&rsquo;t be changed after the view is loaded.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">toolbarOnTop</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@SwipeTabController@objc(cs)LGV_SwipeTabViewController(py)textOnRight"></a>
+                    <a name="//apple_ref/swift/Property/textOnRight" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@SwipeTabController@objc(cs)LGV_SwipeTabViewController(py)textOnRight">textOnRight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is true (default is false), if we want the &ldquo;Tab Bar&rdquo; items to show the text on the right of each item (as opposed to the default bottom).</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>This shouldn&rsquo;t be changed after the view is loaded.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">textOnRight</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@SwipeTabController@objc(cs)LGV_SwipeTabViewController(py)selectedViewControllerIndex"></a>
+                    <a name="//apple_ref/swift/Property/selectedViewControllerIndex" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@SwipeTabController@objc(cs)LGV_SwipeTabViewController(py)selectedViewControllerIndex">selectedViewControllerIndex</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The zero-based selected controller. Default is 0.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">selectedViewControllerIndex</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18SwipeTabController04LGV_ab4ViewC0C04viewC3IDsSaySSGvp"></a>
+                    <a name="//apple_ref/swift/Property/viewControllerIDs" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwipeTabController04LGV_ab4ViewC0C04viewC3IDsSaySSGvp">viewControllerIDs</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This needs to be populated, if you want to add view controllers programmatically, but using the storyboard.
+This returns a runtime-generated list of storyboard IDs of classes that we will instantiate for each of our tabbed controllers.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>It&rsquo;s very important that this property be set BEFORE calling <code>super.viewDidLoad()</code>.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="k">var</span> <span class="nv">viewControllerIDs</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18SwipeTabController04LGV_ab4ViewC0C09generatedE11ControllersSayAA0d1_abeC4Type_pGvp"></a>
+                    <a name="//apple_ref/swift/Property/generatedViewControllers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwipeTabController04LGV_ab4ViewC0C09generatedE11ControllersSayAA0d1_abeC4Type_pGvp">generatedViewControllers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This needs to be overridden, if you want to add view controllers programmatically, without using the storyboard.
+This returns a concrete array of instantiated and loaded view controller instances.
+If we are also generating via IDs (storyboard), these will be appended to the existing list, in the order prescribed, here.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>Declared here as &ldquo;open,&rdquo; so it can be overridden.</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">open</span> <span class="k">var</span> <span class="nv">generatedViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="n">any</span> <span class="kt"><a href="../Protocols/LGV_SwipeTabViewControllerType.html">LGV_SwipeTabViewControllerType</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Computed%20Properties"></a>
+                <a name="//apple_ref/swift/Section/Public Computed Properties" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Computed%20Properties"></a>
+                  <h3 class="section-name"><span>Public Computed Properties</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18SwipeTabController04LGV_ab4ViewC0C04pageeC0So06UIPageeC0CSgvp"></a>
+                    <a name="//apple_ref/swift/Property/pageViewController" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwipeTabController04LGV_ab4ViewC0C04pageeC0So06UIPageeC0CSgvp">pageViewController</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the page view controller that will allow swiped tabs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="k">weak</span> <span class="k">var</span> <span class="nv">pageViewController</span><span class="p">:</span> <span class="kt">UIPageViewController</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18SwipeTabController04LGV_ab4ViewC0C7toolbarSo9UIToolbarCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/toolbar" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwipeTabController04LGV_ab4ViewC0C7toolbarSo9UIToolbarCSgvp">toolbar</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the toolbar, at the top or bottom.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="k">weak</span> <span class="k">var</span> <span class="nv">toolbar</span><span class="p">:</span> <span class="kt">UIToolbar</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18SwipeTabController04LGV_ab4ViewC0C010referencedE11ControllersSayAA0d1_abeC4Type_pGvp"></a>
+                    <a name="//apple_ref/swift/Property/referencedViewControllers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwipeTabController04LGV_ab4ViewC0C010referencedE11ControllersSayAA0d1_abeC4Type_pGvp">referencedViewControllers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Accessor for the referenced view controllers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="k">var</span> <span class="nv">referencedViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="n">any</span> <span class="kt"><a href="../Protocols/LGV_SwipeTabViewControllerType.html">LGV_SwipeTabViewControllerType</a></span><span class="p">]</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
             <div class="task-group">
               <div class="task-name-container">
                 <a name="/Base%20Class%20Overrides"></a>
@@ -87,9 +402,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/"></a>
+                    <a name="/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)viewDidLoad"></a>
                     <a name="//apple_ref/swift/Method/viewDidLoad()" class="dashAnchor"></a>
-                    <a class="token" href="#/">viewDidLoad()</a>
+                    <a class="token" href="#/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)viewDidLoad">viewDidLoad()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -99,6 +414,304 @@
                       <div class="abstract">
                         <p>Called when the view hierarchy has been set up.</p>
 
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">open</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)viewWillLayoutSubviews"></a>
+                    <a name="//apple_ref/swift/Method/viewWillLayoutSubviews()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)viewWillLayoutSubviews">viewWillLayoutSubviews()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called, when the layout will be changed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">open</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillLayoutSubviews</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20Instance%20Methods"></a>
+                <a name="//apple_ref/swift/Section/Public Instance Methods" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Public%20Instance%20Methods"></a>
+                  <h3 class="section-name"><span>Public Instance Methods</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18SwipeTabController04LGV_ab4ViewC0C12styleToolbaryyF"></a>
+                    <a name="//apple_ref/swift/Method/styleToolbar()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwipeTabController04LGV_ab4ViewC0C12styleToolbaryyF">styleToolbar()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Override this, to provide your own toolbar styling.
+Default, is a completely transparent toolbar.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">func</span> <span class="nf">styleToolbar</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:18SwipeTabController04LGV_ab4ViewC0C06selecteC02atySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/selectViewController(at:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:18SwipeTabController04LGV_ab4ViewC0C06selecteC02atySi_tF">selectViewController(at:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called to select a specific view controller.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">func</span> <span class="nf">selectViewController</span><span class="p">(</span><span class="n">at</span> <span class="nv">inIndex</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UIPageViewControllerDataSource%20Conformance"></a>
+                <a name="//apple_ref/swift/Section/UIPageViewControllerDataSource Conformance" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UIPageViewControllerDataSource%20Conformance"></a>
+                  <h3 class="section-name"><span>UIPageViewControllerDataSource Conformance</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)pageViewController:viewControllerBeforeViewController:"></a>
+                    <a name="//apple_ref/swift/Method/pageViewController(_:viewControllerBefore:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)pageViewController:viewControllerBeforeViewController:">pageViewController(_:<wbr>viewControllerBefore:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called to provide a new view controller, when swiping.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">pageViewController</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UIPageViewController</span><span class="p">,</span> <span class="n">viewControllerBefore</span> <span class="nv">inNextViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inNextViewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view controller for the timer that will be AFTER ours</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)pageViewController:viewControllerAfterViewController:"></a>
+                    <a name="//apple_ref/swift/Method/pageViewController(_:viewControllerAfter:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)pageViewController:viewControllerAfterViewController:">pageViewController(_:<wbr>viewControllerAfter:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called to provide a new view controller, when swiping.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">pageViewController</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UIPageViewController</span><span class="p">,</span> <span class="n">viewControllerAfter</span> <span class="nv">inPrevViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inPrevViewController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view controller for the timer that will be BEFORE ours</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/UIPageViewControllerDelegate%20Conformance"></a>
+                <a name="//apple_ref/swift/Section/UIPageViewControllerDelegate Conformance" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/UIPageViewControllerDelegate%20Conformance"></a>
+                  <h3 class="section-name"><span>UIPageViewControllerDelegate Conformance</span>
+</h3>
+                </div>
+              </div>
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted:"></a>
+                    <a name="//apple_ref/swift/Method/pageViewController(_:didFinishAnimating:previousViewControllers:transitionCompleted:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@SwipeTabController@objc(cs)LGV_SwipeTabViewController(im)pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted:">pageViewController(_:<wbr>didFinishAnimating:<wbr>previousViewControllers:<wbr>transitionCompleted:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when a swipe has completed.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">pageViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">inController</span><span class="p">:</span> <span class="kt">UIPageViewController</span><span class="p">,</span> <span class="nv">didFinishAnimating</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">previousViewControllers</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIViewController</span><span class="p">],</span> <span class="n">transitionCompleted</span> <span class="nv">inCompleted</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>didFinishAnimating</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>True, if the animation completed (ignored).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>previousViewControllers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The previous view controllers (ignored).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>transitionCompleted</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>True, if the transition completed (ignored).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -111,7 +724,7 @@
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-05-31)</p>
+      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-06-03)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
