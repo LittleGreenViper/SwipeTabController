@@ -2,6 +2,20 @@
 
 # SwipeTabController
 
+## Overview
+
+This package implements a "drop-in" tab view controller, that behaves in a manner similar to Android tabs.
+
+## What Problem Does This Solve?
+
+The standard iOS `UITabViewController` has a number of restrictions, and the most obvious one, is that it does not behave like `UIPageViewController`, where you can "swipe" between the tabs.
+
+Android does this. Android also usually has the tab bar on the top of the screen (like browser tabs), as opposed to the iOS positioning (at the bottom of the screen).
+
+By implementing this module, you can have both the "swipe" behavior, and the ability to select the position at the top or bottom of the screen.
+
+It also helps to work around the issue of the `UITabViewController`'s propensity to have a separate navigation stack. This module will integrate the displayed screen's navigation stack with the container "tab controller"'s navigation stack.
+
 ## LICENSE
 
 ### [MIT license](https://opensource.org/licenses/MIT)
