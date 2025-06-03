@@ -13,6 +13,7 @@
 		D40289752DEBAA4F0062E25B /* STVCTH_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40289672DEBAA4F0062E25B /* STVCTH_AppDelegate.swift */; };
 		D4071F1D2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4071F1C2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift */; };
 		D418ACC52DEF162400B0B643 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418ACC42DEF162400B0B643 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift */; };
+		D4537F842DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4537F832DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift */; };
 		D48A95352DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A95342DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift */; };
 		D4DA5BCF2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */; };
 		D4DF99152DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox in Frameworks */ = {isa = PBXBuildFile; productRef = D4DF99142DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox */; };
@@ -56,6 +57,7 @@
 		D4071F1C2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_LastNav_ViewController.swift; sourceTree = "<group>"; };
 		D418ACC42DEF162400B0B643 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift; sourceTree = "<group>"; };
 		D43F59AA2DEA47FA00AD7106 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
+		D4537F832DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Hybrid_SwipeTab_ViewController.swift; sourceTree = "<group>"; };
 		D48A95342DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_StoryboardOnly_SwipeTab_ViewController.swift; sourceTree = "<group>"; };
 		D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Selection_ViewController.swift; sourceTree = "<group>"; };
 		D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeTabController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +100,7 @@
 				D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */,
 				D48A95342DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift */,
 				D418ACC42DEF162400B0B643 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift */,
+				D4537F832DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift */,
 				D4071F1C2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift */,
 				D402896D2DEBAA4F0062E25B /* STVCTH_Main.storyboard */,
 				D40289682DEBAA4F0062E25B /* Assets.xcassets */,
@@ -277,6 +280,7 @@
 				D4DA5BCF2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift in Sources */,
 				D418ACC52DEF162400B0B643 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift in Sources */,
 				D4071F1D2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift in Sources */,
+				D4537F842DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

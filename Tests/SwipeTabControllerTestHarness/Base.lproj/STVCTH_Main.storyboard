@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="huv-SO-tDC">
-                                <rect key="frame" x="16" y="326" width="361" height="200"/>
+                                <rect key="frame" x="16" y="299.66666666666669" width="361" height="253.00000000000006"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33w-NK-Zu3">
                                         <rect key="frame" x="106.33333333333333" y="0.0" width="148.33333333333337" height="41"/>
@@ -58,8 +58,17 @@
                                             <segue destination="aun-E7-FMD" kind="show" id="hmb-jQ-z4h"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufd-hh-s8o">
+                                        <rect key="frame" x="143" y="106" width="75" height="41"/>
+                                        <color key="tintColor" name="AccentColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Hybrid"/>
+                                        <connections>
+                                            <segue destination="V1P-gy-sJ8" kind="show" id="2M0-0w-9Cw"/>
+                                        </connections>
+                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-dV-SP9">
-                                        <rect key="frame" x="73.666666666666686" y="106" width="214" height="41"/>
+                                        <rect key="frame" x="73.666666666666686" y="159" width="214" height="41"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FKc-Z2-Eey">
                                                 <rect key="frame" x="0.0" y="5" width="51" height="31"/>
@@ -80,10 +89,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xr6-AM-tB9">
-                                        <rect key="frame" x="73.666666666666686" y="159" width="214" height="41"/>
+                                        <rect key="frame" x="73.666666666666686" y="212" width="214" height="41"/>
                                         <subviews>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="94K-hL-VZv">
-                                                <rect key="frame" x="0.0" y="5" width="55.333333333333336" height="31"/>
+                                                <rect key="frame" x="0.0" y="4.9999999999999432" width="55.333333333333336" height="31"/>
                                                 <color key="thumbTintColor" name="AccentColor"/>
                                             </switch>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJ7-Yo-xEf" userLabel="Text On Right">
@@ -304,6 +313,36 @@
             </objects>
             <point key="canvasLocation" x="1155" y="706"/>
         </scene>
+        <!--Hybrid Main Swipe Tab View Controller-->
+        <scene sceneID="aWR-R4-3cA">
+            <objects>
+                <viewController id="V1P-gy-sJ8" customClass="STVCTH_HybridMain_SwipeTab_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="and-mt-TBU">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="m2t-fQ-fX2">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="BYF-iS-lkP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="m2t-fQ-fX2" secondAttribute="bottom" id="Cek-AF-T2D"/>
+                            <constraint firstItem="m2t-fQ-fX2" firstAttribute="top" secondItem="and-mt-TBU" secondAttribute="top" id="Woo-oB-9TA"/>
+                            <constraint firstItem="m2t-fQ-fX2" firstAttribute="leading" secondItem="and-mt-TBU" secondAttribute="leading" id="gYP-LI-9tl"/>
+                            <constraint firstAttribute="trailing" secondItem="m2t-fQ-fX2" secondAttribute="trailing" id="pj3-YN-yCe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pxQ-hp-kbk"/>
+                    <connections>
+                        <segue destination="auX-M1-qJ2" kind="show" identifier="controller0" id="1DO-Ec-B8c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MlS-h2-1Dh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1115" y="-749"/>
+        </scene>
         <!--Programmatic Only Swipe Tab View Controller-->
         <scene sceneID="XD4-91-ob7">
             <objects>
@@ -329,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fed-RU-HfC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="-749"/>
+            <point key="canvasLocation" x="1114" y="-1408"/>
         </scene>
         <!--Wont Work 1-->
         <scene sceneID="82l-cK-9ON">
@@ -425,14 +464,14 @@
             <objects>
                 <viewController storyboardIdentifier="STVCTH_LastNav_ViewController" id="zuU-Ud-gnx" customClass="STVCTH_LastNav_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lpo-FB-xhw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="UdH-TF-Wp0">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Double-Chevron Takes You All the Way Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JcD-Qf-GYz">
-                                <rect key="frame" x="16" y="381" width="361" height="21"/>
+                                <rect key="frame" x="16" y="415.66666666666669" width="361" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -459,7 +498,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dcG-qs-1zH"/>
+        <segue reference="Mjk-zI-pEH"/>
+        <segue reference="1DO-Ec-B8c"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="0.square.fill" catalog="system" width="128" height="114"/>

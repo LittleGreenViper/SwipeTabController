@@ -27,7 +27,7 @@ internal import SwipeTabController
 /**
  The class for dynamically-generated view controllers.
  */
-class STVCTH_ProgrammaticOnly_ViewController: LGV_SwipeTab_Base_ViewController {
+class STVCTH_Hybrid_SwipeTab_ViewController: LGV_SwipeTab_Base_ViewController {
     /* ################################################################## */
     /**
      This has the name shown in the main label.
@@ -44,7 +44,7 @@ class STVCTH_ProgrammaticOnly_ViewController: LGV_SwipeTab_Base_ViewController {
 /* ###################################################################################################################################### */
 // MARK: Base Class Overrides
 /* ###################################################################################################################################### */
-extension STVCTH_ProgrammaticOnly_ViewController {
+extension STVCTH_Hybrid_SwipeTab_ViewController {
     /* ################################################################## */
     /**
      Called when the view hierachy has been loaded
@@ -94,7 +94,7 @@ extension STVCTH_ProgrammaticOnly_ViewController {
 /* ###################################################################################################################################### */
 // MARK: Callbacks
 /* ###################################################################################################################################### */
-extension STVCTH_ProgrammaticOnly_ViewController {
+extension STVCTH_Hybrid_SwipeTab_ViewController {
     /* ################################################################## */
     /**
      This is called when the double-chevrom bar button is hit. We create and bring in a new instance of the "end of the line" controller.
@@ -111,19 +111,19 @@ extension STVCTH_ProgrammaticOnly_ViewController {
 // MARK: - The Main View Controller for Programmatic-Only Tabs -
 /* ###################################################################################################################################### */
 /**
- This is presented when the user selects the "Programmatic Only" button.
+ This is presented when the user selects the "Hybrid" button.
  */
-class STVCTH_ProgrammaticOnly_SwipeTab_ViewController: LGV_SwipeTabViewController {
+class STVCTH_HybridMain_SwipeTab_ViewController: LGV_SwipeTabViewController {
     /* ################################################################## */
     /**
      This returns a concrete array of instantiated and loaded view controller instances.
      > NOTE: This needs to be declared here, because we can't override Swift-only properties in extensions.
      */
     override var generatedViewControllers: [any LGV_SwipeTabViewControllerType] {
-        var ret = [STVCTH_ProgrammaticOnly_ViewController]()
+        var ret = [STVCTH_Hybrid_SwipeTab_ViewController]()
         
-        for i in 0..<4 {
-            let vc = STVCTH_ProgrammaticOnly_ViewController()
+        for i in 1..<3 {
+            let vc = STVCTH_Hybrid_SwipeTab_ViewController()
             vc.whatsMyName = "TAB \(i)"
             vc.tabBarItem = UITabBarItem(title: vc.whatsMyName, image: UIImage(systemName: "\(i).circle.fill"), tag: i)
             ret.append(vc)
@@ -136,7 +136,7 @@ class STVCTH_ProgrammaticOnly_SwipeTab_ViewController: LGV_SwipeTabViewControlle
 /* ###################################################################################################################################### */
 // MARK: Base Class Overrides
 /* ###################################################################################################################################### */
-extension STVCTH_ProgrammaticOnly_SwipeTab_ViewController {
+extension STVCTH_HybridMain_SwipeTab_ViewController {
     /* ################################################################## */
     /**
      Called when the view hierachy has been loaded
