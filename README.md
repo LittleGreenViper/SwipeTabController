@@ -1,6 +1,6 @@
 ![The Project Icon](icon.png)
 
-# LGV_SwipeTabController
+# SwipeTabController
 
 ## LICENSE
 
