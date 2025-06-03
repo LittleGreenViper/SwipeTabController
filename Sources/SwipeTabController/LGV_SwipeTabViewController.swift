@@ -220,9 +220,9 @@ open class LGV_SwipeTabViewController: UIViewController {
      This needs to be overridden, if you want to add view controllers programmatically, without using the storyboard.
      This returns a concrete array of instantiated and loaded view controller instances.
      If we are also generating via IDs (storyboard), these will be appended to the existing list, in the order prescribed, here.
-     > NOTE: Declared here, so it can be overridden.
+     > NOTE: Declared here as "open," so it can be overridden.
      */
-    public var generatedViewControllers: [any LGV_SwipeTabViewControllerType] { [] }
+    open var generatedViewControllers: [any LGV_SwipeTabViewControllerType] { [] }
 }
 
 /* ###################################################################################################################################### */

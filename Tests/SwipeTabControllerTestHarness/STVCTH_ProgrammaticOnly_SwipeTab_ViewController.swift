@@ -22,12 +22,98 @@ internal import RVS_Generic_Swift_Toolbox
 internal import SwipeTabController
 
 /* ###################################################################################################################################### */
+// MARK: - Class for Programmatic Views -
+/* ###################################################################################################################################### */
+/**
+ The class for dynamically-generated view controllers.
+ */
+class STVCTH_ProgrammaticOnly_ViewController: LGV_SwipeTab_Base_ViewController {
+    /* ################################################################## */
+    /**
+     This has the name shown in the main label.
+     */
+    var whatsMyName = ""
+    
+    /* ################################################################## */
+    /**
+     This displays the name.
+     */
+    weak var nameLabel: UILabel?
+}
+
+/* ###################################################################################################################################### */
+// MARK: Base Class Overrides
+/* ###################################################################################################################################### */
+extension STVCTH_ProgrammaticOnly_ViewController {
+    /* ################################################################## */
+    /**
+     Called when the view hierachy has been loaded
+     */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        guard let view = self.view else { return }
+        self.overrideUserInterfaceStyle = .dark
+        self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
+        
+        let myLabel = UILabel()
+        myLabel.textAlignment = .center
+        myLabel.textColor = .white
+        myLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        myLabel.text = self.whatsMyName
+        self.view.addSubview(myLabel)
+        self.nameLabel = myLabel
+        
+        myLabel.translatesAutoresizingMaskIntoConstraints = false
+        myLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        myLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        myLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        
+        let descriptionLabel = UILabel()
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.textColor = .white
+        descriptionLabel.font = UIFont.systemFont(ofSize: 18)
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.text = "Dynamically Generated"
+        
+        self.view.addSubview(descriptionLabel)
+        
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.topAnchor.constraint(equalTo: myLabel.bottomAnchor, constant: 8).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        descriptionLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+    }
+}
+
+/* ###################################################################################################################################### */
 // MARK: - The Main View Controller for Programmatic-Only Tabs -
 /* ###################################################################################################################################### */
 /**
  This is presented when the user selects the "Programmatic Only" button.
  */
 class STVCTH_ProgrammaticOnly_SwipeTab_ViewController: LGV_SwipeTabViewController {
+    /* ################################################################## */
+    /**
+     This returns a concrete array of instantiated and loaded view controller instances.
+     > NOTE: This needs to be declared here, because we can't override Swift-only properties in extensions.
+     */
+    override var generatedViewControllers: [any LGV_SwipeTabViewControllerType] {
+        var ret = [STVCTH_ProgrammaticOnly_ViewController]()
+        
+        for i in 0..<4 {
+            let vc = STVCTH_ProgrammaticOnly_ViewController()
+            vc.whatsMyName = "View \(i)"
+            vc.tabBarItem = UITabBarItem(title: vc.whatsMyName, image: UIImage(systemName: "\(i).circle.fill"), tag: i)
+            ret.append(vc)
+        }
+        
+        return ret
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: Base Class Overrides
+/* ###################################################################################################################################### */
+extension STVCTH_ProgrammaticOnly_SwipeTab_ViewController {
     /* ################################################################## */
     /**
      Called when the view hierachy has been loaded

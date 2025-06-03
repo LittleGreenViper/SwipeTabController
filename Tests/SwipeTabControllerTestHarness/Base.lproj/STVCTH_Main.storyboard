@@ -52,6 +52,9 @@
                                         <rect key="frame" x="95.333333333333329" y="53" width="170.33333333333337" height="41"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Programmatic Only"/>
+                                        <connections>
+                                            <segue destination="aun-E7-FMD" kind="show" id="hmb-jQ-z4h"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="oAR-dV-SP9">
                                         <rect key="frame" x="75.666666666666686" y="106" width="210" height="41"/>
@@ -255,6 +258,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8M-rm-diF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1155" y="706"/>
+        </scene>
+        <!--Programmatic Only Swipe Tab View Controller-->
+        <scene sceneID="XD4-91-ob7">
+            <objects>
+                <viewController id="aun-E7-FMD" customClass="STVCTH_ProgrammaticOnly_SwipeTab_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wfj-lF-Gr0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="Ivg-5m-0xV">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NVo-oS-cnS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ivg-5m-0xV" firstAttribute="top" secondItem="Wfj-lF-Gr0" secondAttribute="top" id="9SX-BN-jET"/>
+                            <constraint firstAttribute="bottom" secondItem="Ivg-5m-0xV" secondAttribute="bottom" id="UW9-3L-IPj"/>
+                            <constraint firstItem="Ivg-5m-0xV" firstAttribute="leading" secondItem="Wfj-lF-Gr0" secondAttribute="leading" id="YY1-Re-FVS"/>
+                            <constraint firstAttribute="trailing" secondItem="Ivg-5m-0xV" secondAttribute="trailing" id="yZ8-9s-6Hs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cYl-nY-11x"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fed-RU-HfC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1865" y="-749"/>
         </scene>
         <!--Wont Work 1-->
         <scene sceneID="82l-cK-9ON">

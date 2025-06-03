@@ -27,7 +27,12 @@ internal import SwipeTabController
 /**
  This is presented when the user selects the "Storyboard Only" button.
  */
-class STVCTH_StoryboardOnly_SwipeTab_ViewController: LGV_SwipeTabViewController {
+class STVCTH_StoryboardOnly_SwipeTab_ViewController: LGV_SwipeTabViewController { }
+
+/* ###################################################################################################################################### */
+// MARK: Base Class Overrides
+/* ###################################################################################################################################### */
+extension STVCTH_StoryboardOnly_SwipeTab_ViewController {
     /* ################################################################## */
     /**
      Called when the view hierachy has been loaded

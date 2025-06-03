@@ -72,11 +72,14 @@ extension STVCTH_Selection_ViewController {
      - parameter sender: Ignored.
      */
     override func prepare(for inSegue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = inSegue.destination as? STVCTH_StoryboardOnly_SwipeTab_ViewController,
-              let switcheroo = self.tabBarOnTopSwitch
-        else { return }
+        guard let switcheroo = self.tabBarOnTopSwitch else { return }
         
-        destination.toolbarOnTop = switcheroo.isOn
-        destination.toolbar?.overrideUserInterfaceStyle = switcheroo.isOn ? .light : .dark
+        if let destination = inSegue.destination as? STVCTH_StoryboardOnly_SwipeTab_ViewController {
+            destination.toolbarOnTop = switcheroo.isOn
+            destination.toolbar?.overrideUserInterfaceStyle = switcheroo.isOn ? .light : .dark
+        } else if let destination = inSegue.destination as? STVCTH_ProgrammaticOnly_SwipeTab_ViewController {
+            destination.toolbarOnTop = switcheroo.isOn
+            destination.toolbar?.overrideUserInterfaceStyle = switcheroo.isOn ? .light : .dark
+        }
     }
 }
