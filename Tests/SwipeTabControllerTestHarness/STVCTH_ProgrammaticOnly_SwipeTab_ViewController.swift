@@ -124,7 +124,7 @@ class STVCTH_ProgrammaticOnly_SwipeTab_ViewController: LGV_SwipeTabViewControlle
         
         for i in 0..<4 {
             let vc = STVCTH_ProgrammaticOnly_ViewController()
-            vc.whatsMyName = "View \(i)"
+            vc.whatsMyName = "TAB \(i)"
             vc.tabBarItem = UITabBarItem(title: vc.whatsMyName, image: UIImage(systemName: "\(i).circle.fill"), tag: i)
             ret.append(vc)
         }

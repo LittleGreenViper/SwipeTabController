@@ -196,7 +196,7 @@
                             <constraint firstItem="hIF-9H-7es" firstAttribute="top" secondItem="5bF-9H-QYF" secondAttribute="bottom" constant="8" symbolic="YES" id="eow-sf-6fR"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 0" id="Cen-0u-Nma">
+                    <tabBarItem key="tabBarItem" title="TAB 0" id="Cen-0u-Nma">
                         <imageReference key="image" image="0.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="TAB 0" id="szz-3Y-ZYx">
@@ -242,7 +242,7 @@
                             <constraint firstItem="qAX-of-Ady" firstAttribute="centerX" secondItem="67S-Lm-MKm" secondAttribute="centerX" id="yo4-MY-dbf"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="17i-2j-QLu">
+                    <tabBarItem key="tabBarItem" title="TAB 1" id="17i-2j-QLu">
                         <imageReference key="image" image="1.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="TAB 1" id="K4o-XX-5RH">
@@ -288,7 +288,7 @@
                             <constraint firstItem="0cs-cv-Zt6" firstAttribute="centerY" secondItem="cNz-dk-2OF" secondAttribute="centerY" id="mm8-ff-VzZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Njo-Cu-dhy">
+                    <tabBarItem key="tabBarItem" title="TAB 2" id="Njo-Cu-dhy">
                         <imageReference key="image" image="2.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="TAB 2" id="DF8-Dk-vBM">
@@ -363,7 +363,7 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nOb-H9-VU0" secondAttribute="trailing" id="ozP-eo-Ljm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 4" id="tp2-Et-PEM">
+                    <tabBarItem key="tabBarItem" title="TAB 4" id="tp2-Et-PEM">
                         <imageReference key="image" image="4.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -404,7 +404,7 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jOK-tP-GXT" secondAttribute="trailing" id="zF8-M9-apF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 3" id="y9P-7a-C8I">
+                    <tabBarItem key="tabBarItem" title="TAB 3" id="y9P-7a-C8I">
                         <imageReference key="image" image="3.square.fill" catalog="system" symbolScale="large"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="TAB 3" id="sas-x6-nax">
