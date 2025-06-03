@@ -404,6 +404,12 @@ public extension LGV_SwipeTabViewController {
      This is the toolbar, at the top or bottom.
      */
     weak var toolbar: UIToolbar? { self._toolbar }
+    
+    /* ################################################################## */
+    /**
+     Accessor for the referenced view controllers.
+     */
+    var referencedViewControllers: [any LGV_SwipeTabViewControllerType] { self._referencedViewControllers }
 }
 
 /* ###################################################################################################################################### */
@@ -459,6 +465,10 @@ extension LGV_SwipeTabViewController {
             animated: false,
             completion: nil
         )
+        
+        self.navigationController?.navigationItem.title = self.navigationItem.title
+        self.navigationController?.navigationItem.leftBarButtonItems = self.navigationItem.leftBarButtonItems
+        self.navigationController?.navigationItem.rightBarButtonItems = self.navigationItem.rightBarButtonItems
     }
     
     /* ################################################################## */

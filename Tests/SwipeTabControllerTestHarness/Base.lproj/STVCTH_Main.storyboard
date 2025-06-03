@@ -374,6 +374,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAS-gP-ZEC">
+                                <rect key="frame" x="136" y="480" width="118" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next Screen"/>
+                                <connections>
+                                    <segue destination="zuU-Ud-gnx" kind="show" id="oKc-fo-3L5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nmc-oe-yaL"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -393,7 +402,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgJ-1e-xeI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2069" y="706"/>
+            <point key="canvasLocation" x="2068" y="706"/>
+        </scene>
+        <!--Last Nav View Controller-->
+        <scene sceneID="pis-m9-YhS">
+            <objects>
+                <viewController storyboardIdentifier="STVCTH_LastNav_ViewController" id="zuU-Ud-gnx" customClass="STVCTH_LastNav_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lpo-FB-xhw">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="UdH-TF-Wp0">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Double-Chevron Takes You All the Way Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JcD-Qf-GYz">
+                                <rect key="frame" x="16" y="381" width="361" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="e9A-9R-ime"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e9A-9R-ime" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JcD-Qf-GYz" secondAttribute="trailing" constant="16" id="3dP-xf-Wyv"/>
+                            <constraint firstItem="JcD-Qf-GYz" firstAttribute="centerX" secondItem="Lpo-FB-xhw" secondAttribute="centerX" id="4e4-t6-1Vs"/>
+                            <constraint firstItem="UdH-TF-Wp0" firstAttribute="top" secondItem="Lpo-FB-xhw" secondAttribute="top" id="MDr-zu-w28"/>
+                            <constraint firstItem="JcD-Qf-GYz" firstAttribute="centerY" secondItem="Lpo-FB-xhw" secondAttribute="centerY" id="UQC-Rv-dok"/>
+                            <constraint firstAttribute="bottom" secondItem="UdH-TF-Wp0" secondAttribute="bottom" id="kPG-Iy-Ooi"/>
+                            <constraint firstItem="JcD-Qf-GYz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e9A-9R-ime" secondAttribute="leading" constant="16" id="tnk-Z0-YU8"/>
+                            <constraint firstItem="UdH-TF-Wp0" firstAttribute="leading" secondItem="Lpo-FB-xhw" secondAttribute="leading" id="vtR-l2-UJ3"/>
+                            <constraint firstAttribute="trailing" secondItem="UdH-TF-Wp0" secondAttribute="trailing" id="x2m-3d-9xj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="Sk1-0j-UMA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhH-Fx-GJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3031" y="706"/>
         </scene>
     </scenes>
     <resources>
