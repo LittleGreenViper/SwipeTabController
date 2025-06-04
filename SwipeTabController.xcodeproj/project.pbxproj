@@ -66,6 +66,7 @@
 		D43F59AA2DEA47FA00AD7106 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		D4537F832DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Hybrid_SwipeTab_ViewController.swift; sourceTree = "<group>"; };
 		D48A95342DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_StoryboardOnly_SwipeTab_ViewController.swift; sourceTree = "<group>"; };
+		D49B640C2DF09B8D0052D720 /* SPM-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SPM-Info.plist"; sourceTree = "<group>"; };
 		D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Selection_ViewController.swift; sourceTree = "<group>"; };
 		D4DF995E2DEBB1FD00DD325A /* LGV_SwipeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGV_SwipeTabViewController.swift; sourceTree = "<group>"; };
 		D4DF995F2DEBB1FD00DD325A /* SwipeTabController.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SwipeTabController.docc; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 				D40289682DEBAA4F0062E25B /* Assets.xcassets */,
 				D402896B2DEBAA4F0062E25B /* LaunchScreen.storyboard */,
 				D43196C82DF0985F00A11057 /* Info.plist */,
+				D49B640C2DF09B8D0052D720 /* SPM-Info.plist */,
 			);
 			path = SwipeTabControllerTestHarness;
 			sourceTree = "<group>";
@@ -495,28 +497,38 @@
 		D43196BB2DF0965F00A11057 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P53V4JS928;
+				DOCC_ENABLE_CXX_SUPPORT = NO;
+				GCC_USE_STANDARD_INCLUDE_SEARCHING = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
 		D43196BC2DF0965F00A11057 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P53V4JS928;
+				DOCC_ENABLE_CXX_SUPPORT = NO;
+				GCC_USE_STANDARD_INCLUDE_SEARCHING = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};

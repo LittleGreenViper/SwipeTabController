@@ -128,7 +128,7 @@
 <p>The other big difference, is that <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> implements native swipe/pan gestures, and these will &ldquo;argue&rdquo; with swipe gestures in embedded views. If your views will have swipe gestures, then you probably shouldn&rsquo;t use <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code>.</p>
 <h2 id='how-to-get' class='heading'>How to Get</h2>
 
-<p>The SwipeTabController is supplies as a GitHub repo, and can be fetched via <a href="https://www.swift.org/documentation/package-manager/">the Swift Package Manager</a>, of through <a href="https://github.com/Carthage/Carthage">GitHub Carthage</a>.</p>
+<p>The SwipeTabController is supplied as a GitHub repo, and can be fetched via <a href="https://www.swift.org/documentation/package-manager/">the Swift Package Manager</a>, or through <a href="https://github.com/Carthage/Carthage">GitHub Carthage</a>.</p>
 <h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
 
 <p>The most direct method, is to simply add the package in your Project Target, via the Package Dependencies tab.</p>
@@ -144,7 +144,7 @@
 
 <p><code>github &quot;LittleGreenViper/SwipeTabController&quot;</code></p>
 
-<p>Once you have the package installed, you may actually want to simply add <a href="https://github.com/LittleGreenViper/SwipeTabController/blob/master/Sources/SwipeTabController/LGV_SwipeTabViewController.swift">the main file</a> to your project, directly, as opposed to building the package. The entire package is implemented in one single source file.</p>
+<p>Once you have the package installed, you may actually want to simply add <a href="https://github.com/LittleGreenViper/SwipeTabController/blob/master/Sources/SwipeTabController/LGV_SwipeTabViewController.swift">the main file</a> to your project, directly, as opposed to building the package. The entire package is implemented in that single source file.</p>
 <h2 id='usage' class='heading'>Usage</h2>
 
 <p>In order to use this package, you must either instantiate, or subclass (and then instantiate that subclass of) the <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> class. This is the &ldquo;wrapper&rdquo; class that presents a screen with two main components:</p>
@@ -163,14 +163,45 @@
 <h3 id='a-href-https-developer-apple-com-documentation-uikit-uitabbaritem-code-uitabbaritem-code-a' class='heading'><a href="https://developer.apple.com/documentation/uikit/uitabbaritem"><code>UITabBarItem</code></a></h3>
 
 <p>Your view controller must also provide a <a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/tabbaritem"><code>tabBarItem</code></a>. This can have an image, and text, to be displayed in the tab bar.</p>
-<h3 id='using-the-storyboard' class='heading'>Using the Storyboard</h3>
 
-<p>The simplest way to implement the package, is to use the storyboard.</p>
+<p>The simplest way to implement the package, is to use the storyboard, but you can generate the classes programmatically, as long as the embedded view controller classes conform to the <code><a href="Protocols/LGV_SwipeTabViewControllerType.html">LGV_SwipeTabViewControllerType</a></code> protocol.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>The view controller <strong>MUST</strong> have a <a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/tabbaritem"><code>tabBarItem</code></a>. It <strong>MUST</strong> have either an image, a title, or both.</p>
+
+</div>
+<h3 id='using-the-storyboard' class='heading'>Using the Storyboard</h3>
+<h4 id='using-a-segue' class='heading'>Using A Segue</h4>
+
+<p>If you will use the storyboard, then the easiest way to include view controllers, is by specifying a segue instance, between the main container view controller (an implementation of <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code>, or a subclass), and the embedded view controller class (a UIViewController subclass that conforms to <code><a href="Protocols/LGV_SwipeTabViewControllerType.html">LGV_SwipeTabViewControllerType</a></code>).</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>The Segue <strong>MUST</strong> have an ID, and that ID <strong>MUST</strong> Match the Embedded Controller Storyboard ID (so the embedded instance <strong>MUST</strong> have a storyboard ID). If the segue has an ID, but the view controller doesn&rsquo;t have a matching ID, you are likely to get a runtime crash.</p>
+
+</div>
+
+<p>The segue can be any type. It is only used as a placeholder, and is never executed. For convenience, the package supplies a simple custom segue class: <code><a href="Classes.html#/c:@M@SwipeTabController@objc(cs)SwipeTabSegue">SwipeTabSegue</a></code>.</p>
+<h4 id='direct-ids' class='heading'>Direct IDs</h4>
+
+<p>You can also specify the storyboard IDs of your view controllers, by adding them to the <code><a href="Classes/LGV_SwipeTabViewController.html#/s:18SwipeTabController04LGV_ab4ViewC0C04viewC3IDsSaySSGvp">LGV_SwipeTabViewController.viewControllerIDs</a></code> property. These need to be added <strong>BEFORE</strong> calling <a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/viewdidload()">super.viewDidLoad()</a>.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>The storyboard-instantiated view controllers are <strong>ALWAYS</strong> sorted by their IDs. You need to programmatically instantiate, if you want to manage the order in another way.</p>
+
+</div>
+<h3 id='direct-instantiation' class='heading'>Direct Instantiation</h3>
+
+<p>You can also directly instantiate view controllers (either via storyboard, or directly). You add these by overriding the <code><a href="Classes/LGV_SwipeTabViewController.html#/s:18SwipeTabController04LGV_ab4ViewC0C09generatedE11ControllersSayAA0d1_abeC4Type_pGvp">LGV_SwipeTabViewController.generatedViewControllers</a></code> computed property, and supplying the instances in an array. This array is not sorted.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    <p>These are appended to any other view controllers that have been instantiated via segues or storyboard IDs.</p>
+
+</div>
 <h2 id='a-href-https-github-com-littlegreenviper-swipetabcontroller-tree-master-tests-swipetabcontrollertestharness-the-test-harness-app-a' class='heading'><a href="https://github.com/LittleGreenViper/SwipeTabController/tree/master/Tests/SwipeTabControllerTestHarness">The Test Harness App</a></h2>
 
 <p>The package provides a fairly robust and simple test harness app, that can be used to get an idea of what is required to implement the package.</p>
 
-<p>In order to run this, you should select the &ldquo;SwipeTabControllerTestHarness&rdquo; scheme, and direct it to run on an iOS simulator or device.</p>
+<p>In order to run this, you should select the &ldquo;SwipeTabControllerTestHarness&rdquo; scheme, and direct it to run on an iOS simulator or device. There is another variant of the same scheme that imports the SPM module. If you use that, ensure that the included module is up to date and installed.</p>
 <h2 id='license' class='heading'>LICENSE</h2>
 <h3 id='a-href-https-opensource-org-licenses-mit-mit-license-a' class='heading'><a href="https://opensource.org/licenses/MIT">MIT license</a></h3>
 

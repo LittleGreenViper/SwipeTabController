@@ -559,7 +559,7 @@ Default, is a completely transparent toolbar.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@MainActor</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">pageViewController</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UIPageViewController</span><span class="p">,</span> <span class="n">viewControllerBefore</span> <span class="nv">inNextViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">pageViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">inController</span><span class="p">:</span> <span class="kt">UIPageViewController</span><span class="p">,</span> <span class="n">viewControllerBefore</span> <span class="nv">inNextViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -567,6 +567,18 @@ Default, is a completely transparent toolbar.</p>
                         <h4>Parameters</h4>
                         <table class="graybox">
                           <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The page view controller (ignored).</p>
+                                </div>
+                              </td>
+                            </tr>
                             <tr>
                               <td>
                                 <code>
@@ -606,7 +618,7 @@ Default, is a completely transparent toolbar.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@MainActor</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">pageViewController</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">UIPageViewController</span><span class="p">,</span> <span class="n">viewControllerAfter</span> <span class="nv">inPrevViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">pageViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">inController</span><span class="p">:</span> <span class="kt">UIPageViewController</span><span class="p">,</span> <span class="n">viewControllerAfter</span> <span class="nv">inPrevViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIViewController</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -614,6 +626,18 @@ Default, is a completely transparent toolbar.</p>
                         <h4>Parameters</h4>
                         <table class="graybox">
                           <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The page view controller (ignored).</p>
+                                </div>
+                              </td>
+                            </tr>
                             <tr>
                               <td>
                                 <code>
@@ -677,6 +701,18 @@ Default, is a completely transparent toolbar.</p>
                             <tr>
                               <td>
                                 <code>
+                                <em>inController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The page view controller (ignored).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>didFinishAnimating</em>
                                 </code>
                               </td>
@@ -701,7 +737,7 @@ Default, is a completely transparent toolbar.</p>
                             <tr>
                               <td>
                                 <code>
-                                <em>transitionCompleted</em>
+                                <em>inCompleted</em>
                                 </code>
                               </td>
                               <td>

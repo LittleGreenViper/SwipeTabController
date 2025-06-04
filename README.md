@@ -53,7 +53,7 @@ The other big difference, is that ``LGV_SwipeTabViewController`` implements nati
 
 ## How to Get
 
-The SwipeTabController is supplies as a GitHub repo, and can be fetched via [the Swift Package Manager](https://www.swift.org/documentation/package-manager/), of through [GitHub Carthage](https://github.com/Carthage/Carthage).
+The SwipeTabController is supplied as a GitHub repo, and can be fetched via [the Swift Package Manager](https://www.swift.org/documentation/package-manager/), or through [GitHub Carthage](https://github.com/Carthage/Carthage).
 
 ### Swift Package Manager
 
@@ -71,7 +71,7 @@ Using Carthage, you'll need to add the following line to your [`Cartfile`](https
 
 `github "LittleGreenViper/SwipeTabController"`
 
-Once you have the package installed, you may actually want to simply add [the main file](https://github.com/LittleGreenViper/SwipeTabController/blob/master/Sources/SwipeTabController/LGV_SwipeTabViewController.swift) to your project, directly, as opposed to building the package. The entire package is implemented in one single source file.
+Once you have the package installed, you may actually want to simply add [the main file](https://github.com/LittleGreenViper/SwipeTabController/blob/master/Sources/SwipeTabController/LGV_SwipeTabViewController.swift) to your project, directly, as opposed to building the package. The entire package is implemented in that single source file.
 
 ## Usage
 
@@ -93,15 +93,37 @@ When you specify a "wrapped" view controller, it needs to conform to the ``LGV_S
 
 Your view controller must also provide a [`tabBarItem`](https://developer.apple.com/documentation/uikit/uiviewcontroller/tabbaritem). This can have an image, and text, to be displayed in the tab bar.
 
+The simplest way to implement the package, is to use the storyboard, but you can generate the classes programmatically, as long as the embedded view controller classes conform to the ``LGV_SwipeTabViewControllerType`` protocol.
+
+> NOTE: The view controller **MUST** have a [`tabBarItem`](https://developer.apple.com/documentation/uikit/uiviewcontroller/tabbaritem). It **MUST** have either an image, a title, or both.
+
 ### Using the Storyboard
 
-The simplest way to implement the package, is to use the storyboard.
+#### Using A Segue
+
+If you will use the storyboard, then the easiest way to include view controllers, is by specifying a segue instance, between the main container view controller (an implementation of ``LGV_SwipeTabViewController``, or a subclass), and the embedded view controller class (a UIViewController subclass that conforms to ``LGV_SwipeTabViewControllerType``).
+
+> NOTE: The Segue **MUST** have an ID, and that ID **MUST** Match the Embedded Controller Storyboard ID (so the embedded instance **MUST** have a storyboard ID). If the segue has an ID, but the view controller doesn't have a matching ID, you are likely to get a runtime crash.
+
+The segue can be any type. It is only used as a placeholder, and is never executed. For convenience, the package supplies a simple custom segue class: ``SwipeTabSegue``.
+
+#### Direct IDs
+
+You can also specify the storyboard IDs of your view controllers, by adding them to the ``LGV_SwipeTabViewController.viewControllerIDs`` property. These need to be added **BEFORE** calling [super.viewDidLoad()](https://developer.apple.com/documentation/uikit/uiviewcontroller/viewdidload\(\)).
+
+> NOTE: The storyboard-instantiated view controllers are **ALWAYS** sorted by their IDs. You need to programmatically instantiate, if you want to manage the order in another way.
+
+### Direct Instantiation
+
+You can also directly instantiate view controllers (either via storyboard, or directly). You add these by overriding the ``LGV_SwipeTabViewController.generatedViewControllers`` computed property, and supplying the instances in an array. This array is not sorted.
+
+> NOTE: These are appended to any other view controllers that have been instantiated via segues or storyboard IDs.
 
 ## [The Test Harness App](https://github.com/LittleGreenViper/SwipeTabController/tree/master/Tests/SwipeTabControllerTestHarness)
 
 The package provides a fairly robust and simple test harness app, that can be used to get an idea of what is required to implement the package.
 
-In order to run this, you should select the "SwipeTabControllerTestHarness" scheme, and direct it to run on an iOS simulator or device.
+In order to run this, you should select the "SwipeTabControllerTestHarness" scheme, and direct it to run on an iOS simulator or device. There is another variant of the same scheme that imports the SPM module. If you use that, ensure that the included module is up to date and installed.
 
 ## LICENSE
 

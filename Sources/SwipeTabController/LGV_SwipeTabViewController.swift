@@ -62,7 +62,13 @@ public extension LGV_SwipeTabViewControllerType {
     /**
      Default fetches any preexisting tab bar item.
      */
-    var myTabItem: UITabBarItem? { self.tabBarItem }
+    var myTabItem: UITabBarItem? {
+        guard let item = self.tabBarItem,
+              nil != item.image || !(item.title ?? "").isEmpty
+        else { return nil }
+        
+        return item
+    }
     
     /* ################################################################## */
     /**
@@ -307,7 +313,7 @@ private extension LGV_SwipeTabViewController {
         for id in self._referencedViewControllerIDs {
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: id) as? UIViewController,
                   let myVC = vc as? LGV_SwipeTabViewControllerType,
-                  nil != vc.tabBarItem
+                  nil != myVC.tabBarItem
             else { continue }
             #if DEBUG
                 print("Instantiating: \(id)")
@@ -542,10 +548,10 @@ extension LGV_SwipeTabViewController: UIPageViewControllerDataSource {
     /**
      Called to provide a new view controller, when swiping.
      
-     - parameter: The page view controller (ignored).
+     - parameter inController: The page view controller (ignored).
      - parameter inNextViewController: The view controller for the timer that will be AFTER ours
      */
-    public func pageViewController(_: UIPageViewController, viewControllerBefore inNextViewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ inController: UIPageViewController, viewControllerBefore inNextViewController: UIViewController) -> UIViewController? {
         guard let nextController = inNextViewController as? LGV_SwipeTabViewControllerType,
               (1..<self._referencedViewControllers.count).contains(nextController.index)
         else { return nil }
@@ -556,10 +562,10 @@ extension LGV_SwipeTabViewController: UIPageViewControllerDataSource {
     /**
      Called to provide a new view controller, when swiping.
      
-     - parameter: The page view controller (ignored).
+     - parameter inController: The page view controller (ignored).
      - parameter inPrevViewController: The view controller for the timer that will be BEFORE ours
     */
-    public func pageViewController(_: UIPageViewController, viewControllerAfter inPrevViewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ inController: UIPageViewController, viewControllerAfter inPrevViewController: UIViewController) -> UIViewController? {
         guard let prevController = inPrevViewController as? LGV_SwipeTabViewControllerType,
               (0..<(self._referencedViewControllers.count - 1)).contains(prevController.index)
         else { return nil }
@@ -575,10 +581,10 @@ extension LGV_SwipeTabViewController: UIPageViewControllerDelegate {
     /**
      Called when a swipe has completed.
      
-     - parameter: The page view controller (ignored).
+     - parameter inController: The page view controller (ignored).
      - parameter didFinishAnimating: True, if the animation completed (ignored).
      - parameter previousViewControllers: The previous view controllers (ignored).
-     - parameter transitionCompleted: True, if the transition completed (ignored).
+     - parameter inCompleted: True, if the transition completed (ignored).
     */
     public func pageViewController(_ inController: UIPageViewController, didFinishAnimating: Bool, previousViewControllers: [UIViewController], transitionCompleted inCompleted: Bool) {
         guard let newController = inController.viewControllers?.first as? LGV_SwipeTab_Base_ViewController else { return }

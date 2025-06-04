@@ -169,6 +169,7 @@
                         <segue destination="sL5-2f-eym" kind="presentation" identifier="controller1" animates="NO" id="t3l-UM-SBU"/>
                         <segue destination="KrY-MH-cor" kind="custom" identifier="controller2" customClass="SwipeTabSegue" customModule="SwipeTabController" id="u2m-Zn-mE4"/>
                         <segue destination="6yk-33-YdM" kind="custom" identifier="controller4" customClass="SwipeTabSegue" customModule="SwipeTabController" id="kFn-6X-yiD"/>
+                        <segue destination="1f7-ar-YVt" kind="custom" identifier="controller7" customClass="SwipeTabSegue" customModule="SwipeTabController" animates="NO" id="k5P-Ma-kK0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -464,14 +465,14 @@
             <objects>
                 <viewController storyboardIdentifier="STVCTH_LastNav_ViewController" id="zuU-Ud-gnx" customClass="STVCTH_LastNav_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lpo-FB-xhw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="UdH-TF-Wp0">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Double-Chevron Takes You All the Way Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JcD-Qf-GYz">
-                                <rect key="frame" x="16" y="415.66666666666669" width="361" height="21"/>
+                                <rect key="frame" x="16" y="381" width="361" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -496,10 +497,49 @@
             </objects>
             <point key="canvasLocation" x="714" y="1440"/>
         </scene>
+        <!--NO TAB ITEM-->
+        <scene sceneID="Otn-Lf-iC2">
+            <objects>
+                <viewController storyboardIdentifier="controller7" id="1f7-ar-YVt" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aHv-ml-25F">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WON'T WORK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGu-IZ-qFU">
+                                <rect key="frame" x="101.66666666666669" y="408" width="190" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Tab Item" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqv-bg-S2v">
+                                <rect key="frame" x="150.66666666666666" y="452" width="91.666666666666657" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ggU-2y-n8Y"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lqv-bg-S2v" firstAttribute="top" secondItem="oGu-IZ-qFU" secondAttribute="bottom" constant="8" symbolic="YES" id="4xn-Al-xd2"/>
+                            <constraint firstItem="lqv-bg-S2v" firstAttribute="centerX" secondItem="aHv-ml-25F" secondAttribute="centerX" id="6yV-2Y-LIV"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lqv-bg-S2v" secondAttribute="trailing" id="DIJ-mh-fSG"/>
+                            <constraint firstItem="lqv-bg-S2v" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aHv-ml-25F" secondAttribute="leading" id="FLa-6Y-KKt"/>
+                            <constraint firstItem="oGu-IZ-qFU" firstAttribute="centerY" secondItem="aHv-ml-25F" secondAttribute="centerY" id="e7F-dW-44D"/>
+                            <constraint firstItem="oGu-IZ-qFU" firstAttribute="centerX" secondItem="aHv-ml-25F" secondAttribute="centerX" id="hrX-O0-rIi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="NO TAB ITEM" id="UxQ-mP-03i"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xji-bM-VDA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2068" y="-732"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Mjk-zI-pEH"/>
-        <segue reference="1DO-Ec-B8c"/>
+        <segue reference="dcG-qs-1zH"/>
+        <segue reference="N9K-He-qJC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="0.square.fill" catalog="system" width="128" height="114"/>

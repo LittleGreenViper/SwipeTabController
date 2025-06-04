@@ -90,7 +90,7 @@ There are accessors to these elements, but you don't actually need to use them. 
 
 You can specify the vertical position of the tab bar and container. You can choose to have the tab bar on the top (Android-style), or the bottom (classic iOS-style). You can also choose to have the text for each tab item displayed under the image, or to its right.
 
-### The `LGV_SwipeTabViewControllerType` Protocol
+### The LGV_SwipeTabViewControllerType Protocol
 
 When you specify a "wrapped" view controller, it needs to conform to the ``LGV_SwipeTabViewControllerType`` protocol. The package provides a ``LGV_SwipeTab_Base_ViewController`` base class, that does this. You can choose to subclass (or instantiate) it for your own view controllers, but it is not necessary to use that class. It is, however, required that the embedded view controllers conform to ``LGV_SwipeTabViewControllerType``.
 
@@ -98,9 +98,31 @@ When you specify a "wrapped" view controller, it needs to conform to the ``LGV_S
 
 Your view controller must also provide a [`tabBarItem`](https://developer.apple.com/documentation/uikit/uiviewcontroller/tabbaritem). This can have an image, and text, to be displayed in the tab bar.
 
+The simplest way to implement the package, is to use the storyboard, but you can generate the classes programmatically, as long as the embedded view controller classes conform to the ``LGV_SwipeTabViewControllerType`` protocol.
+
+> NOTE: The view controller **MUST** have a [`tabBarItem`](https://developer.apple.com/documentation/uikit/uiviewcontroller/tabbaritem). It **MUST** have either an image, a title, or both.
+
 ### Using the Storyboard
 
-The simplest way to implement the package, is to use the storyboard.
+#### Using A Segue
+
+If you will use the storyboard, then the easiest way to include view controllers, is by specifying a segue instance, between the main container view controller (an implementation of ``LGV_SwipeTabViewController``, or a subclass), and the embedded view controller class (a UIViewController subclass that conforms to ``LGV_SwipeTabViewControllerType``).
+
+> NOTE: The Segue **MUST** have an ID, and that ID **MUST** Match the Embedded Controller Storyboard ID (so the embedded instance **MUST** have a storyboard ID). If the segue has an ID, but the view controller doesn't have a matching ID, you are likely to get a runtime crash.
+
+The segue can be any type. It is only used as a placeholder, and is never executed. For convenience, the package supplies a simple custom segue class: ``SwipeTabSegue``.
+
+#### Direct IDs
+
+You can also specify the storyboard IDs of your view controllers, by adding them to the ``SwipeTabController\LGV_SwipeTabViewController\viewControllerIDs`` property. These need to be added **BEFORE** calling [super.viewDidLoad()](https://developer.apple.com/documentation/uikit/uiviewcontroller/viewdidload\(\)).
+
+> NOTE: The storyboard-instantiated view controllers are **ALWAYS** sorted by their IDs. You need to programmatically instantiate, if you want to manage the order in another way.
+
+### Direct Instantiation
+
+You can also directly instantiate view controllers (either via storyboard, or directly). You add these by overriding the ``SwipeTabController\LGV_SwipeTabViewController\generatedViewControllers`` computed property, and supplying the instances in an array. This array is not sorted.
+
+> NOTE: These are appended to any other view controllers that have been instantiated via segues or storyboard IDs.
 
 ## The Test Harness App
 
