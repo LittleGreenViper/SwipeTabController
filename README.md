@@ -4,17 +4,25 @@
 
 ## Overview
 
-This package implements a "drop-in" tab view controller, that behaves in a manner similar to Android tabs.
+This package implements a "drop-in" tabbed view controller, that behaves in a manner similar to Android tabs.
 
 ## What Problem Does This Solve?
 
-The standard iOS `UITabViewController` has a number of restrictions, and the most obvious one, is that it does not behave like `UIPageViewController`, where you can "swipe" between the tabs.
+The standard iOS [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) has a number of restrictions, and the most obvious one, is that it does not behave like [`UIPageViewController`](https://developer.apple.com/documentation/uikit/uipageviewcontroller/), where you can "swipe" between the tabs.
 
 Android does this. Android also usually has the tab bar on the top of the screen (like browser tabs), as opposed to the iOS positioning (at the bottom of the screen).
 
 By implementing this module, you can have both the "swipe" behavior, and the ability to select the position at the top or bottom of the screen.
 
-It also helps to work around the issue of the `UITabViewController`'s propensity to have a separate navigation stack. This module will integrate the displayed screen's navigation stack with the container "tab controller"'s navigation stack.
+It also helps to work around the issue of the [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/)'s propensity to have a separate navigation stack. This module will integrate the displayed screen's navigation stack with the container "tab controller"'s navigation stack, giving you continuity with the container's navigation.
+
+And lastly, when implementing [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) in [iPadOS](https://apple.com/ipados), or [MacOS](https://apple.com/macos), Apple will swap out the fixed bottom tab bar, with a segmented control, at the top of the screen. This is not always what the user wants.
+
+## Usage
+
+In order to use this package, you must either instantiate, or subclass (and instantiate the subclass) the ``LGV_SwipeTabViewController`` class. This is the "wrapper" class that presents a screen with two main components:
+    - A "Tab Bar" (instance of [`UIToolbar`](https://developer.apple.com/documentation/uikit/uitoolbar))
+    - A Swipeable screen (instance of [`UIPageViewController`](https://developer.apple.com/documentation/uikit/uipageviewcontroller/)).
 
 ## LICENSE
 
