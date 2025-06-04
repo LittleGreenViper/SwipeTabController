@@ -3,7 +3,7 @@
 
 ## Overview
 
-<div><div style="margin-left: auto;margin-right: auto;display: table"><img src="img/Topsy.png"><img src="img/Turvy.png" style="margin-left: 2em"></div></div>
+<div style="display: table; margin: auto"><img src="img/Topsy.png" /> <img src="img/Turvy.png" style="margin-left: 2em" /></div>
 
 This package implements a "tabbed" view controller, that behaves in a manner similar to Android tabs.
 
@@ -27,11 +27,11 @@ Although the SwipeTabController shares a lot of similarities with [`UITabBarCont
 
 ### The Railway Analogy
 
-<div style="text-align: center"><img src="img/station.png"></div>
+<div><img src="img/station.png" style="margin:auto; display: block" /></div>
 
 - [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) is like a railway station. You get off one train, and get onto another one. The entire context changes.
 
-<div style="text-align: center"><img src="img/train.png"></div>
+<div><img src="img/train.png" style="margin:auto; display: block" /></div>
 
 - ``LGV_SwipeTabViewController`` is more like a switch in the railway tracks. You stay on the train, but change the direction. The context is preserved.
 
