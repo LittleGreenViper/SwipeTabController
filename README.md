@@ -21,6 +21,7 @@ And lastly, when implementing [`UITabBarController`](https://developer.apple.com
 ## Usage
 
 In order to use this package, you must either instantiate, or subclass (and instantiate the subclass) the ``LGV_SwipeTabViewController`` class. This is the "wrapper" class that presents a screen with two main components:
+
     - A "Tab Bar" (instance of [`UIToolbar`](https://developer.apple.com/documentation/uikit/uitoolbar))
     - A Swipeable screen (instance of [`UIPageViewController`](https://developer.apple.com/documentation/uikit/uipageviewcontroller/)).
 
