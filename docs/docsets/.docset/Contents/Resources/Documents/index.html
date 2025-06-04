@@ -76,27 +76,50 @@
         <section class="section">
           <div class="section-content top-matter">
             
-            <p><img src="icon.png" alt="The Project Icon"></p>
+            <div style="text-align: center"><img src="icon.png"></div>
 <h1 id='swipetabcontroller' class='heading'>SwipeTabController</h1>
 <h2 id='overview' class='heading'>Overview</h2>
 
-<p>This package implements a &ldquo;drop-in&rdquo; tabbed view controller, that behaves in a manner similar to Android tabs.</p>
+<div style="margin-left: auto;margin-right: auto;display: table"><img src="img/Topsy.png"><img src="img/Turvy.png" style="margin-left: 2em"></div>
+
+<p>This package implements a &ldquo;tabbed&rdquo; view controller, that behaves in a manner similar to Android tabs.</p>
+
+<p>Use this, in place of the classic Apple <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a> (but not always. More on that, later).</p>
 <h2 id='what-problem-does-this-solve' class='heading'>What Problem Does This Solve?</h2>
 
 <p>The standard iOS <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a> has a number of restrictions, and the most obvious one, is that it does not behave like <a href="https://developer.apple.com/documentation/uikit/uipageviewcontroller/"><code>UIPageViewController</code></a>, where you can &ldquo;swipe&rdquo; between the tabs.</p>
 
 <p>Android does this. Android also usually has the tab bar on the top of the screen (like browser tabs), as opposed to the iOS positioning (at the bottom of the screen).</p>
 
-<p>By implementing this module, you can have both the &ldquo;swipe&rdquo; behavior, and the ability to select the position at the top or bottom of the screen.</p>
+<p>By implementing this module, you can have both the &ldquo;swipe&rdquo; behavior, and the ability to place the tab bar at either the top, or the bottom, of the screen.</p>
 
-<p>It also helps to work around the issue of the <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a>&rsquo;s propensity to have a separate navigation stack. This module will integrate the displayed screen&rsquo;s navigation stack with the container &ldquo;tab controller&rdquo;&lsquo;s navigation stack, giving you continuity with the container&rsquo;s navigation.</p>
+<p>It also helps to work around the issue of the <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a>&rsquo;s propensity to have a separate navigation stack. This module will integrate the displayed screen&rsquo;s navigation stack with the container&rsquo;s navigation stack, giving you continuity with the container&rsquo;s navigation.</p>
 
 <p>And lastly, when implementing <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a> in <a href="https://apple.com/ipados">iPadOS</a>, or <a href="https://apple.com/macos">MacOS</a>, Apple will swap out the fixed bottom tab bar, with a segmented control, at the top of the screen. This is not always what the user wants.</p>
+<h2 id='code-lgv_swipetabviewcontroller-code-vs-a-href-https-developer-apple-com-documentation-uikit-uitabbarcontroller-code-uitabbarcontroller-code-a' class='heading'><code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> vs. <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a></h2>
+
+<p>Although the SwipeTabController shares a lot of similarities with <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a>, there are some crucial differences.</p>
+<h3 id='the-railway-analogy' class='heading'>The Railway Analogy</h3>
+
+<div style="text-align: center"><img src="img/station.png"></div>
+
+<ul>
+<li><a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a> is like a railway station. You get off one train, and get onto another one. The entire context changes.</li>
+</ul>
+
+<div style="text-align: center"><img src="img/train.png"></div>
+
+<ul>
+<li><code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> is more like a switch in the railway tracks. You stay on the train, but change the direction. The context is preserved.</li>
+</ul>
 <h2 id='usage' class='heading'>Usage</h2>
 
-<p>In order to use this package, you must either instantiate, or subclass (and instantiate the subclass) the <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> class. This is the &ldquo;wrapper&rdquo; class that presents a screen with two main components:
-    - A &ldquo;Tab Bar&rdquo; (instance of <a href="https://developer.apple.com/documentation/uikit/uitoolbar"><code>UIToolbar</code></a>)
-    - A Swipeable screen (instance of <a href="https://developer.apple.com/documentation/uikit/uipageviewcontroller/"><code>UIPageViewController</code></a>).</p>
+<p>In order to use this package, you must either instantiate, or subclass (and instantiate the subclass) the <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> class. This is the &ldquo;wrapper&rdquo; class that presents a screen with two main components:</p>
+
+<ul>
+<li><p>A &ldquo;Tab Bar&rdquo; (instance of <a href="https://developer.apple.com/documentation/uikit/uitoolbar"><code>UIToolbar</code></a>)</p></li>
+<li><p>A Swipeable screen (instance of <a href="https://developer.apple.com/documentation/uikit/uipageviewcontroller/"><code>UIPageViewController</code></a>).</p></li>
+</ul>
 <h2 id='license' class='heading'>LICENSE</h2>
 <h3 id='a-href-https-opensource-org-licenses-mit-mit-license-a' class='heading'><a href="https://opensource.org/licenses/MIT">MIT license</a></h3>
 
@@ -125,7 +148,7 @@ SOFTWARE.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-06-03)</p>
+      <p>&copy; 2025 <a class="link" href="" target="_blank" rel="external noopener"></a>. All rights reserved. (Last updated: 2025-06-04)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.15.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>

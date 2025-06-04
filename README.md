@@ -1,10 +1,13 @@
-![The Project Icon](icon.png)
-
+<div style="text-align: center"><img src="icon.png"></div>
 # SwipeTabController
 
 ## Overview
 
-This package implements a "drop-in" tabbed view controller, that behaves in a manner similar to Android tabs.
+<div style="margin-left: auto;margin-right: auto;display: table"><img src="img/Topsy.png"><img src="img/Turvy.png" style="margin-left: 2em"></div>
+
+This package implements a "tabbed" view controller, that behaves in a manner similar to Android tabs.
+
+Use this, in place of the classic Apple [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) (but not always. More on that, later).
 
 ## What Problem Does This Solve?
 
@@ -17,6 +20,20 @@ By implementing this module, you can have both the "swipe" behavior, and the abi
 It also helps to work around the issue of the [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/)'s propensity to have a separate navigation stack. This module will integrate the displayed screen's navigation stack with the container's navigation stack, giving you continuity with the container's navigation.
 
 And lastly, when implementing [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) in [iPadOS](https://apple.com/ipados), or [MacOS](https://apple.com/macos), Apple will swap out the fixed bottom tab bar, with a segmented control, at the top of the screen. This is not always what the user wants.
+
+## ``LGV_SwipeTabViewController`` vs. [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/)
+
+Although the SwipeTabController shares a lot of similarities with [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/), there are some crucial differences.
+
+### The Railway Analogy
+
+<div style="text-align: center"><img src="img/station.png"></div>
+
+- [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) is like a railway station. You get off one train, and get onto another one. The entire context changes.
+
+<div style="text-align: center"><img src="img/train.png"></div>
+
+- ``LGV_SwipeTabViewController`` is more like a switch in the railway tracks. You stay on the train, but change the direction. The context is preserved.
 
 ## Usage
 
