@@ -24,6 +24,7 @@
 		D43196A72DF0932600A11057 /* STVCTH_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D402896D2DEBAA4F0062E25B /* STVCTH_Main.storyboard */; };
 		D43196BD2DF0967500A11057 /* LGV_SwipeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF995E2DEBB1FD00DD325A /* LGV_SwipeTabViewController.swift */; };
 		D43196C22DF096EE00A11057 /* libSwipeTabController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D43196B62DF0965F00A11057 /* libSwipeTabController.a */; };
+		D43196CB2DF098FF00A11057 /* SwipeTabController in Frameworks */ = {isa = PBXBuildFile; productRef = D43196CA2DF098FF00A11057 /* SwipeTabController */; };
 		D4537F842DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4537F832DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift */; };
 		D48A95352DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A95342DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift */; };
 		D4DA5BCF2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */; };
@@ -83,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D43196CB2DF098FF00A11057 /* SwipeTabController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +213,7 @@
 			);
 			name = "SwipeTabControllerTestHarness-SPM";
 			packageProductDependencies = (
+				D43196CA2DF098FF00A11057 /* SwipeTabController */,
 			);
 			productName = SwipeTabControllerTestHarness;
 			productReference = D43196AD2DF0932600A11057 /* SwipeTabControllerTestHarness-SPM.app */;
@@ -263,6 +266,7 @@
 			mainGroup = D43F598E2DEA451200AD7106;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				D43196C92DF098FF00A11057 /* XCRemoteSwiftPackageReference "SwipeTabController" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D43F59992DEA451200AD7106 /* Products */;
@@ -685,6 +689,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D43196C92DF098FF00A11057 /* XCRemoteSwiftPackageReference "SwipeTabController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:LittleGreenViper/SwipeTabController.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D43196CA2DF098FF00A11057 /* SwipeTabController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D43196C92DF098FF00A11057 /* XCRemoteSwiftPackageReference "SwipeTabController" */;
+			productName = SwipeTabController;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D43F598F2DEA451200AD7106 /* Project object */;
 }
