@@ -114,13 +114,13 @@ The segue can be any type. It is only used as a placeholder, and is never execut
 
 #### Direct IDs
 
-You can also specify the storyboard IDs of your view controllers, by adding them to the ``LGV_SwipeTabViewController.viewControllerIDs`` property. These need to be added **BEFORE** calling [super.viewDidLoad()](https://developer.apple.com/documentation/uikit/uiviewcontroller/viewdidload\(\)).
+You can also specify the storyboard IDs of your view controllers, by adding them to the ``LGV_SwipeTabViewController/viewControllerIDs`` property. These need to be added **BEFORE** calling [super.viewDidLoad()](https://developer.apple.com/documentation/uikit/uiviewcontroller/viewdidload\(\)).
 
 > NOTE: The storyboard-instantiated view controllers are **ALWAYS** sorted by their IDs. You need to programmatically instantiate, if you want to manage the order in another way.
 
 ### Direct Instantiation
 
-You can also directly instantiate view controllers (either via storyboard, or directly). You add these by overriding the ``LGV_SwipeTabViewController.generatedViewControllers`` computed property, and supplying the instances in an array. This array is not sorted.
+You can also directly instantiate view controllers (either via storyboard, or directly). You add these by overriding the ``LGV_SwipeTabViewController/generatedViewControllers`` computed property, and supplying the instances in an array. This array is not sorted.
 
 > NOTE: These are appended to any other view controllers that have been instantiated via segues or storyboard IDs.
 
