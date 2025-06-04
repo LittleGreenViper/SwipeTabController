@@ -99,6 +99,10 @@ extension STVCTH_Selection_ViewController {
             destination.toolbarOnTop = tabBarOnTop.isOn
             destination.textOnRight = textOnRight.isOn
             destination.toolbar?.overrideUserInterfaceStyle = tabBarOnTop.isOn ? .light : .dark
+        } else if let destination = inSegue.destination as? STVCTH_HybridMain_SwipeTab_ViewController {
+            destination.toolbarOnTop = tabBarOnTop.isOn
+            destination.textOnRight = textOnRight.isOn
+            destination.toolbar?.overrideUserInterfaceStyle = tabBarOnTop.isOn ? .light : .dark
         }
     }
 }
