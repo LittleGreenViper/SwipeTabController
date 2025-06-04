@@ -33,10 +33,6 @@ let package = Package(
             name: "SwipeTabController",
             targets: ["SwipeTabController"]
         )],
-    dependencies: [
-        .package(url: "git@github.com:RiftValleySoftware/RVS_Generic_Swift_Toolbox.git",
-                 from: "1.15.6")
-    ],
     targets: [
         .target(name: "SwipeTabController")
     ]

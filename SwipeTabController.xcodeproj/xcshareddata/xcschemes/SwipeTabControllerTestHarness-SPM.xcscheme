@@ -15,9 +15,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4DF994E2DEBB1DC00DD325A"
-               BuildableName = "SwipeTabController.framework"
-               BlueprintName = "SwipeTabController"
+               BlueprintIdentifier = "D43196982DF0932600A11057"
+               BuildableName = "SwipeTabControllerTestHarness-SPM.app"
+               BlueprintName = "SwipeTabControllerTestHarness-SPM"
                ReferencedContainer = "container:SwipeTabController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D43196982DF0932600A11057"
+            BuildableName = "SwipeTabControllerTestHarness-SPM.app"
+            BlueprintName = "SwipeTabControllerTestHarness-SPM"
+            ReferencedContainer = "container:SwipeTabController.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,15 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4DF994E2DEBB1DC00DD325A"
-            BuildableName = "SwipeTabController.framework"
-            BlueprintName = "SwipeTabController"
+            BlueprintIdentifier = "D43196982DF0932600A11057"
+            BuildableName = "SwipeTabControllerTestHarness-SPM.app"
+            BlueprintName = "SwipeTabControllerTestHarness-SPM"
             ReferencedContainer = "container:SwipeTabController.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

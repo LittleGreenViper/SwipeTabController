@@ -13,36 +13,40 @@
 		D40289752DEBAA4F0062E25B /* STVCTH_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40289672DEBAA4F0062E25B /* STVCTH_AppDelegate.swift */; };
 		D4071F1D2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4071F1C2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift */; };
 		D418ACC52DEF162400B0B643 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418ACC42DEF162400B0B643 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift */; };
+		D431969C2DF0932600A11057 /* STVCTH_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40289672DEBAA4F0062E25B /* STVCTH_AppDelegate.swift */; };
+		D431969D2DF0932600A11057 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A95342DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift */; };
+		D431969E2DF0932600A11057 /* STVCTH_Selection_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */; };
+		D431969F2DF0932600A11057 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D418ACC42DEF162400B0B643 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift */; };
+		D43196A02DF0932600A11057 /* STVCTH_LastNav_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4071F1C2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift */; };
+		D43196A12DF0932600A11057 /* STVCTH_Hybrid_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4537F832DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift */; };
+		D43196A52DF0932600A11057 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D40289682DEBAA4F0062E25B /* Assets.xcassets */; };
+		D43196A62DF0932600A11057 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D402896B2DEBAA4F0062E25B /* LaunchScreen.storyboard */; };
+		D43196A72DF0932600A11057 /* STVCTH_Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D402896D2DEBAA4F0062E25B /* STVCTH_Main.storyboard */; };
+		D43196BD2DF0967500A11057 /* LGV_SwipeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF995E2DEBB1FD00DD325A /* LGV_SwipeTabViewController.swift */; };
+		D43196C22DF096EE00A11057 /* libSwipeTabController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D43196B62DF0965F00A11057 /* libSwipeTabController.a */; };
 		D4537F842DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4537F832DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift */; };
 		D48A95352DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48A95342DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift */; };
 		D4DA5BCF2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */; };
-		D4DF99152DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox in Frameworks */ = {isa = PBXBuildFile; productRef = D4DF99142DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox */; };
-		D4DF99572DEBB1DC00DD325A /* SwipeTabController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */; };
-		D4DF99582DEBB1DC00DD325A /* SwipeTabController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D4DF99612DEBB1FD00DD325A /* LGV_SwipeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF995E2DEBB1FD00DD325A /* LGV_SwipeTabViewController.swift */; };
-		D4DF99622DEBB1FD00DD325A /* SwipeTabController.docc in Sources */ = {isa = PBXBuildFile; fileRef = D4DF995F2DEBB1FD00DD325A /* SwipeTabController.docc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D4DF99552DEBB1DC00DD325A /* PBXContainerItemProxy */ = {
+		D43196C32DF096EE00A11057 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D43F598F2DEA451200AD7106 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D4DF994E2DEBB1DC00DD325A;
+			remoteGlobalIDString = D43196B52DF0965F00A11057;
 			remoteInfo = SwipeTabController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D4DF991A2DEBAE3300DD325A /* Embed Frameworks */ = {
+		D43196B42DF0965F00A11057 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
 			files = (
-				D4DF99582DEBB1DC00DD325A /* SwipeTabController.framework in Embed Frameworks */,
 			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -51,16 +55,17 @@
 		D40289512DEBAA390062E25B /* SwipeTabControllerTestHarness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeTabControllerTestHarness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40289672DEBAA4F0062E25B /* STVCTH_AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_AppDelegate.swift; sourceTree = "<group>"; };
 		D40289682DEBAA4F0062E25B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D40289692DEBAA4F0062E25B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D402896A2DEBAA4F0062E25B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D402896C2DEBAA4F0062E25B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/STVCTH_Main.storyboard; sourceTree = "<group>"; };
 		D4071F1C2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_LastNav_ViewController.swift; sourceTree = "<group>"; };
 		D418ACC42DEF162400B0B643 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift; sourceTree = "<group>"; };
+		D43196AD2DF0932600A11057 /* SwipeTabControllerTestHarness-SPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwipeTabControllerTestHarness-SPM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D43196B62DF0965F00A11057 /* libSwipeTabController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSwipeTabController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D43196C82DF0985F00A11057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D43F59AA2DEA47FA00AD7106 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
 		D4537F832DEFA9F9006FBE0B /* STVCTH_Hybrid_SwipeTab_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Hybrid_SwipeTab_ViewController.swift; sourceTree = "<group>"; };
 		D48A95342DECF64200D1BE52 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_StoryboardOnly_SwipeTab_ViewController.swift; sourceTree = "<group>"; };
 		D4DA5BCE2DEC73A0000FA9CC /* STVCTH_Selection_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVCTH_Selection_ViewController.swift; sourceTree = "<group>"; };
-		D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwipeTabController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4DF995E2DEBB1FD00DD325A /* LGV_SwipeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGV_SwipeTabViewController.swift; sourceTree = "<group>"; };
 		D4DF995F2DEBB1FD00DD325A /* SwipeTabController.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SwipeTabController.docc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,12 +75,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4DF99152DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox in Frameworks */,
-				D4DF99572DEBB1DC00DD325A /* SwipeTabController.framework in Frameworks */,
+				D43196C22DF096EE00A11057 /* libSwipeTabController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4DF994C2DEBB1DC00DD325A /* Frameworks */ = {
+		D43196A22DF0932600A11057 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D43196B32DF0965F00A11057 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -104,10 +115,17 @@
 				D4071F1C2DEF76C100C996B0 /* STVCTH_LastNav_ViewController.swift */,
 				D402896D2DEBAA4F0062E25B /* STVCTH_Main.storyboard */,
 				D40289682DEBAA4F0062E25B /* Assets.xcassets */,
-				D40289692DEBAA4F0062E25B /* Info.plist */,
 				D402896B2DEBAA4F0062E25B /* LaunchScreen.storyboard */,
+				D43196C82DF0985F00A11057 /* Info.plist */,
 			);
 			path = SwipeTabControllerTestHarness;
+			sourceTree = "<group>";
+		};
+		D43196BE2DF0968B00A11057 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D43F598E2DEA451200AD7106 = {
@@ -116,6 +134,7 @@
 				D43F59AB2DEA47FA00AD7106 /* Meta */,
 				D43F59A92DEA453200AD7106 /* Sources */,
 				D40289662DEBAA470062E25B /* Tests */,
+				D43196BE2DF0968B00A11057 /* Frameworks */,
 				D43F59992DEA451200AD7106 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,7 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				D40289512DEBAA390062E25B /* SwipeTabControllerTestHarness.app */,
-				D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */,
+				D43196AD2DF0932600A11057 /* SwipeTabControllerTestHarness-SPM.app */,
+				D43196B62DF0965F00A11057 /* libSwipeTabController.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,16 +176,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		D4DF994A2DEBB1DC00DD325A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		D40289502DEBAA390062E25B /* SwipeTabControllerTestHarness */ = {
 			isa = PBXNativeTarget;
@@ -174,29 +184,45 @@
 				D402894D2DEBAA390062E25B /* Sources */,
 				D402894E2DEBAA390062E25B /* Frameworks */,
 				D402894F2DEBAA390062E25B /* Resources */,
-				D4DF991A2DEBAE3300DD325A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D4DF99562DEBB1DC00DD325A /* PBXTargetDependency */,
+				D43196C42DF096EE00A11057 /* PBXTargetDependency */,
 			);
 			name = SwipeTabControllerTestHarness;
 			packageProductDependencies = (
-				D4DF99142DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox */,
 			);
 			productName = SwipeTabControllerTestHarness;
 			productReference = D40289512DEBAA390062E25B /* SwipeTabControllerTestHarness.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D4DF994E2DEBB1DC00DD325A /* SwipeTabController */ = {
+		D43196982DF0932600A11057 /* SwipeTabControllerTestHarness-SPM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4DF99592DEBB1DD00DD325A /* Build configuration list for PBXNativeTarget "SwipeTabController" */;
+			buildConfigurationList = D43196AA2DF0932600A11057 /* Build configuration list for PBXNativeTarget "SwipeTabControllerTestHarness-SPM" */;
 			buildPhases = (
-				D4DF994A2DEBB1DC00DD325A /* Headers */,
-				D4DF994B2DEBB1DC00DD325A /* Sources */,
-				D4DF994C2DEBB1DC00DD325A /* Frameworks */,
-				D4DF994D2DEBB1DC00DD325A /* Resources */,
+				D431969B2DF0932600A11057 /* Sources */,
+				D43196A22DF0932600A11057 /* Frameworks */,
+				D43196A42DF0932600A11057 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwipeTabControllerTestHarness-SPM";
+			packageProductDependencies = (
+			);
+			productName = SwipeTabControllerTestHarness;
+			productReference = D43196AD2DF0932600A11057 /* SwipeTabControllerTestHarness-SPM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D43196B52DF0965F00A11057 /* SwipeTabController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D43196BA2DF0965F00A11057 /* Build configuration list for PBXNativeTarget "SwipeTabController" */;
+			buildPhases = (
+				D43196B22DF0965F00A11057 /* Sources */,
+				D43196B32DF0965F00A11057 /* Frameworks */,
+				D43196B42DF0965F00A11057 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -205,9 +231,9 @@
 			name = SwipeTabController;
 			packageProductDependencies = (
 			);
-			productName = SwipeTabController;
-			productReference = D4DF994F2DEBB1DC00DD325A /* SwipeTabController.framework */;
-			productType = "com.apple.product-type.framework";
+			productName = libSwipeTabController;
+			productReference = D43196B62DF0965F00A11057 /* libSwipeTabController.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -222,7 +248,7 @@
 					D40289502DEBAA390062E25B = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					D4DF994E2DEBB1DC00DD325A = {
+					D43196B52DF0965F00A11057 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -237,15 +263,15 @@
 			mainGroup = D43F598E2DEA451200AD7106;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				D43F59AC2DEA483B00AD7106 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D43F59992DEA451200AD7106 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				D43196B52DF0965F00A11057 /* SwipeTabController */,
 				D40289502DEBAA390062E25B /* SwipeTabControllerTestHarness */,
-				D4DF994E2DEBB1DC00DD325A /* SwipeTabController */,
+				D43196982DF0932600A11057 /* SwipeTabControllerTestHarness-SPM */,
 			);
 		};
 /* End PBXProject section */
@@ -261,10 +287,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4DF994D2DEBB1DC00DD325A /* Resources */ = {
+		D43196A42DF0932600A11057 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D43196A52DF0932600A11057 /* Assets.xcassets in Resources */,
+				D43196A62DF0932600A11057 /* LaunchScreen.storyboard in Resources */,
+				D43196A72DF0932600A11057 /* STVCTH_Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,22 +313,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D4DF994B2DEBB1DC00DD325A /* Sources */ = {
+		D431969B2DF0932600A11057 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4DF99612DEBB1FD00DD325A /* LGV_SwipeTabViewController.swift in Sources */,
-				D4DF99622DEBB1FD00DD325A /* SwipeTabController.docc in Sources */,
+				D431969C2DF0932600A11057 /* STVCTH_AppDelegate.swift in Sources */,
+				D431969D2DF0932600A11057 /* STVCTH_StoryboardOnly_SwipeTab_ViewController.swift in Sources */,
+				D431969E2DF0932600A11057 /* STVCTH_Selection_ViewController.swift in Sources */,
+				D431969F2DF0932600A11057 /* STVCTH_ProgrammaticOnly_SwipeTab_ViewController.swift in Sources */,
+				D43196A02DF0932600A11057 /* STVCTH_LastNav_ViewController.swift in Sources */,
+				D43196A12DF0932600A11057 /* STVCTH_Hybrid_SwipeTab_ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D43196B22DF0965F00A11057 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D43196BD2DF0967500A11057 /* LGV_SwipeTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D4DF99562DEBB1DC00DD325A /* PBXTargetDependency */ = {
+		D43196C42DF096EE00A11057 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D4DF994E2DEBB1DC00DD325A /* SwipeTabController */;
-			targetProxy = D4DF99552DEBB1DC00DD325A /* PBXContainerItemProxy */;
+			target = D43196B52DF0965F00A11057 /* SwipeTabController */;
+			targetProxy = D43196C32DF096EE00A11057 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -380,6 +421,96 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.litlegreenviper.SwipeTabControllerTestHarness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D43196AB2DF0932600A11057 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = P53V4JS928;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tests/SwipeTabControllerTestHarness/SPM-Info.plist";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = STVCTH_Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.litlegreenviper.SwipeTabControllerTestHarness;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D43196AC2DF0932600A11057 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = P53V4JS928;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tests/SwipeTabControllerTestHarness/SPM-Info.plist";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = STVCTH_Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.litlegreenviper.SwipeTabControllerTestHarness;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D43196BB2DF0965F00A11057 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P53V4JS928;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D43196BC2DF0965F00A11057 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P53V4JS928;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -514,92 +645,6 @@
 			};
 			name = Release;
 		};
-		D4DF995A2DEBB1DD00DD325A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P53V4JS928;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litlegreenviper.SwipeTabController;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = auto;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_MODULE = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Debug;
-		};
-		D4DF995B2DEBB1DD00DD325A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P53V4JS928;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = (
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.litlegreenviper.SwipeTabController;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = auto;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_MODULE = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				XROS_DEPLOYMENT_TARGET = 2.5;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -608,6 +653,24 @@
 			buildConfigurations = (
 				D40289622DEBAA3A0062E25B /* Debug */,
 				D40289632DEBAA3A0062E25B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D43196AA2DF0932600A11057 /* Build configuration list for PBXNativeTarget "SwipeTabControllerTestHarness-SPM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D43196AB2DF0932600A11057 /* Debug */,
+				D43196AC2DF0932600A11057 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D43196BA2DF0965F00A11057 /* Build configuration list for PBXNativeTarget "SwipeTabController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D43196BB2DF0965F00A11057 /* Debug */,
+				D43196BC2DF0965F00A11057 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -621,35 +684,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4DF99592DEBB1DD00DD325A /* Build configuration list for PBXNativeTarget "SwipeTabController" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D4DF995A2DEBB1DD00DD325A /* Debug */,
-				D4DF995B2DEBB1DD00DD325A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D43F59AC2DEA483B00AD7106 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RiftValleySoftware/RVS_Generic_Swift_Toolbox";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.15.6;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D4DF99142DEBAE2F00DD325A /* RVS_Generic_Swift_Toolbox */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D43F59AC2DEA483B00AD7106 /* XCRemoteSwiftPackageReference "RVS_Generic_Swift_Toolbox" */;
-			productName = RVS_Generic_Swift_Toolbox;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D43F598F2DEA451200AD7106 /* Project object */;
 }

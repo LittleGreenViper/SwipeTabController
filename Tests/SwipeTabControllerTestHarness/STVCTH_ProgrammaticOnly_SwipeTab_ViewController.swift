@@ -18,8 +18,7 @@
  */
 
 import UIKit
-internal import RVS_Generic_Swift_Toolbox
-internal import SwipeTabController
+import SwipeTabController
 
 /* ###################################################################################################################################### */
 // MARK: - Class for Programmatic Views -

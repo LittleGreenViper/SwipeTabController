@@ -1,5 +1,6 @@
 /*
  © Copyright 2025, Little Green Viper Software Development LLC
+ 
  LICENSE:
  
  MIT License
@@ -15,6 +16,8 @@
  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ 
+ \Version: 1.0.0
  */
 
 import UIKit
@@ -28,13 +31,13 @@ import UIKit
 public protocol LGV_SwipeTabViewControllerType: UIViewController, AnyObject {
     /* ################################################################## */
     /**
-     This references the "owning" `LGV_SwipeTabViewController` instance. It should usually be implemented as a weak reference.
+     This references the "owning" `LGV_SwipeTabViewController` instance. It is required, and should usually be implemented as a weak reference.
      */
     var mySwipeTabViewController: LGV_SwipeTabViewController? { get set }
     
     /* ################################################################## */
     /**
-     An accessor for the tab item. This may return nil, but the view controller won't add it, if it does not have it.
+     An accessor for the tab item. This may return nil, but the tab controller won't add your view controller, if it does not have it.
      */
     var myTabItem: UITabBarItem? { get }
     
@@ -105,7 +108,7 @@ extension LGV_SwipeTab_Base_ViewController {
     /**
      We might use our container's navigation controller, if we didn't specify one.
      */
-    override public var navigationController: UINavigationController? { super.navigationController ?? self.myMainNavigationController }
+    override open var navigationController: UINavigationController? { super.navigationController ?? self.myMainNavigationController }
 }
 
 @IBDesignable
@@ -140,7 +143,7 @@ open class LGV_SwipeTabViewController: UIViewController {
         /**
          The spacing between the image and the text
          */
-        private static let _kImageTextSpacing: CGFloat = 4.0
+        private static let _kImageTextSpacingInDisplayUnits: CGFloat = 4.0
         
         /* ############################################################## */
         /**
@@ -176,14 +179,15 @@ open class LGV_SwipeTabViewController: UIViewController {
             button.sizeToFit()
             button.tag = inTag
             button.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
-            button.titleLabel?.leadingAnchor.constraint(equalTo: inIsHorizontal ? button.imageView?.trailingAnchor ?? button.leadingAnchor : button.leadingAnchor,
-                                                        constant: inIsHorizontal ? Self._kImageTextSpacing : 0
-            ).isActive = true
             button.titleLabel?.trailingAnchor.constraint(greaterThanOrEqualTo: button.trailingAnchor).isActive = true
             button.titleLabel?.bottomAnchor.constraint(greaterThanOrEqualTo: button.bottomAnchor).isActive = true
-            button.titleLabel?.topAnchor.constraint(equalTo: inIsHorizontal ? button.topAnchor : button.imageView?.bottomAnchor ?? button.topAnchor,
-                                                    constant: inIsHorizontal ? 0 : Self._kImageTextSpacing
+            button.titleLabel?.leadingAnchor.constraint(equalTo: inIsHorizontal ? button.imageView?.trailingAnchor ?? button.leadingAnchor : button.leadingAnchor,
+                                                        constant: inIsHorizontal ? Self._kImageTextSpacingInDisplayUnits : 0
             ).isActive = true
+            button.titleLabel?.topAnchor.constraint(equalTo: inIsHorizontal ? button.topAnchor : button.imageView?.bottomAnchor ?? button.topAnchor,
+                                                    constant: inIsHorizontal ? 0 : Self._kImageTextSpacingInDisplayUnits
+            ).isActive = true
+            
             button.addTarget(inTarget, action: inAction, for: .touchUpInside)
 
             self.customView = button

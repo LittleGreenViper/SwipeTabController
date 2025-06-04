@@ -18,8 +18,7 @@
  */
 
 import UIKit
-internal import RVS_Generic_Swift_Toolbox
-internal import SwipeTabController
+import SwipeTabController
 
 /* ###################################################################################################################################### */
 // MARK: - The Main View Controller for Storybard-Only Tabs -
