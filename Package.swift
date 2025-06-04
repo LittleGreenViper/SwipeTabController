@@ -25,15 +25,7 @@ import PackageDescription
 let package = Package(
     name: "SwipeTabController",
     defaultLocalization: "en",
-    platforms: [
-        .iOS(.v17)
-    ],
-    products: [
-        .library(
-            name: "SwipeTabController",
-            targets: ["SwipeTabController"]
-        )],
-    targets: [
-        .target(name: "SwipeTabController")
-    ]
+    platforms: [.iOS(.v17)],
+    products: [.library(name: "SwipeTabController", targets: ["SwipeTabController"])],
+    targets: [.target(name: "SwipeTabController")]
 )
