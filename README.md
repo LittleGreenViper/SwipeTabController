@@ -1,9 +1,9 @@
-<div style="text-align: center"><img src="icon.png"></div>
+<div><img src="icon.png" style="margin:auto; display: block" /></div>
 # SwipeTabController
 
 ## Overview
 
-<div style="margin-left: auto;margin-right: auto;display: table"><img src="img/Topsy.png"><img src="img/Turvy.png" style="margin-left: 2em"></div>
+<div><div style="margin-left: auto;margin-right: auto;display: table"><img src="img/Topsy.png"><img src="img/Turvy.png" style="margin-left: 2em"></div></div>
 
 This package implements a "tabbed" view controller, that behaves in a manner similar to Android tabs.
 
