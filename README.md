@@ -12,7 +12,7 @@ The standard iOS [`UITabBarController`](https://developer.apple.com/documentatio
 
 Android does this. Android also usually has the tab bar on the top of the screen (like browser tabs), as opposed to the iOS positioning (at the bottom of the screen).
 
-By implementing this module, you can have both the "swipe" behavior, and the ability to select the position at the top or bottom of the screen.
+By implementing this module, you can have both the "swipe" behavior, and the ability to place the tab bar at either the top, or the bottom, of the screen.
 
 It also helps to work around the issue of the [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/)'s propensity to have a separate navigation stack. This module will integrate the displayed screen's navigation stack with the container's navigation stack, giving you continuity with the container's navigation.
 
@@ -20,7 +20,7 @@ And lastly, when implementing [`UITabBarController`](https://developer.apple.com
 
 ## Usage
 
-In order to use this package, you must either instantiate, or subclass (and instantiate the subclass) the ``LGV_SwipeTabViewController`` class. This is the "wrapper" class that presents a screen with two main 
+In order to use this package, you must either instantiate, or subclass (and instantiate the subclass) the ``LGV_SwipeTabViewController`` class. This is the "wrapper" class that presents a screen with two main components:
 
 - A "Tab Bar" (instance of [`UIToolbar`](https://developer.apple.com/documentation/uikit/uitoolbar))
   
