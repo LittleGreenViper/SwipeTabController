@@ -95,7 +95,7 @@
 
 <p>It also helps to work around the issue of the <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a>&rsquo;s propensity to have a separate navigation stack. This module will integrate the displayed screen&rsquo;s navigation stack with the container&rsquo;s navigation stack, giving you continuity with the container&rsquo;s navigation.</p>
 
-<p>And lastly, when implementing <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a> in <a href="https://apple.com/ipados">iPadOS</a>, or <a href="https://apple.com/macos">MacOS</a>, Apple will swap out the fixed bottom tab bar, with a segmented control, at the top of the screen. This is not always what the user wants.</p>
+<p>And lastly, when implementing <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a> in <a href="https://apple.com/ipados">iPadOS</a>, or <a href="https://apple.com/macos">MacOS</a>, Apple will swap out the fixed bottom tab bar, with a segmented control, at the top of the screen. This is not always what the user wants. <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> will enforce a consistent position for the &ldquo;tab bar.&rdquo;</p>
 <h2 id='code-lgv_swipetabviewcontroller-code-vs-a-href-https-developer-apple-com-documentation-uikit-uitabbarcontroller-code-uitabbarcontroller-code-a' class='heading'><code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> vs. <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a></h2>
 
 <p>Although the SwipeTabController shares a lot of similarities with <a href="https://developer.apple.com/documentation/uikit/uitabbarcontroller/"><code>UITabBarController</code></a>, there are some crucial differences.</p>
@@ -112,14 +112,29 @@
 <ul>
 <li><code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> is more like a switch in the railway tracks. You stay on the train, but change the direction. The context is preserved.</li>
 </ul>
+
+<p>This means that, if you want each tab to represent a big subset of fairly uinque functionality, then <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> might not be the right choice. If the idea is that each tab represents a specialization of a common UX, then it may be ideal.</p>
+<h3 id='swipe-pan-gestures' class='heading'>Swipe/Pan Gestures</h3>
+
+<p>The other big difference, is that <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> implements native swipe/pan gestures, and these will &ldquo;argue&rdquo; with swipe gestures in embedded views. If your views will have swipe gestures, then you probably shouldn&rsquo;t use <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code>.</p>
 <h2 id='usage' class='heading'>Usage</h2>
 
-<p>In order to use this package, you must either instantiate, or subclass (and instantiate the subclass) the <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> class. This is the &ldquo;wrapper&rdquo; class that presents a screen with two main components:</p>
+<p>In order to use this package, you must either instantiate, or subclass (and then instantiate that subclass of) the <code><a href="Classes/LGV_SwipeTabViewController.html">LGV_SwipeTabViewController</a></code> class. This is the &ldquo;wrapper&rdquo; class that presents a screen with two main components:</p>
 
 <ul>
 <li><p>A &ldquo;Tab Bar&rdquo; (instance of <a href="https://developer.apple.com/documentation/uikit/uitoolbar"><code>UIToolbar</code></a>)</p></li>
 <li><p>A Swipeable screen (instance of <a href="https://developer.apple.com/documentation/uikit/uipageviewcontroller/"><code>UIPageViewController</code></a>).</p></li>
 </ul>
+
+<p>There are accessors to these elements, but you don&rsquo;t actually need to use them. The wrapper class abstracts them completely.</p>
+
+<p>You can specify the vertical position of the tab bar and container. You can choose to have the tab bar on the top (Android-style), or the bottom (classic iOS-style). You can also choose to have the text for each tab item displayed under the image, or to its right.</p>
+<h3 id='the-code-lgv_swipetabviewcontrollertype-code-protocol' class='heading'>The <code><a href="Protocols/LGV_SwipeTabViewControllerType.html">LGV_SwipeTabViewControllerType</a></code> Protocol</h3>
+
+<p>When you specify a &ldquo;wrapped&rdquo; view controller, it needs to conform to the <code><a href="Protocols/LGV_SwipeTabViewControllerType.html">LGV_SwipeTabViewControllerType</a></code> protocol. The package provides a <code><a href="Classes/LGV_SwipeTab_Base_ViewController.html">LGV_SwipeTab_Base_ViewController</a></code> base class, that does this. You can choose to subclass (or instantiate) it for your own view controllers, but it is not necessary to use that class. It is, however, required that the embedded view controllers conform to <code><a href="Protocols/LGV_SwipeTabViewControllerType.html">LGV_SwipeTabViewControllerType</a></code>.</p>
+<h3 id='a-href-https-developer-apple-com-documentation-uikit-uitabbaritem-code-uitabbaritem-code-a' class='heading'><a href="https://developer.apple.com/documentation/uikit/uitabbaritem"><code>UITabBarItem</code></a></h3>
+
+<p>Your view controller must also provide a <a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/tabbaritem"><code>tabBarItem</code></a>. This can have an image, and text, to be displayed in the tab bar.</p>
 <h2 id='license' class='heading'>LICENSE</h2>
 <h3 id='a-href-https-opensource-org-licenses-mit-mit-license-a' class='heading'><a href="https://opensource.org/licenses/MIT">MIT license</a></h3>
 
