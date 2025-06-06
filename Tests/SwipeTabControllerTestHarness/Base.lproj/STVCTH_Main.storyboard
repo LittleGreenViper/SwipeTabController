@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVW-jt-cMr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-637" y="-749"/>
+            <point key="canvasLocation" x="-747" y="-749"/>
         </scene>
         <!--Selection View Controller-->
         <scene sceneID="w91-5s-ebj">
@@ -188,28 +188,18 @@
             </objects>
             <point key="canvasLocation" x="220.61068702290075" y="-30.281690140845072"/>
         </scene>
-        <!--TAB 0 (Navigation)-->
-        <scene sceneID="bxp-Kj-0S8">
-            <objects>
-                <navigationController id="1dk-6a-dUc" userLabel="TAB 0 (Navigation)" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TAB 0" image="0.circle" catalog="system" id="e2B-LU-PqZ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r1z-cZ-40u">
-                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="auX-M1-qJ2" kind="relationship" relationship="rootViewController" id="lHu-yf-9Yd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ymz-Me-n4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3883" y="706"/>
-        </scene>
         <!--Classic Tab Bar Controller-->
         <scene sceneID="f8R-gt-O0W">
             <objects>
-                <tabBarController storyboardIdentifier="STVCTH_ClassicTabBarController" id="AiD-bq-wMM" customClass="STVCTH_ClassicTabBarController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="QgR-hx-u8Q"/>
+                <tabBarController storyboardIdentifier="STVCTH_ClassicTabBarController" extendedLayoutIncludesOpaqueBars="YES" id="AiD-bq-wMM" customClass="STVCTH_ClassicTabBarController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QgR-hx-u8Q">
+                        <barButtonItem key="rightBarButtonItem" id="hdy-O6-F4q">
+                            <imageReference key="image" image="chevron.right.2" catalog="system" symbolScale="large"/>
+                            <connections>
+                                <action selector="nextButtonHit" destination="AiD-bq-wMM" id="wlv-2I-zDB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vql-yB-aDs">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -217,53 +207,22 @@
                         <color key="tintColor" systemColor="labelColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="1dk-6a-dUc" kind="relationship" relationship="viewControllers" id="f6L-cX-oq9"/>
-                        <segue destination="fBU-dh-TLb" kind="relationship" relationship="viewControllers" id="ejx-AD-goZ"/>
-                        <segue destination="jAR-ZL-HQ8" kind="relationship" relationship="viewControllers" id="Y08-tJ-hpc"/>
+                        <segue destination="auX-M1-qJ2" kind="relationship" relationship="viewControllers" id="0nE-gr-wyV"/>
+                        <segue destination="sL5-2f-eym" kind="relationship" relationship="viewControllers" id="AOZ-ip-oGZ"/>
+                        <segue destination="KrY-MH-cor" kind="relationship" relationship="viewControllers" id="tMa-ht-Xoc"/>
+                        <segue destination="YGZ-4o-DEF" kind="relationship" relationship="viewControllers" id="k2c-DV-c6m"/>
+                        <segue destination="6yk-33-YdM" kind="relationship" relationship="viewControllers" id="XCP-lJ-x1l"/>
+                        <segue destination="1f7-ar-YVt" kind="relationship" relationship="viewControllers" id="EcO-dQ-Z9y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVj-Hi-UsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3005" y="-30"/>
-        </scene>
-        <!--TAB 1 (Navigation)-->
-        <scene sceneID="WmE-pj-GXC">
-            <objects>
-                <navigationController id="fBU-dh-TLb" userLabel="TAB 1 (Navigation)" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TAB 1" image="1.circle" catalog="system" id="h3s-v7-cCj"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a6q-T2-G4k">
-                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="sL5-2f-eym" kind="relationship" relationship="rootViewController" id="WWQ-2I-bW2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="trq-ch-cQg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3005" y="706"/>
-        </scene>
-        <!--TAB 2 (Navigation)-->
-        <scene sceneID="3NN-jS-83z">
-            <objects>
-                <navigationController id="jAR-ZL-HQ8" userLabel="TAB 2 (Navigation)" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TAB 2" image="2.circle" catalog="system" id="6jm-t6-F6j"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pb4-N0-T4U">
-                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="KrY-MH-cor" kind="relationship" relationship="rootViewController" id="z9P-P2-7Fg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FRx-yR-OkS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2155" y="706"/>
+            <point key="canvasLocation" x="-747" y="-30"/>
         </scene>
         <!--TAB 0-->
         <scene sceneID="WtO-e5-mCb">
             <objects>
-                <viewController storyboardIdentifier="controller0" id="auX-M1-qJ2" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller0" extendedLayoutIncludesOpaqueBars="YES" id="auX-M1-qJ2" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yxl-VT-3gH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,7 +268,7 @@
         <!--TAB 1-->
         <scene sceneID="YKG-kv-Abm">
             <objects>
-                <viewController storyboardIdentifier="controller1" id="sL5-2f-eym" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller1" extendedLayoutIncludesOpaqueBars="YES" id="sL5-2f-eym" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="67S-Lm-MKm">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -355,7 +314,7 @@
         <!--TAB 2-->
         <scene sceneID="bAd-RU-4mQ">
             <objects>
-                <viewController storyboardIdentifier="controller2" id="KrY-MH-cor" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller2" extendedLayoutIncludesOpaqueBars="YES" id="KrY-MH-cor" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cNz-dk-2OF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -458,7 +417,7 @@
         <!--Wont Work 1-->
         <scene sceneID="82l-cK-9ON">
             <objects>
-                <viewController storyboardIdentifier="controller4" id="6yk-33-YdM" userLabel="Wont Work 1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller4" extendedLayoutIncludesOpaqueBars="YES" id="6yk-33-YdM" userLabel="Wont Work 1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1ym-YK-0Ry">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -499,7 +458,7 @@
         <!--TAB 3-->
         <scene sceneID="aPi-dR-6oP">
             <objects>
-                <viewController storyboardIdentifier="controller3" id="YGZ-4o-DEF" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller3" extendedLayoutIncludesOpaqueBars="YES" id="YGZ-4o-DEF" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4sE-Cl-YOH">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -547,16 +506,16 @@
         <!--End Of the Line-->
         <scene sceneID="pis-m9-YhS">
             <objects>
-                <viewController storyboardIdentifier="STVCTH_LastNav_ViewController" id="zuU-Ud-gnx" customClass="STVCTH_LastNav_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="STVCTH_LastNav_ViewController" extendedLayoutIncludesOpaqueBars="YES" id="zuU-Ud-gnx" customClass="STVCTH_LastNav_ViewController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lpo-FB-xhw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundGradient" translatesAutoresizingMaskIntoConstraints="NO" id="UdH-TF-Wp0">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Double-Chevron Takes You All the Way Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JcD-Qf-GYz">
-                                <rect key="frame" x="16" y="381" width="361" height="21"/>
+                                <rect key="frame" x="16" y="415.66666666666669" width="361" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -576,6 +535,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="End Of the Line" leftItemsSupplementBackButton="YES" id="Sk1-0j-UMA"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhH-Fx-GJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -584,7 +544,7 @@
         <!--NO TAB ITEM-->
         <scene sceneID="Otn-Lf-iC2">
             <objects>
-                <viewController storyboardIdentifier="controller7" id="1f7-ar-YVt" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="controller7" extendedLayoutIncludesOpaqueBars="YES" id="1f7-ar-YVt" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aHv-ml-25F">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -613,6 +573,7 @@
                             <constraint firstItem="oGu-IZ-qFU" firstAttribute="centerX" secondItem="aHv-ml-25F" secondAttribute="centerX" id="hrX-O0-rIi"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" id="RI2-pL-ELd"/>
                     <navigationItem key="navigationItem" title="NO TAB ITEM" id="UxQ-mP-03i"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
@@ -622,17 +583,16 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="EcO-dQ-Z9y"/>
         <segue reference="dcG-qs-1zH"/>
-        <segue reference="z9P-P2-7Fg"/>
-        <segue reference="WWQ-2I-bW2"/>
-        <segue reference="lHu-yf-9Yd"/>
+        <segue reference="XCP-lJ-x1l"/>
+        <segue reference="tMa-ht-Xoc"/>
+        <segue reference="AOZ-ip-oGZ"/>
+        <segue reference="0nE-gr-wyV"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="0.circle" catalog="system" width="128" height="123"/>
         <image name="0.square.fill" catalog="system" width="128" height="114"/>
-        <image name="1.circle" catalog="system" width="128" height="123"/>
         <image name="1.square.fill" catalog="system" width="128" height="114"/>
-        <image name="2.circle" catalog="system" width="128" height="123"/>
         <image name="2.square.fill" catalog="system" width="128" height="114"/>
         <image name="3.square.fill" catalog="system" width="128" height="114"/>
         <image name="4.square.fill" catalog="system" width="128" height="114"/>

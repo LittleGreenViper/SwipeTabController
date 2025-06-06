@@ -48,7 +48,7 @@ Although ``LGV_SwipeTabViewController`` shares a lot of similarities with [`UITa
 
 This means that, if you want each tab to represent a big subset of fairly uinque functionality, then ``LGV_SwipeTabViewController`` might not be the right choice. If the idea is that each tab represents a specialization of a common UX, then it may be ideal.
 
-The most noticeable thing about ``LGV_SwipeTabViewController``, is that show segues (where we slide in the next screen), hides the "tab bar." This is because you are still in the same context that you were in, when you brought in the ``LGV_SwipeTabViewController``, while the [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) maintains whole contexts. In that case, tab bar can remain, allowing you to select between contexts at any time.
+Another issue is that the handling of the tab bar is more "primitive," with ``LGV_SwipeTabViewController``. It won't add the "More..." item, if there's an overflow of view controllers.
 
 ### Swipe/Pan Gestures
 
