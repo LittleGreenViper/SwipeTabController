@@ -114,6 +114,15 @@
                                     <constraint firstItem="xr6-AM-tB9" firstAttribute="width" secondItem="oAR-dV-SP9" secondAttribute="width" id="5eX-7g-5Sa"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NP-1B-xxc">
+                                <rect key="frame" x="112.33333333333333" y="749.66666666666663" width="168.66666666666669" height="34.333333333333371"/>
+                                <color key="tintColor" name="AccentColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="UITabBarController"/>
+                                <connections>
+                                    <segue destination="AiD-bq-wMM" kind="show" id="SeJ-Vn-Scy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="atv-HU-Kc1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -124,7 +133,10 @@
                             <constraint firstItem="atv-HU-Kc1" firstAttribute="trailing" secondItem="huv-SO-tDC" secondAttribute="trailing" constant="16" id="Ylu-a5-1EN"/>
                             <constraint firstItem="Yv9-b2-XFz" firstAttribute="top" secondItem="iOn-xK-ngr" secondAttribute="top" id="buG-JG-UFF"/>
                             <constraint firstItem="huv-SO-tDC" firstAttribute="centerY" secondItem="iOn-xK-ngr" secondAttribute="centerY" id="dwD-Q6-UBq"/>
+                            <constraint firstItem="3NP-1B-xxc" firstAttribute="bottom" secondItem="atv-HU-Kc1" secondAttribute="bottom" id="gZh-uq-lPI"/>
                             <constraint firstAttribute="bottom" secondItem="Yv9-b2-XFz" secondAttribute="bottom" id="h3I-JI-5QE"/>
+                            <constraint firstItem="3NP-1B-xxc" firstAttribute="centerX" secondItem="iOn-xK-ngr" secondAttribute="centerX" id="lHY-XQ-hA9"/>
+                            <constraint firstItem="3NP-1B-xxc" firstAttribute="top" relation="greaterThanOrEqual" secondItem="huv-SO-tDC" secondAttribute="bottom" id="tjw-SP-Ozd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6UF-Bh-3gR"/>
@@ -175,6 +187,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="220.61068702290075" y="-30.281690140845072"/>
+        </scene>
+        <!--TAB 0 (Navigation)-->
+        <scene sceneID="bxp-Kj-0S8">
+            <objects>
+                <navigationController id="1dk-6a-dUc" userLabel="TAB 0 (Navigation)" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TAB 0" image="0.circle" catalog="system" id="e2B-LU-PqZ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r1z-cZ-40u">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="auX-M1-qJ2" kind="relationship" relationship="rootViewController" id="lHu-yf-9Yd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ymz-Me-n4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3883" y="706"/>
+        </scene>
+        <!--Classic Tab Bar Controller-->
+        <scene sceneID="f8R-gt-O0W">
+            <objects>
+                <tabBarController storyboardIdentifier="STVCTH_ClassicTabBarController" id="AiD-bq-wMM" customClass="STVCTH_ClassicTabBarController" customModule="SwipeTabControllerTestHarness" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QgR-hx-u8Q"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vql-yB-aDs">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="labelColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1dk-6a-dUc" kind="relationship" relationship="viewControllers" id="f6L-cX-oq9"/>
+                        <segue destination="fBU-dh-TLb" kind="relationship" relationship="viewControllers" id="ejx-AD-goZ"/>
+                        <segue destination="jAR-ZL-HQ8" kind="relationship" relationship="viewControllers" id="Y08-tJ-hpc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qVj-Hi-UsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3005" y="-30"/>
+        </scene>
+        <!--TAB 1 (Navigation)-->
+        <scene sceneID="WmE-pj-GXC">
+            <objects>
+                <navigationController id="fBU-dh-TLb" userLabel="TAB 1 (Navigation)" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TAB 1" image="1.circle" catalog="system" id="h3s-v7-cCj"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a6q-T2-G4k">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="sL5-2f-eym" kind="relationship" relationship="rootViewController" id="WWQ-2I-bW2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="trq-ch-cQg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3005" y="706"/>
+        </scene>
+        <!--TAB 2 (Navigation)-->
+        <scene sceneID="3NN-jS-83z">
+            <objects>
+                <navigationController id="jAR-ZL-HQ8" userLabel="TAB 2 (Navigation)" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="TAB 2" image="2.circle" catalog="system" id="6jm-t6-F6j"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pb4-N0-T4U">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KrY-MH-cor" kind="relationship" relationship="rootViewController" id="z9P-P2-7Fg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FRx-yR-OkS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2155" y="706"/>
         </scene>
         <!--TAB 0-->
         <scene sceneID="WtO-e5-mCb">
@@ -227,17 +311,17 @@
             <objects>
                 <viewController storyboardIdentifier="controller1" id="sL5-2f-eym" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="67S-Lm-MKm">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAB 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCL-NP-u84">
-                                <rect key="frame" x="160" y="373.66666666666669" width="73.333333333333314" height="36"/>
+                                <rect key="frame" x="160" y="408" width="73.333333333333314" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modal Segue" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAX-of-Ady">
-                                <rect key="frame" x="146.66666666666666" y="417.66666666666669" width="99.666666666666657" height="20.333333333333314"/>
+                                <rect key="frame" x="146.66666666666666" y="452" width="99.666666666666657" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -539,11 +623,16 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dcG-qs-1zH"/>
-        <segue reference="N9K-He-qJC"/>
+        <segue reference="z9P-P2-7Fg"/>
+        <segue reference="WWQ-2I-bW2"/>
+        <segue reference="lHu-yf-9Yd"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="0.circle" catalog="system" width="128" height="123"/>
         <image name="0.square.fill" catalog="system" width="128" height="114"/>
+        <image name="1.circle" catalog="system" width="128" height="123"/>
         <image name="1.square.fill" catalog="system" width="128" height="114"/>
+        <image name="2.circle" catalog="system" width="128" height="123"/>
         <image name="2.square.fill" catalog="system" width="128" height="114"/>
         <image name="3.square.fill" catalog="system" width="128" height="114"/>
         <image name="4.square.fill" catalog="system" width="128" height="114"/>
