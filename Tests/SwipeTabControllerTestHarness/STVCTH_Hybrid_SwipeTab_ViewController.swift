@@ -143,6 +143,7 @@ extension STVCTH_HybridMain_SwipeTab_ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.overrideUserInterfaceStyle = .dark
+        // It's a gradient, so the top is lighter.
         self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
         self.toolbar?.overrideUserInterfaceStyle = self.toolbarOnTop ? .light : .dark
     }

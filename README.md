@@ -26,6 +26,18 @@ It also helps to work around the issue of the [`UITabBarController`](https://dev
 
 And lastly, when implementing [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) in [iPadOS](https://apple.com/ipados), or [MacOS](https://apple.com/macos), Apple will swap out the fixed bottom tab bar, with a segmented control, at the top of the screen. This is not always what the user wants. ``LGV_SwipeTabViewController`` will enforce a consistent position for the "tab bar."
 
+Default [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) behavior:
+
+<div style="display: table; margin: auto"><img src="img/iPhone-TabBar.png" /> <img src="img/iPad-TabBar.png" style="margin-left: 2em" /></div>
+
+``LGV_SwipeTabViewController`` behavior (Tab bar on bottom):
+
+<div style="display: table; margin: auto"><img src="img/iPhone-SwipeTabBar2.png" /> <img src="img/iPad-SwipeTabBar2.png" style="margin-left: 2em" /></div>
+
+``LGV_SwipeTabViewController`` behavior (Tab bar on top):
+
+<div style="display: table; margin: auto"><img src="img/iPhone-SwipeTabBar.png" /> <img src="img/iPad-SwipeTabBar.png" style="margin-left: 2em" /></div>
+
 ## Requirements
 
 This is a [UIKit](https://developer.apple.com/documentation/uikit), [Swift](https://apple.com/swift)-only package. It is designed to be run on [iOS](https://apple.com/ios), [iPadOS](https://apple.com/ipados), or [Mac Catalyst](https://developer.apple.com/documentation/uikit/mac-catalyst), and is designed for native development, using [Apple Xcode](https://apple.com/xcode), or a compatible development system.
@@ -46,7 +58,7 @@ Although ``LGV_SwipeTabViewController`` shares a lot of similarities with [`UITa
 
 - ``LGV_SwipeTabViewController`` is more like a switch in the railway tracks. You stay on the train, but change the direction. The context is preserved. This is more akin to choosing a path at an intersection, and then, continuing on down that path.
 
-This means that, if you want each tab to represent a big subset of fairly uinque functionality, then ``LGV_SwipeTabViewController`` might not be the right choice. If the idea is that each tab represents a specialization of a common UX, then it may be ideal.
+This means that, if you want each tab to represent a big subset of fairly uinque functionality, then ``LGV_SwipeTabViewController`` might not be the right choice. If the idea is that each tab represents a specialization of a linear UX, then it may be ideal.
 
 Another issue is that the handling of the tab bar is more "primitive," with ``LGV_SwipeTabViewController``. It won't add the "More..." item, if there's an overflow of view controllers.
 
@@ -127,6 +139,8 @@ You can also directly instantiate view controllers (either via storyboard, or di
 The package provides a fairly robust and simple test harness app, that can be used to get an idea of what is required to implement the package.
 
 In order to run this, you should select the "SwipeTabControllerTestHarness" scheme, and direct it to run on an iOS simulator or device. There is another variant of the same scheme that imports the SPM module. If you use that, ensure that the included module is up to date and installed.
+
+The screenshots above, were all made with the test harness app.
 
 ## LICENSE
 

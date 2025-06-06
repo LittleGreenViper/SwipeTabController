@@ -52,6 +52,7 @@ extension STVCTH_ProgrammaticOnly_ViewController {
         super.viewDidLoad()
         guard let view = self.view else { return }
         self.overrideUserInterfaceStyle = .dark
+        // It's a gradient, so the top is lighter.
         self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
         
         let myLabel = UILabel()
@@ -143,6 +144,7 @@ extension STVCTH_ProgrammaticOnly_SwipeTab_ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.overrideUserInterfaceStyle = .dark
+        // It's a gradient, so the top is lighter.
         self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
         self.toolbar?.overrideUserInterfaceStyle = self.toolbarOnTop ? .light : .dark
     }

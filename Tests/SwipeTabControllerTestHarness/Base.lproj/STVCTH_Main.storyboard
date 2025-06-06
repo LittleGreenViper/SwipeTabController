@@ -24,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IVW-jt-cMr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-747" y="-749"/>
+            <point key="canvasLocation" x="-1976" y="-732"/>
         </scene>
         <!--Selection View Controller-->
         <scene sceneID="w91-5s-ebj">
@@ -217,7 +217,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qVj-Hi-UsC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-747" y="-30"/>
+            <point key="canvasLocation" x="-1976" y="-30"/>
         </scene>
         <!--TAB 0-->
         <scene sceneID="WtO-e5-mCb">
@@ -539,9 +539,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhH-Fx-GJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714" y="1440"/>
+            <point key="canvasLocation" x="714" y="1442"/>
         </scene>
-        <!--NO TAB ITEM-->
+        <!--EMPTY TAB ITEM-->
         <scene sceneID="Otn-Lf-iC2">
             <objects>
                 <viewController storyboardIdentifier="controller7" extendedLayoutIncludesOpaqueBars="YES" id="1f7-ar-YVt" customClass="LGV_SwipeTab_Base_ViewController" customModule="SwipeTabController" sceneMemberID="viewController">
@@ -555,8 +555,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Tab Item" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqv-bg-S2v">
-                                <rect key="frame" x="150.66666666666666" y="452" width="91.666666666666657" height="20.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Tab Item" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqv-bg-S2v">
+                                <rect key="frame" x="137.33333333333334" y="452" width="118.33333333333334" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -574,12 +574,12 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="RI2-pL-ELd"/>
-                    <navigationItem key="navigationItem" title="NO TAB ITEM" id="UxQ-mP-03i"/>
+                    <navigationItem key="navigationItem" title="EMPTY TAB ITEM" id="UxQ-mP-03i"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xji-bM-VDA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2068" y="-732"/>
+            <point key="canvasLocation" x="2952" y="-30"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

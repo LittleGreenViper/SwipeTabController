@@ -14,10 +14,6 @@ This package implements a "tabbed" view controller, that behaves in a manner sim
 
 Use this, in place of the classic Apple [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) (but not always. More on that, later).
 
-[Here is the online documentation for this project](https://littlegreenviper.github.io/SwipeTabController/).
-
-[Get the source code here (on GitHub)](https://github.com/LittleGreenViper/SwipeTabController).
-
 ## What Problem Does This Solve?
 
 The standard iOS [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) has a number of restrictions, and the most obvious one, is that it does not behave like [`UIPageViewController`](https://developer.apple.com/documentation/uikit/uipageviewcontroller/), where you can "swipe" between the tabs.
@@ -29,6 +25,24 @@ By implementing this module, you can have both the "swipe" behavior, and the abi
 It also helps to work around the issue of the [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/)'s propensity to have a separate navigation stack. This module will integrate the displayed screen's navigation stack with the container's navigation stack, giving you continuity with the container's navigation.
 
 And lastly, when implementing [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) in [iPadOS](https://apple.com/ipados), or [MacOS](https://apple.com/macos), Apple will swap out the fixed bottom tab bar, with a segmented control, at the top of the screen. This is not always what the user wants. ``LGV_SwipeTabViewController`` will enforce a consistent position for the "tab bar."
+
+Default [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) behavior:
+
+| iPhone | iPad |
+| :-: | :-: |
+|![iPhone](iPhone-TabBar.png)| ![iPad](iPad-TabBar.png)|
+
+``LGV_SwipeTabViewController`` behavior (Tab bar on bottom):
+
+| iPhone | iPad |
+| :-: | :-: |
+|![iPhone](iPhone-SwipeTabBar2.png)| ![iPad](iPad-SwipeTabBar2.png)|
+
+``LGV_SwipeTabViewController`` behavior (Tab bar on top):
+
+| iPhone | iPad |
+| :-: | :-: |
+|![iPhone](iPhone-SwipeTabBar.png)| ![iPad](iPad-SwipeTabBar.png)|
 
 ## Requirements
 
@@ -50,33 +64,13 @@ Although ``LGV_SwipeTabViewController`` shares a lot of similarities with [`UITa
 
 - ``LGV_SwipeTabViewController`` is more like a switch in the railway tracks. You stay on the train, but change the direction. The context is preserved. This is more akin to choosing a path at an intersection, and then, continuing on down that path.
 
-This means that, if you want each tab to represent a big subset of fairly uinque functionality, then ``LGV_SwipeTabViewController`` might not be the right choice. If the idea is that each tab represents a specialization of a common UX, then it may be ideal.
+This means that, if you want each tab to represent a big subset of fairly uinque functionality, then ``LGV_SwipeTabViewController`` might not be the right choice. If the idea is that each tab represents a specialization of a linear UX, then it may be ideal.
+
+Another issue is that the handling of the tab bar is more “primitive,” with ``LGV_SwipeTabViewController``. It won’t add the “More…” item, if there’s an overflow of view controllers.
 
 ### Swipe/Pan Gestures
 
 The other big difference, is that ``LGV_SwipeTabViewController`` implements native swipe/pan gestures, and these will "argue" with swipe gestures in embedded views. If your views will have swipe gestures, then you probably shouldn't use ``LGV_SwipeTabViewController``.
-
-## How to Get
-
-The SwipeTabController is supplies as a GitHub repo, and can be fetched via [the Swift Package Manager](https://www.swift.org/documentation/package-manager/), of through [GitHub Carthage](https://github.com/Carthage/Carthage).
-
-### Swift Package Manager
-
-The most direct method, is to simply add the package in your Project Target, via the Package Dependencies tab.
-
-The repo URI is [`git@github.com:LittleGreenViper/SwipeTabController.git`](git@github.com:LittleGreenViper/SwipeTabController.git). Specify this, and add the package to your project.
-
-Once the package is installed, you will need to make sure that you import it, where you use it:
-
-`import SwipeTabController`
-
-### Carthage
-
-Using Carthage, you'll need to add the following line to your [`Cartfile`](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md):
-
-`github "LittleGreenViper/SwipeTabController"`
-
-Once you have the package installed, you may actually want to simply add [the main file](https://github.com/LittleGreenViper/SwipeTabController/blob/master/Sources/SwipeTabController/LGV_SwipeTabViewController.swift) to your project, directly, as opposed to building the package. The entire package is implemented in one single source file.
 
 ## Usage
 
@@ -123,10 +117,3 @@ You can also specify the storyboard IDs of your view controllers, by adding them
 You can also directly instantiate view controllers (either via storyboard, or directly). You add these by overriding the ``LGV_SwipeTabViewController/generatedViewControllers`` computed property, and supplying the instances in an array. This array is not sorted.
 
 > NOTE: These are appended to any other view controllers that have been instantiated via segues or storyboard IDs.
-
-## The Test Harness App
-
-The package provides a fairly robust and simple [test harness app](https://github.com/LittleGreenViper/SwipeTabController/tree/master/Tests/SwipeTabControllerTestHarness), that can be used to get an idea of what is required to implement the package.
-
-In order to run this, you should select the "SwipeTabControllerTestHarness" scheme, and direct it to run on an iOS simulator or device.
-

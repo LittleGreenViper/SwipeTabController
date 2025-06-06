@@ -112,7 +112,7 @@ open class LGV_SwipeTab_Base_ViewController: UIViewController, LGV_SwipeTabViewC
 extension LGV_SwipeTab_Base_ViewController {
     /* ################################################################## */
     /**
-     We might use our container's navigation controller, if we didn't specify one.
+     We might use our container's navigation controller, if we didn't specify one, ourselves.
      */
     override open var navigationController: UINavigationController? { super.navigationController ?? self.myMainNavigationController }
 }

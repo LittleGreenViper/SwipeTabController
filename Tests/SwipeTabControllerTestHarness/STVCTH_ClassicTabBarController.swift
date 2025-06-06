@@ -20,10 +20,10 @@
 import UIKit
 
 /* ###################################################################################################################################### */
-// MARK: - Class for The Last In A Row of Navigation Controllers -
+// MARK: - The "Classic" Tab Bar Controller -
 /* ###################################################################################################################################### */
 /**
- This class will add an extra "All the way back" button to the navbar.
+ This class implements an Apple-standard UITabBarController, to use as a comparison to the ``LGV_SwipeTabViewController`` class.
  */
 class STVCTH_ClassicTabBarController: UITabBarController {
     /* ################################################################## */
@@ -71,6 +71,7 @@ extension STVCTH_ClassicTabBarController {
         }
 
         super.viewDidLoad()
+        
         self.overrideUserInterfaceStyle = .dark
         
         let normalColor = UIColor(named: "AccentColor")
@@ -100,11 +101,14 @@ extension STVCTH_ClassicTabBarController {
         tabBar.backgroundColor = .clear
         tabBar.barTintColor = .clear
         
+        guard let view = self.view else { return }
+        _setBackground(for: view)
+
         self.viewControllers?.forEach {
             guard let view = $0.view else { return }
             _setBackground(for: view)
         }
-        
+
         if let mainView = self.moreNavigationController.view,
            let moreRootVC = moreNavigationController.topViewController,
            let view = moreRootVC.view {

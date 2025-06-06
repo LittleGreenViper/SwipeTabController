@@ -40,6 +40,7 @@ extension STVCTH_StoryboardOnly_SwipeTab_ViewController {
         self.viewControllerIDs = ["controller3"]    // Note that this is being set BEFORE calling the superclass method.
         super.viewDidLoad()
         self.overrideUserInterfaceStyle = .dark
+        // It's a gradient, so the top is lighter.
         self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
         self.toolbar?.overrideUserInterfaceStyle = self.toolbarOnTop ? .light : .dark
     }
