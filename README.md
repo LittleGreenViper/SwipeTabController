@@ -51,6 +51,8 @@ This means that, if you want each tab to represent a big subset of fairly uinque
 
 The other big difference, is that ``LGV_SwipeTabViewController`` implements native swipe/pan gestures, and these will "argue" with swipe gestures in embedded views. If your views will have swipe gestures, then you probably shouldn't use ``LGV_SwipeTabViewController``.
 
+The most noticeable thing about the ``LGV_SwipeTabViewController``, is that show segues (where we slide in the next screen), hides the "tab bar." This is because you are still in the same context that you were in, when you brought in the ``LGV_SwipeTabViewController``. The [`UITabBarController`](https://developer.apple.com/documentation/uikit/uitabbarcontroller/) establishes a whole new context, which can be "set aside," as we switch to another context.
+
 ## How to Get
 
 The SwipeTabController is supplied as a GitHub repo, and can be fetched via [the Swift Package Manager](https://www.swift.org/documentation/package-manager/), or through [GitHub Carthage](https://github.com/Carthage/Carthage).
