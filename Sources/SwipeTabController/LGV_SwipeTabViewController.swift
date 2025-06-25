@@ -17,7 +17,7 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- \Version: 1.0.0
+ \Version: 1.0.3
  */
 
 import UIKit
@@ -142,7 +142,7 @@ open class LGV_SwipeTabViewController: UIViewController {
     // MARK: Private Button Class for Toolbar Items
     /* ################################################################################################################################## */
     /**
-     This is a button class that displays both the image and text, in a vertical orientation.
+     This is a button class that displays both the image and text, in a vertical or horizontal orientation.
      */
     private class _BarItem: UIBarButtonItem {
         /* ############################################################## */
@@ -173,29 +173,19 @@ open class LGV_SwipeTabViewController: UIViewController {
             super.init()
 
             var config = UIButton.Configuration.plain()
-            config.image = inImage
             config.title = inText
+            config.image = inImage
+            config.titleAlignment = inIsHorizontal ? .leading : .center
             config.imagePlacement = inIsHorizontal ? .leading : .top
-            config.imagePadding = 4
+            config.imagePadding = Self._kImageTextSpacingInDisplayUnits
 
             let button = UIButton(configuration: config)
-            button.tintColor = self.tintColor
-            button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .footnote)
-            button.titleLabel?.textAlignment = inIsHorizontal ? .left : .center
-            button.sizeToFit()
             button.tag = inTag
-            button.titleLabel?.translatesAutoresizingMaskIntoConstraints = false
-            button.titleLabel?.trailingAnchor.constraint(greaterThanOrEqualTo: button.trailingAnchor).isActive = true
-            button.titleLabel?.bottomAnchor.constraint(greaterThanOrEqualTo: button.bottomAnchor).isActive = true
-            button.titleLabel?.leadingAnchor.constraint(equalTo: inIsHorizontal ? button.imageView?.trailingAnchor ?? button.leadingAnchor : button.leadingAnchor,
-                                                        constant: inIsHorizontal ? Self._kImageTextSpacingInDisplayUnits : 0
-            ).isActive = true
-            button.titleLabel?.topAnchor.constraint(equalTo: inIsHorizontal ? button.topAnchor : button.imageView?.bottomAnchor ?? button.topAnchor,
-                                                    constant: inIsHorizontal ? 0 : Self._kImageTextSpacingInDisplayUnits
-            ).isActive = true
-            
             button.addTarget(inTarget, action: inAction, for: .touchUpInside)
 
+            button.tintColor = self.tintColor
+
+            button.sizeToFit()
             self.customView = button
         }
 
