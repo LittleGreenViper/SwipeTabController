@@ -52,8 +52,9 @@ extension STVCTH_Hybrid_SwipeTab_ViewController {
         super.viewDidLoad()
         guard let view = self.view else { return }
         self.overrideUserInterfaceStyle = .dark
+        // It's a gradient, so the top is lighter.
         self.navigationController?.navigationBar.overrideUserInterfaceStyle = .light
-        
+
         let myLabel = UILabel()
         myLabel.textAlignment = .center
         myLabel.textColor = .white
