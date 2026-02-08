@@ -1,3 +1,7 @@
+**1.0.5** *February 8, 2026*
+
+- Documentation fixes. No API or functional changes.
+
 **1.0.4** *July 1, 2025*
 
 - Added support for display in iOS26.

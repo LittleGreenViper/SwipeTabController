@@ -1,10 +1,10 @@
 # ``SwipeTabController``
 
+![Project Icon](icon.png)
+
 A Swift Implementation of a Customizable Tab Bar Controller
 
 ## Overview
-
-![Project Icon](icon.png)
 
 This package implements a "tabbed" view controller, that behaves in a manner similar to Android tabs.
 
