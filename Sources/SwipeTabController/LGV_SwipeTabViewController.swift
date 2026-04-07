@@ -17,10 +17,24 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- \Version: 1.0.6
+ \Version: 1.0.7
  */
 
 import UIKit
+
+/* ###################################################################################################################################### */
+// MARK: - Special String Extension for Localization -
+/* ###################################################################################################################################### */
+fileprivate extension String {
+    /* ################################################################## */
+    /**
+     This is a "smart localizer" for localization tokens.
+     */
+    var _localizedVariant: String {
+        guard self.hasPrefix("SLUG-") else { return self }
+        return NSLocalizedString(self, comment: "")
+    }
+}
 
 /* ###################################################################################################################################### */
 // MARK: - Protocol for View Controllers -
@@ -264,6 +278,42 @@ open class LGV_SwipeTabViewController: UIViewController {
 private extension LGV_SwipeTabViewController {
     /* ################################################################## */
     /**
+     Returns a localized visible string, if the supplied value is a token.
+     
+     - parameter inValue: The optional string to localize.
+     
+     - returns: The localized value, or nil if the input was nil.
+     */
+    func _localizedVisibleString(_ inValue: String?) -> String? { inValue?._localizedVariant }
+
+    /* ################################################################## */
+    /**
+     Localizes a tab bar item in place.
+     
+     This is used before the item is mirrored into toolbar button content, so
+     storyboard token titles and accessibility text are resolved before the
+     custom toolbar items are built.
+     
+     - parameter inItem: The item to update.
+     */
+    func _localize(tabBarItem inItem: UITabBarItem) {
+        inItem.title = self._localizedVisibleString(inItem.title)
+        inItem.accessibilityLabel = self._localizedVisibleString(inItem.accessibilityLabel)
+        inItem.accessibilityHint = self._localizedVisibleString(inItem.accessibilityHint)
+    }
+
+    /* ################################################################## */
+    /**
+     Localizes all referenced view-controller tab items, if available.
+     */
+    func _localizeReferencedTabItemsIfNecessary() {
+        self._referencedViewControllers.forEach {
+            self._localize(tabBarItem: $0.tabBarItem)
+        }
+    }
+
+    /* ################################################################## */
+    /**
      This uses an internal (App Store Safe) way of querying the view controller, for segues.
      In order to generate this list, you need to define segues (Custom, Modal, or Show will be fine -the segue is never executed).
      It extracts the ID from each segue, which *has to match* the storyboard ID of the view controller instance destination.
@@ -307,6 +357,7 @@ private extension LGV_SwipeTabViewController {
                 print("Instantiating: \(id)")
             #endif
             myVC.mySwipeTabViewController = self
+            self._localize(tabBarItem: myVC.tabBarItem)
             self._referencedViewControllers.append(myVC)
         }
         
@@ -315,6 +366,7 @@ private extension LGV_SwipeTabViewController {
                 print("Adding Pre-Instantiated View Controller: \(vc)")
             #endif
             vc.mySwipeTabViewController = self
+            self._localize(tabBarItem: vc.tabBarItem)
             self._referencedViewControllers.append(vc)
         }
     }
@@ -330,7 +382,8 @@ private extension LGV_SwipeTabViewController {
         toolbarItems.append(UIBarButtonItem.flexibleSpace())
         for viewController in self._referencedViewControllers {
             guard let tabItem = viewController.myTabItem else { continue }
-            
+
+            self._localize(tabBarItem: tabItem)
             let barItem = _BarItem(image: tabItem.image, text: tabItem.title, tag: viewController.index, target: self, action: #selector(_toolbarItemHit), isHorizontal: self.textOnRight)
 
             barItem.accessibilityLabel = tabItem.accessibilityLabel
@@ -431,6 +484,7 @@ extension LGV_SwipeTabViewController {
         super.viewDidLoad()
         
         self._loadViewControllers()
+        self._localizeReferencedTabItemsIfNecessary()
         
         guard !self._referencedViewControllers.isEmpty,
               let view = self.view

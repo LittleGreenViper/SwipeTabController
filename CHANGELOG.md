@@ -1,3 +1,7 @@
+**1.0.7** *April 7, 2026*
+
+- Added support for standard token-based localization.
+
 **1.0.6** *April 6, 2026*
 
 - Added code to remove the shared background around the tab items in iOS 26.
