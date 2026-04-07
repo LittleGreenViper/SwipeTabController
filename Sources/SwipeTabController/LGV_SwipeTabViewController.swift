@@ -17,7 +17,7 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- \Version: 1.0.7
+ \Version: 1.0.8
  */
 
 import UIKit
@@ -244,13 +244,17 @@ open class LGV_SwipeTabViewController: UIViewController {
     /* ################################################################## */
     /**
      The zero-based selected controller. Default is 0.
+
+     Declared `open` so derived classes in importing modules can observe and extend
+     tab-selection behavior with an override.
      */
-    @IBInspectable public var selectedViewControllerIndex: Int = 0 {
+    @IBInspectable open var selectedViewControllerIndex: Int = 0 {
         didSet {
             self.view?.setNeedsLayout()
             self.navigationItem.title = self._referencedViewControllers[self.selectedViewControllerIndex].navigationItem.title
             self.navigationItem.leftBarButtonItems = self._referencedViewControllers[self.selectedViewControllerIndex].navigationItem.leftBarButtonItems
             self.navigationItem.rightBarButtonItems = self._referencedViewControllers[self.selectedViewControllerIndex].navigationItem.rightBarButtonItems
+            self._propagateSelectedTitleToContainerIfNecessary()
         }
     }
     
@@ -339,6 +343,18 @@ private extension LGV_SwipeTabViewController {
 // MARK: Private Instance Methods
 /* ###################################################################################################################################### */
 private extension LGV_SwipeTabViewController {
+    /* ################################################################## */
+    /**
+     Propagates the currently selected tab title to the containing view controller.
+
+     In an embed-segue arrangement, the visible navigation bar belongs to the
+     container view controller, not this swipe controller. We therefore mirror
+     our current navigation-item title into the parent controller's navigation item.
+     */
+    private func _propagateSelectedTitleToContainerIfNecessary() {
+        self.parent?.navigationItem.title = self.navigationItem.title
+    }
+
     /* ################################################################## */
     /**
      This instantiates and stores the view controllers we are referencing.

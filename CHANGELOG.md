@@ -1,3 +1,7 @@
+**1.0.8** *April 7, 2026*
+
+- Needed to add more work, to propagate navigation items.
+
 **1.0.7** *April 7, 2026*
 
 - Added support for standard token-based localization.
