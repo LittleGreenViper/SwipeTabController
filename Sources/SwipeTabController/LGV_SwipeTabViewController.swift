@@ -647,7 +647,7 @@ extension LGV_SwipeTabViewController: UIPageViewControllerDelegate {
      - parameter inCompleted: True, if the transition completed (ignored).
     */
     public func pageViewController(_ inController: UIPageViewController, didFinishAnimating: Bool, previousViewControllers: [UIViewController], transitionCompleted inCompleted: Bool) {
-        guard let newController = inController.viewControllers?.first as? LGV_SwipeTab_Base_ViewController else { return }
+        guard let newController = inController.viewControllers?.first as? (any LGV_SwipeTabViewControllerType) else { return }
         self.selectedViewControllerIndex = newController.index
     }
 }
