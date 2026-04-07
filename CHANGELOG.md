@@ -1,3 +1,7 @@
+**1.0.6** *April 6, 2026*
+
+- Added code to remove the shared background around the tab items in iOS 26.
+
 **1.0.5** *February 8, 2026*
 
 - Documentation fixes. No API or functional changes.

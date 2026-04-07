@@ -1,5 +1,5 @@
 /*
- © Copyright 2025, Little Green Viper Software Development LLC
+ © Copyright 2025-2026, Little Green Viper Software Development LLC
  
  LICENSE:
  
@@ -17,7 +17,7 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- \Version: 1.0.5
+ \Version: 1.0.6
  */
 
 import UIKit
@@ -336,7 +336,9 @@ private extension LGV_SwipeTabViewController {
             barItem.accessibilityLabel = tabItem.accessibilityLabel
             barItem.accessibilityHint = tabItem.accessibilityHint
             barItem.accessibilityIdentifier = tabItem.accessibilityIdentifier
-
+            if #available(iOS 26, *) {
+                barItem.hidesSharedBackground = true
+            }
             toolbarItems.append(barItem)
             toolbarItems.append(UIBarButtonItem.flexibleSpace())
         }
