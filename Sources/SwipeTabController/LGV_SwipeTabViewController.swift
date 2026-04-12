@@ -159,27 +159,12 @@ open class LGV_SwipeTabViewController: UIViewController {
      This is a button class that displays both the image and text, in a vertical or horizontal orientation.
      */
     private class _BarItem: UIBarButtonItem {
-        /* ############################################################## */
-        /**
-         The spacing between the image and the text
-         */
         private static let _kImageTextSpacingInDisplayUnits: CGFloat = 4.0
-        
-        /* ############################################################## */
-        /**
-         Default initializer.
-         
-         - parameters:
-            - inImage: The image to display above the text.
-            - inText: The text to display, under the image.
-            - inTag: The tag to be applied to the button (used to match to a view controller).
-            - inTarget: The callback target object.
-            - inAction: The function, within the target object (must be ObjC).
-            - inIsHorizontal: If true (default is false), the orientation is horizontal.
-         */
+
         init(image inImage: UIImage?,
              text inText: String?,
              tag inTag: Int,
+             tintColor inTintColor: UIColor?,
              target inTarget: AnyObject,
              action inAction: Selector,
              isHorizontal inIsHorizontal: Bool = false
@@ -188,24 +173,21 @@ open class LGV_SwipeTabViewController: UIViewController {
 
             var config = UIButton.Configuration.plain()
             config.title = inText
-            config.image = inImage
+            config.image = inImage?.withRenderingMode(.alwaysTemplate)
             config.titleAlignment = inIsHorizontal ? .leading : .center
             config.imagePlacement = inIsHorizontal ? .leading : .top
             config.imagePadding = Self._kImageTextSpacingInDisplayUnits
+            config.baseForegroundColor = inTintColor
 
-            let button = UIButton(configuration: config)
+            let button = UIButton(configuration: config, primaryAction: nil)
             button.tag = inTag
+            button.tintColor = inTintColor
             button.addTarget(inTarget, action: inAction, for: .touchUpInside)
 
             button.sizeToFit()
             self.customView = button
         }
 
-        /* ############################################################## */
-        /**
-         Unsupported coder init. We just kick the can upstairs.
-         - parameter inCoder: The coder object that we're supposed to use (but don't).
-         */
         required init?(coder inCoder: NSCoder) { super.init(coder: inCoder) }
     }
     
@@ -394,24 +376,40 @@ private extension LGV_SwipeTabViewController {
     func _loadToolbarItems() {
         self.toolbar?.items = []
         guard !self._referencedViewControllers.isEmpty else { return }
+
         var toolbarItems = [UIBarButtonItem]()
         toolbarItems.append(UIBarButtonItem.flexibleSpace())
+
+        let tintColor = self.view?.tintColor
+
         for viewController in self._referencedViewControllers {
             guard let tabItem = viewController.myTabItem else { continue }
 
             self._localize(tabBarItem: tabItem)
-            let barItem = _BarItem(image: tabItem.image, text: tabItem.title, tag: viewController.index, target: self, action: #selector(_toolbarItemHit), isHorizontal: self.textOnRight)
 
+            let barItem = _BarItem(
+                image: tabItem.image,
+                text: tabItem.title,
+                tag: viewController.index,
+                tintColor: tintColor,
+                target: self,
+                action: #selector(_toolbarItemHit),
+                isHorizontal: self.textOnRight
+            )
+
+            barItem.tintColor = tintColor
             barItem.accessibilityLabel = tabItem.accessibilityLabel
             barItem.accessibilityHint = tabItem.accessibilityHint
             barItem.accessibilityIdentifier = tabItem.accessibilityIdentifier
+
             if #available(iOS 26, *) {
                 barItem.hidesSharedBackground = true
             }
+
             toolbarItems.append(barItem)
             toolbarItems.append(UIBarButtonItem.flexibleSpace())
         }
-        
+
         self.toolbar?.setItems(toolbarItems, animated: false)
     }
     
@@ -436,6 +434,7 @@ private extension LGV_SwipeTabViewController {
         }
         
         self.styleToolbar()
+        self.toolbar?.tintColor = self.view?.tintColor
         self._loadToolbarItems()
     }
 

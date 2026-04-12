@@ -1,3 +1,7 @@
+**1.0.9** *TBD*
+
+- Added support for rendering template images, using the view tintColor.
+
 **1.0.8** *April 7, 2026*
 
 - Needed to add more work, to propagate navigation items.
