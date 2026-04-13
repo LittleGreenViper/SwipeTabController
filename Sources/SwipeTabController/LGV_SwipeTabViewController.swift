@@ -211,6 +211,18 @@ open class LGV_SwipeTabViewController: UIViewController {
     
     /* ################################################################## */
     /**
+     If the SDK client wants to be informed before a swipe starts, this is called. Optional. Default is nil.
+     */
+    private var _beforeSwipeCallback: SwipeActionCallback?
+    
+    /* ################################################################## */
+    /**
+     If the SDK client wants to be informed after a swipe starts, this is called. Optional. Default is nil.
+     */
+    private var _afterSwipeCallback: SwipeActionCallback?
+
+    /* ################################################################## */
+    /**
      This is true (default is false), if we want the "Tab Bar" to show up on top of the screen (as opposed to the default bottom).
      > NOTE: This shouldn't be changed after the view is loaded.
      */
@@ -465,6 +477,22 @@ internal extension LGV_SwipeTabViewController {
 }
 
 /* ###################################################################################################################################### */
+// MARK: Public Types
+/* ###################################################################################################################################### */
+public extension LGV_SwipeTabViewController {
+    /* ################################################################## */
+    /**
+     This is the type for the registered callbacks. These callbacks always occur on the main thread.
+     
+     - parameters
+         - mainContoller: The main Swipe controller
+         - fromController: The tab we are leaving
+         - toController: The tab we are going to
+     */
+    typealias SwipeActionCallback = (_: LGV_SwipeTabViewController, _: any LGV_SwipeTabViewControllerType, _: any LGV_SwipeTabViewControllerType) -> Void
+}
+
+/* ###################################################################################################################################### */
 // MARK: Public Computed Properties
 /* ###################################################################################################################################### */
 public extension LGV_SwipeTabViewController {
@@ -485,6 +513,24 @@ public extension LGV_SwipeTabViewController {
      Accessor for the referenced view controllers.
      */
     var referencedViewControllers: [any LGV_SwipeTabViewControllerType] { self._referencedViewControllers }
+    
+    /* ################################################################## */
+    /**
+     If the SDK client wants to be informed before a swipe starts, this is called. Optional. Default is nil.
+     */
+    var beforeSwipeCallback: SwipeActionCallback? {
+        get { self._beforeSwipeCallback }
+        set { self._beforeSwipeCallback = newValue }
+    }
+    
+    /* ################################################################## */
+    /**
+     If the SDK client wants to be informed after a swipe starts, this is called. Optional. Default is nil.
+     */
+    var afterSwipeCallback: SwipeActionCallback? {
+        get { self._afterSwipeCallback }
+        set { self._afterSwipeCallback = newValue }
+    }
 }
 
 /* ###################################################################################################################################### */
@@ -592,10 +638,12 @@ public extension LGV_SwipeTabViewController {
         #if DEBUG
             print("Select View Controller \(inIndex).")
         #endif
-        
+        let oldControllerIndex = self.selectedViewControllerIndex
+        self._beforeSwipeCallback?(self, self._referencedViewControllers[self.selectedViewControllerIndex], self._referencedViewControllers[inIndex])
         let direction: UIPageViewController.NavigationDirection = inIndex > self.selectedViewControllerIndex ? .forward : .reverse
         self._pageViewController?.setViewControllers( [self._referencedViewControllers[inIndex]], direction: direction, animated: true, completion: nil)
         self.selectedViewControllerIndex = inIndex
+        self._afterSwipeCallback?(self, self._referencedViewControllers[oldControllerIndex], self._referencedViewControllers[self.selectedViewControllerIndex])
     }
 }
 
@@ -647,6 +695,8 @@ extension LGV_SwipeTabViewController: UIPageViewControllerDelegate {
     */
     public func pageViewController(_ inController: UIPageViewController, didFinishAnimating: Bool, previousViewControllers: [UIViewController], transitionCompleted inCompleted: Bool) {
         guard let newController = inController.viewControllers?.first as? (any LGV_SwipeTabViewControllerType) else { return }
+        let oldControllerIndex = self.selectedViewControllerIndex
         self.selectedViewControllerIndex = newController.index
+        self._afterSwipeCallback?(self, self._referencedViewControllers[oldControllerIndex], self._referencedViewControllers[self.selectedViewControllerIndex])
     }
 }
