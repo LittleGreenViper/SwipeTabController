@@ -1,6 +1,7 @@
 **1.0.9** *TBD*
 
 - Added support for rendering template images, using the view tintColor.
+- Added the ability to register for "before and after" callbacks.
 
 **1.0.8** *April 7, 2026*
 

@@ -17,7 +17,7 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- \Version: 1.0.8
+ \Version: 1.0.9
  */
 
 import UIKit
@@ -697,6 +697,8 @@ extension LGV_SwipeTabViewController: UIPageViewControllerDelegate {
         guard let newController = inController.viewControllers?.first as? (any LGV_SwipeTabViewControllerType) else { return }
         let oldControllerIndex = self.selectedViewControllerIndex
         self.selectedViewControllerIndex = newController.index
-        self._afterSwipeCallback?(self, self._referencedViewControllers[oldControllerIndex], self._referencedViewControllers[self.selectedViewControllerIndex])
+        if oldControllerIndex != self.selectedViewControllerIndex {
+            self._afterSwipeCallback?(self, self._referencedViewControllers[oldControllerIndex], self._referencedViewControllers[self.selectedViewControllerIndex])
+        }
     }
 }
