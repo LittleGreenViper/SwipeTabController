@@ -17,7 +17,7 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- \Version: 1.0.9
+ \Version: 1.0.10
  */
 
 import UIKit
@@ -245,10 +245,7 @@ open class LGV_SwipeTabViewController: UIViewController {
     @IBInspectable open var selectedViewControllerIndex: Int = 0 {
         didSet {
             self.view?.setNeedsLayout()
-            self.navigationItem.title = self._referencedViewControllers[self.selectedViewControllerIndex].navigationItem.title
-            self.navigationItem.leftBarButtonItems = self._referencedViewControllers[self.selectedViewControllerIndex].navigationItem.leftBarButtonItems
-            self.navigationItem.rightBarButtonItems = self._referencedViewControllers[self.selectedViewControllerIndex].navigationItem.rightBarButtonItems
-            self._propagateSelectedTitleToContainerIfNecessary()
+            self._syncNavigationItemWithSelectedViewController()
         }
     }
     
@@ -339,14 +336,32 @@ private extension LGV_SwipeTabViewController {
 private extension LGV_SwipeTabViewController {
     /* ################################################################## */
     /**
-     Propagates the currently selected tab title to the containing view controller.
-
-     In an embed-segue arrangement, the visible navigation bar belongs to the
-     container view controller, not this swipe controller. We therefore mirror
-     our current navigation-item title into the parent controller's navigation item.
+     Synchronizes this controller's navigation item, and the visible parent
+     navigation item, with the currently selected page.
+     
+     The parent controller owns the visible navigation bar, so the selected
+     child page's right-side buttons must be copied into the parent. Passing an
+     empty array is intentional: it removes buttons left behind by a previous
+     selected page.
      */
-    private func _propagateSelectedTitleToContainerIfNecessary() {
-        self.parent?.navigationItem.title = self.navigationItem.title
+    func _syncNavigationItemWithSelectedViewController() {
+        guard (0..<self._referencedViewControllers.count).contains(self.selectedViewControllerIndex) else { return }
+        
+        let selectedController = self._referencedViewControllers[self.selectedViewControllerIndex]
+        let selectedTitle = selectedController.navigationItem.title
+        let selectedRightButtons = selectedController.navigationItem.rightBarButtonItems ?? []
+        
+        self.navigationItem.title = selectedTitle
+        self.navigationItem.leftBarButtonItems = selectedController.navigationItem.leftBarButtonItems
+        self.navigationItem.rightBarButtonItems = selectedRightButtons
+        
+        self.parent?.navigationItem.title = selectedTitle
+        self.parent?.navigationItem.rightBarButtonItems = selectedRightButtons
+        
+        // The navigation controller's own navigation item is not the visible
+        // item in this embed arrangement. Clear it, so a button accidentally
+        // installed there cannot survive a page change as a standard system item.
+        self.navigationController?.navigationItem.rightBarButtonItems = []
     }
 
     /* ################################################################## */

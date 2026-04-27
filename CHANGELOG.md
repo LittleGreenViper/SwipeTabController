@@ -1,4 +1,8 @@
-**1.0.9** *TBD*
+**1.0.10** *April 27, 2026*
+
+- Fixed an issue with the navigation item propagating to the enclosed view controllers.
+
+**1.0.9** *April 13, 2026*
 
 - Added support for rendering template images, using the view tintColor.
 - Added the ability to register for "before and after" callbacks.
