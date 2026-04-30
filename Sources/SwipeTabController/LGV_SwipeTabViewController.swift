@@ -17,7 +17,7 @@
  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
  CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- \Version: 1.0.10
+ \Version: 1.1.0
  */
 
 import UIKit
@@ -159,10 +159,149 @@ open class LGV_SwipeTabViewController: UIViewController {
      This is a button class that displays both the image and text, in a vertical or horizontal orientation.
      */
     private class _BarItem: UIBarButtonItem {
+        /* ################################################################## */
+        /**
+         The actual custom button used by the toolbar item.
+
+         This button draws and positions the badge itself, instead of relying on
+         UIKit's `UITabBarItem` badge rendering, because this controller uses a
+         custom toolbar-based tab bar.
+         */
+        private final class _BadgeButton: UIButton {
+            private static let _kBadgeMinimumDimensionInDisplayUnits: CGFloat = 18.0
+            private static let _kBadgeHorizontalPaddingInDisplayUnits: CGFloat = 6.0
+            private static let _kBadgeFontSizeInDisplayUnits: CGFloat = 11.0
+
+            private let _badgeBackgroundLayer = CAShapeLayer()
+            private let _badgeTextLayer = CATextLayer()
+            private var _traitChangeRegistration: UITraitChangeRegistration?
+            
+            var badgeValue: String? {
+                didSet {
+                    self._updateBadgeLayers()
+                    self.setNeedsLayout()
+                }
+            }
+
+            var badgeColor: UIColor = .systemRed {
+                didSet {
+                    self._updateBadgeLayers()
+                }
+            }
+
+            override init(frame inFrame: CGRect) {
+                super.init(frame: inFrame)
+
+                self._setUpBadgeLayers()
+            }
+
+            required init?(coder inCoder: NSCoder) {
+                super.init(coder: inCoder)
+
+                self._setUpBadgeLayers()
+            }
+
+            private func _setUpBadgeLayers() {
+                self.clipsToBounds = false
+                self.layer.masksToBounds = false
+
+                self._badgeBackgroundLayer.zPosition = 1000
+                self._badgeTextLayer.zPosition = 1001
+
+                self._badgeTextLayer.alignmentMode = .center
+                self._badgeTextLayer.contentsScale = UIScreen.main.scale
+                self._badgeTextLayer.fontSize = Self._kBadgeFontSizeInDisplayUnits
+                self._badgeTextLayer.foregroundColor = UIColor.white.cgColor
+                self._badgeTextLayer.truncationMode = .end
+                self._badgeTextLayer.isWrapped = false
+
+                self.layer.addSublayer(self._badgeBackgroundLayer)
+                self.layer.addSublayer(self._badgeTextLayer)
+
+                self._updateBadgeLayers()
+
+                if #available(iOS 17.0, *) {
+                    self._traitChangeRegistration = self.registerForTraitChanges(
+                        [UITraitUserInterfaceStyle.self]
+                    ) { (button: Self, previousTraitCollection: UITraitCollection) in
+                        button._updateBadgeLayers()
+                        button.setNeedsLayout()
+                    }
+                }
+            }
+
+            private func _updateBadgeLayers() {
+                let shouldShowBadge = !(self.badgeValue ?? "").isEmpty
+
+                self._badgeBackgroundLayer.isHidden = !shouldShowBadge
+                self._badgeTextLayer.isHidden = !shouldShowBadge
+                self._badgeTextLayer.string = self.badgeValue
+
+                self._badgeBackgroundLayer.fillColor = self.badgeColor.resolvedColor(with: self.traitCollection).cgColor
+                self._badgeTextLayer.foregroundColor = UIColor.white.resolvedColor(with: self.traitCollection).cgColor
+            }
+
+            override func layoutSubviews() {
+                super.layoutSubviews()
+
+                guard let badgeValue = self.badgeValue,
+                      !badgeValue.isEmpty
+                else {
+                    self._badgeBackgroundLayer.isHidden = true
+                    self._badgeTextLayer.isHidden = true
+                    return
+                }
+
+                self._updateBadgeLayers()
+
+                let minimumDimension = Self._kBadgeMinimumDimensionInDisplayUnits
+                let attributes: [NSAttributedString.Key: Any] = [
+                    .font: UIFont.systemFont(ofSize: Self._kBadgeFontSizeInDisplayUnits, weight: .semibold)
+                ]
+
+                let textWidth = ceil((badgeValue as NSString).size(withAttributes: attributes).width)
+                let badgeWidth = max(
+                    minimumDimension,
+                    textWidth + (2.0 * Self._kBadgeHorizontalPaddingInDisplayUnits)
+                )
+
+                let badgeHeight = minimumDimension
+
+                let badgeFrame = CGRect(
+                    x: self.bounds.maxX - badgeWidth,
+                    y: self.bounds.minY,
+                    width: badgeWidth,
+                    height: badgeHeight
+                )
+
+                CATransaction.begin()
+                CATransaction.setDisableActions(true)
+
+                self._badgeBackgroundLayer.frame = badgeFrame
+                self._badgeBackgroundLayer.path = UIBezierPath(
+                    roundedRect: self._badgeBackgroundLayer.bounds,
+                    cornerRadius: badgeHeight / 2.0
+                ).cgPath
+
+                self._badgeTextLayer.frame = badgeFrame.offsetBy(dx: 0, dy: 2.0)
+
+                CATransaction.commit()
+            }
+
+            override func tintColorDidChange() {
+                super.tintColorDidChange()
+
+                self._updateBadgeLayers()
+            }
+        }
+
         private static let _kImageTextSpacingInDisplayUnits: CGFloat = 4.0
+        private static let _kBadgeInsetInDisplayUnits: CGFloat = 6.0
 
         init(image inImage: UIImage?,
              text inText: String?,
+             badgeValue inBadgeValue: String?,
+             badgeColor inBadgeColor: UIColor? = nil,
              tag inTag: Int,
              tintColor inTintColor: UIColor?,
              target inTarget: AnyObject,
@@ -179,12 +318,19 @@ open class LGV_SwipeTabViewController: UIViewController {
             config.imagePadding = Self._kImageTextSpacingInDisplayUnits
             config.baseForegroundColor = inTintColor
 
-            let button = UIButton(configuration: config, primaryAction: nil)
+            // Leave room for the custom badge, so it is not clipped by the toolbar item.
+            config.contentInsets.top += Self._kBadgeInsetInDisplayUnits
+            config.contentInsets.trailing += Self._kBadgeInsetInDisplayUnits
+
+            let button = _BadgeButton(frame: .zero)
+            button.configuration = config
             button.tag = inTag
             button.tintColor = inTintColor
+            button.badgeColor = inBadgeColor ?? .systemRed
+            button.badgeValue = inBadgeValue
             button.addTarget(inTarget, action: inAction, for: .touchUpInside)
-
             button.sizeToFit()
+
             self.customView = button
         }
 
@@ -417,6 +563,8 @@ private extension LGV_SwipeTabViewController {
             let barItem = _BarItem(
                 image: tabItem.image,
                 text: tabItem.title,
+                badgeValue: tabItem.badgeValue,
+                badgeColor: tabItem.badgeColor,
                 tag: viewController.index,
                 tintColor: tintColor,
                 target: self,
@@ -659,6 +807,19 @@ public extension LGV_SwipeTabViewController {
         self._pageViewController?.setViewControllers( [self._referencedViewControllers[inIndex]], direction: direction, animated: true, completion: nil)
         self.selectedViewControllerIndex = inIndex
         self._afterSwipeCallback?(self, self._referencedViewControllers[oldControllerIndex], self._referencedViewControllers[self.selectedViewControllerIndex])
+    }
+    
+    /* ################################################################## */
+    /**
+     Rebuilds the displayed toolbar items from the current tab item state.
+
+     This should be called if a child view controller changes its `tabBarItem`
+     image, title, badge value, or accessibility strings after the swipe tab
+     controller has already loaded.
+     */
+    func reloadTabBarItems() {
+        self._loadToolbarItems()
+        self.view.setNeedsLayout()
     }
 }
 

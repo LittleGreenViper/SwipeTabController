@@ -1,3 +1,7 @@
+**1.1.0** *April 30, 2026*
+
+- Added the ability to specify a badge.
+
 **1.0.10** *April 27, 2026*
 
 - Fixed an issue with the navigation item propagating to the enclosed view controllers.
